@@ -2,6 +2,23 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JWTController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Product\ProductGController;
+use App\Http\Controllers\Product\ProductSizeColorsController;
+use App\Http\Controllers\Product\ProductImagensController;
+use App\Http\Controllers\Product\CategorieController;
+use App\Http\Controllers\Slider\SliderController;
+use App\Http\Controllers\Cupones\CuponesController;
+use App\Http\Controllers\Discount\DiscountController;
+use App\Http\Controllers\Sales\SalesController;
+use App\Http\Controllers\Ecommerce\HomeController;
+use App\Http\Controllers\Ecommerce\Cart\CartShopController;
+use App\Http\Controllers\Ecommerce\Cart\WishListController;
+use App\Http\Controllers\Ecommerce\Client\AddressUserController;
+use App\Http\Controllers\Ecommerce\Sale\SaleController;
+use App\Http\Controllers\Ecommerce\Profile\ProfileController;
+use App\Http\Controllers\Ecommerce\Profile\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,99 +36,100 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::group(['prefix' => 'users'], function($router) {
-  Route::post('/register', "JWTController@register");
-  Route::post('/login', "JWTController@loginAdmin");
-  Route::post('/login_ecommerce', "JWTController@loginEcommerce");
-  Route::post('/logout', "JWTController@logout");
-  Route::post('/refresh', "JWTController@refresh");
-  Route::post('/profile', "JWTController@profile");
+  Route::post('/register', [JWTController::class, 'register']);
+  Route::post('/login', [JWTController::class, 'loginAdmin']);
+  Route::post('/login_ecommerce', [JWTController::class, 'loginEcommerce']);
+  Route::post('/logout', [JWTController::class, 'logout']);
+  Route::post('/refresh', [JWTController::class, 'refresh']);
+  Route::post('/profile', [JWTController::class, 'profile']);
   
   Route::group(['prefix' => 'admin'], function() {
-    Route::get('/all', "UserController@index");
-    Route::post('/register', "UserController@store");
-    Route::put('/update/{id}', "UserController@update");
-    Route::delete('/delete/{id}', "UserController@destroy");
+    Route::get('/all', [UserController::class, 'index']);
+    Route::post('/register', [UserController::class, 'store']);
+    Route::put('/update/{id}', [UserController::class, 'update']);
+    Route::delete('/delete/{id}', [UserController::class, 'destroy']);
   });
 });
 
 Route::group(['prefix' => 'products'], function($router) {
-  Route::get("/get_info","Product\ProductGController@get_info");
-  Route::post("/add","Product\ProductGController@store");
-  Route::post("/update/{id}","Product\ProductGController@update");
-  Route::get("/all","Product\ProductGController@index");
-  Route::get("/show_product/{id}","Product\ProductGController@show");
+  Route::get("/get_info", [ProductGController::class, 'get_info']);
+  Route::post("/add", [ProductGController::class, 'store']);
+  Route::post("/update/{id}", [ProductGController::class, 'update']);
+  Route::get("/all", [ProductGController::class, 'index']);
+  Route::get("/show_product/{id}", [ProductGController::class, 'show']);
 
   Route::group(["prefix" => "inventario"],function() {
-    Route::post("/add","Product\ProductSizeColorsController@store");
-    Route::put("/update_size/{id}","Product\ProductSizeColorsController@update_size");
-    Route::delete("/delete_size/{id}","Product\ProductSizeColorsController@destroy_size");
+    Route::post("/add", [ProductSizeColorsController::class, 'store']);
+    Route::put("/update_size/{id}", [ProductSizeColorsController::class, 'update_size']);
+    Route::delete("/delete_size/{id}", [ProductSizeColorsController::class, 'destroy_size']);
     
-    Route::put("/update/{id}","Product\ProductSizeColorsController@update");
-    Route::delete("/delete/{id}","Product\ProductSizeColorsController@destroy");
+    Route::put("/update/{id}", [ProductSizeColorsController::class, 'update']);
+    Route::delete("/delete/{id}", [ProductSizeColorsController::class, 'destroy']);
   });
 
   Route::group(["prefix" => "imgs"],function() {
-    Route::post("/add","Product\ProductImagensController@store");
-    Route::delete("/delete/{id}","Product\ProductImagensController@destroy");
+    Route::post("/add", [ProductImagensController::class, 'destroy']);
+    Route::delete("/delete/{id}", [ProductImagensController::class, 'destroy']);
   });
 
   Route::group(["prefix" => "categories"], function (){
-    Route::get("/all","Product\CategorieController@index");
-    Route::post("/add","Product\CategorieController@store");
-    Route::post("/update/{id}","Product\CategorieController@update");
-    Route::delete("/delete/{id}","Product\CategorieController@destroy");
+    Route::get("/all", [CategorieController::class, 'index']);
+    Route::post("/add", [CategorieController::class, 'store']);
+    Route::post("/update/{id}", [CategorieController::class, 'update']);
+    Route::delete("/delete/{id}", [CategorieController::class, 'destroy']);
   });
 });
 
 Route::group(['prefix' => 'sliders'], function($router) {
-  Route::get("/all","Slider\SliderController@index");
-  Route::post("/add","Slider\SliderController@store");
-  Route::post("/update/{id}","Slider\SliderController@update");
-  Route::delete("/delete/{id}","Slider\SliderController@destroy");
+  Route::get("/all", [SliderController::class, 'index']);
+  Route::post("/add", [SliderController::class, 'store']);
+  Route::post("/update/{id}", [SliderController::class, 'update']);
+  Route::delete("/delete/{id}", [SliderController::class, 'destroy']);
 });
 
 Route::group(['prefix' => 'cupones'], function($router) {
-  Route::get("/all","Cupones\CuponesController@index");
-  Route::get("/config_all","Cupones\CuponesController@config_all");
-  Route::get("/show/{id}","Cupones\CuponesController@show");
-  Route::post("/add","Cupones\CuponesController@store");
-  Route::post("/update/{id}","Cupones\CuponesController@update");
-  Route::delete("/delete/{id}","Cupones\CuponesController@destroy");
+  Route::get("/all", [CuponesController::class, 'index']);
+  Route::get("/config_all", [CuponesController::class, 'config_all']);
+  Route::get("/show/{id}", [CuponesController::class, 'show']);
+  Route::post("/add", [CuponesController::class, 'store']);
+  Route::post("/update/{id}", [CuponesController::class, 'update']);
+  Route::delete("/delete/{id}", [CuponesController::class, 'destroy']);
 });
 
 Route::group(['prefix' => 'descuentos'], function($router) {
-  Route::get("/all","Discount\DiscountController@index");
-  Route::get("/show/{id}","Discount\DiscountController@show");
-  Route::post("/add","Discount\DiscountController@store");
-  Route::put("/update/{id}","Discount\DiscountController@update");
-  Route::delete("/delete/{id}","Discount\DiscountController@destroy");
+  Route::get("/all", [DiscountController::class, 'index']);
+  Route::get("/show/{id}", [DiscountController::class, 'show']);
+  Route::post("/add", [DiscountController::class, 'store']);
+  Route::put("/update/{id}", [DiscountController::class, 'update']);
+  Route::delete("/delete/{id}", [DiscountController::class, 'destroy']);
 });
 
 // Route::get("sale_mail/{id}","Ecommerce\Sale\SaleController@send_email");
 
-Route::post("sales/all","Sales\SalesController@sale_all");
+Route::post("sales/all", [SalesController::class, 'sale_all']);
 
 Route::group(["prefix" => "ecommerce"], function($router) {
-  Route::get("home","Ecommerce\HomeController@home");
-  Route::post("list-products","Ecommerce\HomeController@list_product");
-  Route::get("detail-product/{slug}","Ecommerce\HomeController@detail_product");
-  Route::get("config_initial_filter","Ecommerce\HomeController@config_initial_filter");
+  Route::get("home", [HomeController::class, 'home']);
+  Route::post("list-products", [HomeController::class, 'list_product']);
+  Route::get("detail-product/{slug}", [HomeController::class, 'detail_product']);
+  Route::get("config_initial_filter", [HomeController::class, 'config_initial_filter']);
   
   Route::group(["prefix" => "cart"], function () {
-    Route::get("applycupon/{cupon}","Ecommerce\Cart\CartShopController@apply_cupon");
-    Route::resource("add","Ecommerce\Cart\CartShopController");
+    Route::get("applycupon/{cupon}", [CartShopController::class, 'apply_cupon']);
+    Route::resource("add", [CartShopController::class, '']);
   });
   
-  Route::resource("wishlist","Ecommerce\Cart\WishListController");
+  Route::resource("wishlist", [WishListController::class, '']);
+
   Route::group(["prefix" => "checkout"], function () {
-    Route::resource("address_user","Ecommerce\Client\AddressUserController");
-    Route::post("sale","Ecommerce\Sale\SaleController@store");
+    Route::resource("address_user", [AddressUserController::class, '']);
+    Route::post("sale", [SaleController::class, 'store']);
   });
 
   Route::group(["prefix" => "profile"], function () {
-    Route::get("home","Ecommerce\Profile\ProfileController@index");
-    Route::post("profile_update","Ecommerce\Profile\ProfileController@profile_update");
-    Route::resource("reviews","Ecommerce\Profile\ReviewController");
+    Route::get("home", [ProfileController::class, 'index']);
+    Route::post("profile_update", [ProfileController::class, 'profile_update']);
+    Route::resource("reviews", [ReviewController::class, '']);
   });
 });
 
