@@ -33,4 +33,8 @@ class SaleAddress extends Model
         $this->attributes["updated_at"]= Carbon::now();
     }
 
+    public function sale()
+    {
+        return $this->belongsTo(Sale::class);
+    }
 }

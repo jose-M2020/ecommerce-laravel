@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+use App\Models\Product\Product;
+
 class WishList extends Model
 {
     use HasFactory;
@@ -25,5 +28,15 @@ class WishList extends Model
     {
     	date_default_timezone_set("America/Mexico_City");
         $this->attributes["updated_at"]= Carbon::now();
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(User::class,"user_id");
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

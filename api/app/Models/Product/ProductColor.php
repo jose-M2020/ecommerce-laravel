@@ -24,4 +24,9 @@ class ProductColor extends Model
     	date_default_timezone_set("America/Mexico_City");
         $this->attributes["updated_at"]= Carbon::now();
     }
+
+    public function product_color_sizes()
+    {
+        return $this->hasMany(ProductColorSize::class);
+    }
 }

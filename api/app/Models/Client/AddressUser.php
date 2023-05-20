@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+
 class AddressUser extends Model
 {
     use HasFactory;
@@ -33,4 +35,8 @@ class AddressUser extends Model
         $this->attributes["updated_at"]= Carbon::now();
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

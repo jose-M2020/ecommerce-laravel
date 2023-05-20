@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Ecommerce;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Slider;
+use App\Models\Slider;
 use App\Models\Product\Product;
 use App\Models\Product\Categorie;
 use App\Models\Sale\Review\Review;
@@ -47,7 +47,7 @@ class HomeController extends Controller
                         "id" => $product->id,
                         "title" => $product->title,
                         "slug" => $product->slug,
-                        "price_soles" => $product->price_soles,
+                        "price_mxn" => $product->price_mxn,
                         "price_usd" => $product->price_usd,
                         "discount_g" => $discount_g,
                         "imagen" => env("APP_URL")."storage/".$product->imagen,

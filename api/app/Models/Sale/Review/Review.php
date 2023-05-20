@@ -6,6 +6,10 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+use App\Models\Product\Product;
+use App\Models\Sale\SaleDetail;
+
 class Review extends Model
 {
     use HasFactory;
@@ -28,4 +32,16 @@ class Review extends Model
         $this->attributes["updated_at"]= Carbon::now();
     }
 
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function sale_detail()
+    {
+        return $this->belongsTo(SaleDetail::class);
+    }
 }

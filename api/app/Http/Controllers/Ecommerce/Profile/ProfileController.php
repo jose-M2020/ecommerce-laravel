@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Ecommerce\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\User;
+use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Sale\Sale;
 use App\Models\Sale\SaleDetail;
@@ -82,7 +82,7 @@ class ProfileController extends Controller
             //             "id" =>  $wishlist->product->id,
             //             "title" => $wishlist->product->title,
             //             "slug" => $wishlist->product->slug,
-            //             "price_soles" => $wishlist->product->price_soles,
+            //             "price_mxn" => $wishlist->product->price_mxn,
             //             "price_usd" => $wishlist->product->price_usd,
             //             "imagen" =>  env("APP_URL")."storage/".$wishlist->product->imagen,
             //         ],

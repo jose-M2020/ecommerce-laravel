@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Product\Product;
+use App\Models\Discount\DiscountCategorie;
+
 class Categorie extends Model
 {
     use HasFactory;
@@ -26,4 +29,13 @@ class Categorie extends Model
         $this->attributes["updated_at"]= Carbon::now();
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function discountcategories()
+    {
+        return $this->hasMany(DiscountCategorie::class);
+    }
 }

@@ -6,6 +6,11 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+use App\Models\Product\Product;
+use App\Models\Product\ProductSize;
+use App\Models\Product\ProductColorSize;
+
 class CartShop extends Model
 {
     use HasFactory;
@@ -35,4 +40,22 @@ class CartShop extends Model
         $this->attributes["updated_at"]= Carbon::now();
     }
 
+    public function client()
+    {
+        return $this->belongsTo(User::class,"user_id");
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function product_size()
+    {
+        return $this->belongsTo(ProductSize::class);
+    }
+    public function product_color_size()
+    {
+        return $this->belongsTo(ProductColorSize::class);
+    }
 }

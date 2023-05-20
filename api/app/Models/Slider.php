@@ -1,37 +1,29 @@
 <?php
 
-namespace App\Models\Product;
+namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
-class ProductSize extends Model
+class Slider extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        "product_id",
         "name",
+        "imagen",
+        "url",
     ];
 
     public function setCreatedAtAttribute($value)
     {
-    	date_default_timezone_set("America/Mexico_City");
+    	date_default_timezone_set("America/Lima");
         $this->attributes["created_at"]= Carbon::now();
     }
     public function setUpdatedAtAttribute($value)
     {
-    	date_default_timezone_set("America/Mexico_City");
+    	date_default_timezone_set("America/Lima");
         $this->attributes["updated_at"]= Carbon::now();
-    }
-
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
-
-    public function product_size_colors()
-    {
-        return $this->hasMany(ProductColorSize::class);
     }
 }
