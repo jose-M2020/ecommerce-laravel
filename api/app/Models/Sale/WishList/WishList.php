@@ -11,7 +11,8 @@ use App\Models\Product\Product;
 
 class WishList extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+    protected $table = 'Wishlists';
     protected $fillable = [
         "user_id",
         "product_id",

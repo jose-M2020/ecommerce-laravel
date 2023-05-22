@@ -116,20 +116,20 @@ Route::group(["prefix" => "ecommerce"], function($router) {
   
   Route::group(["prefix" => "cart"], function () {
     Route::get("applycupon/{cupon}", [CartShopController::class, 'apply_cupon']);
-    Route::resource("add", [CartShopController::class, '']);
+    Route::resource("add", CartShopController::class);
   });
   
-  Route::resource("wishlist", [WishListController::class, '']);
+  Route::resource("wishlist", WishListController::class);
 
   Route::group(["prefix" => "checkout"], function () {
-    Route::resource("address_user", [AddressUserController::class, '']);
+    Route::resource("address_user", AddressUserController::class);
     Route::post("sale", [SaleController::class, 'store']);
   });
 
   Route::group(["prefix" => "profile"], function () {
     Route::get("home", [ProfileController::class, 'index']);
     Route::post("profile_update", [ProfileController::class, 'profile_update']);
-    Route::resource("reviews", [ReviewController::class, '']);
+    Route::resource("reviews", ReviewController::class);
   });
 });
 
