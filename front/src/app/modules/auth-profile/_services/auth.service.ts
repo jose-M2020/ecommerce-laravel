@@ -11,6 +11,7 @@ import { of } from 'rxjs';
 export class AuthService {
   user:any;
   token:any = '';
+  
   constructor(
     private http: HttpClient,
     private router: Router,
