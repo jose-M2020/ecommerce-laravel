@@ -124,7 +124,7 @@ class Product extends Model
         if($min_price > 0 && $max_price > 0){
             error_log($min_price);
             error_log($max_price);
-            $query->whereBetween("price_soles",[$min_price,$max_price]);
+            $query->whereBetween("price_mxn",[$min_price,$max_price]);
         }
         if($size_id){
             $query->whereHas("sizes",function($q) use($size_id) {

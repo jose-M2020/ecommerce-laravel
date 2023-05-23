@@ -38,7 +38,7 @@ class ProductEResource extends JsonResource
             ],
             "slug" => $this->resource->slug,
             "sku" => $this->resource->sku,
-            "price_soles" => $this->resource->price_soles,
+            "price_mxn" => $this->resource->price_mxn,
             "price_usd" => $this->resource->price_usd,
             "resumen" => $this->resource->resumen,
             "description" => $this->resource->description,

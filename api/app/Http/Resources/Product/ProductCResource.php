@@ -27,7 +27,7 @@ class ProductCResource extends JsonResource
             "sku" => $this->resource->sku,
             "tags" => $this->resource->tags,
             "tags_a" => $this->resource->tags ? explode(",",$this->resource->tags) : [],
-            "price_soles" => $this->resource->price_soles,
+            "price_mxn" => $this->resource->price_mxn,
             "price_usd" => $this->resource->price_usd,
             "resumen" => $this->resource->resumen,
             "description" => $this->resource->description,

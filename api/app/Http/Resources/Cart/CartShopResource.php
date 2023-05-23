@@ -26,7 +26,7 @@ class CartShopResource extends JsonResource
                 "id" =>  $this->resource->product->id,
                 "title" => $this->resource->product->title,
                 "slug" => $this->resource->product->slug,
-                "price_soles" => $this->resource->product->price_soles,
+                "price_mxn" => $this->resource->product->price_mxn,
                 "price_usd" => $this->resource->product->price_usd,
                 "imagen" =>  env("APP_URL")."storage/".$this->resource->product->imagen,
             ],
