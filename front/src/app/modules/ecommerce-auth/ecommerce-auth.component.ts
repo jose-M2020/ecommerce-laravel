@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+declare var $:any;
+declare function initPageEcommerce([]):any;
 
 @Component({
   selector: 'app-ecommerce-auth',
   templateUrl: './ecommerce-auth.component.html',
-  styleUrls: ['./ecommerce-auth.component.sass']
+  styleUrls: ['./ecommerce-auth.component.scss']
 })
-export class EcommerceAuthComponent {
+export class EcommerceAuthComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      initPageEcommerce($);
+    }, 50);
+  }
 
 }
