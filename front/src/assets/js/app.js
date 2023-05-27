@@ -245,11 +245,11 @@ function initPageEcommerce($) {
       //     slide: function (event, ui) {
       //         $("#min-price").val(ui.values[0]);
       //         $("#max-price").val(ui.values[1]);
-      //         $("#amount").val("PEN " + ui.values[0] + " - PEN " + ui.values[1]);
+      //         $("#amount").val("PEN " + ui.values[0] + " -MXN " + ui.values[1]);
       //     }
       // });
       $("#amount").val("PEN " + $("#slider-range").slider("values", 0) +
-          " - PEN " + $("#slider-range").slider("values", 1));
+          " -MXN " + $("#slider-range").slider("values", 1));
   });
 
   // Mobile categories

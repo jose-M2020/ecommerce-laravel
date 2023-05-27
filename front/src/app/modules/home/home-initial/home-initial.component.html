@@ -153,11 +153,11 @@
                               <h4>{{ product.title.length > 15 ? product.title.slice(0, 30)+"..." : product.title }} </h4>
                           </a>
                           <div class="price" *ngIf="product.discount_g">
-                            <span class="org_price">{{ getNewPriceS(product.price_soles,product.discount_g)  }} PEN</span>
-                            <span class="prev_price">{{ product.price_soles }} PEN</span>
+                            <span class="org_price">{{ getNewPriceS(product.price_mxn,product.discount_g)  }}MXN</span>
+                            <span class="prev_price">{{ product.price_mxn }}MXN</span>
                           </div>
                           <div class="price" *ngIf="!product.discount_g">
-                              <span class="org_price">{{ product.price_soles }} PEN</span>
+                              <span class="org_price">{{ product.price_mxn }}MXN</span>
                               <!-- <span class="prev_price">$300.45</span> -->
                           </div>
                           <div class="rating">
@@ -542,11 +542,11 @@
                       </a>
                       <div class="ratprice">
                         <div class="price" *ngIf="products_aletorio.discount_g">
-                            <span class="org_price">{{ getNewPriceS(products_aletorio.price_soles,products_aletorio.discount_g) }} PEN</span>
-                            <span class="prev_price">{{ products_aletorio.price_soles }} PEN</span>
+                            <span class="org_price">{{ getNewPriceS(products_aletorio.price_mxn,products_aletorio.discount_g) }}MXN</span>
+                            <span class="prev_price">{{ products_aletorio.price_mxn }}MXN</span>
                         </div>
                           <div class="price" *ngIf="!products_aletorio.discount_g">
-                              <span class="org_price">{{ products_aletorio.price_soles }} PEN</span>
+                              <span class="org_price">{{ products_aletorio.price_mxn }}MXN</span>
                               <!-- <span class="prev_price">$55.45</span> -->
                           </div>
                           <div class="rating">
@@ -741,11 +741,11 @@
                       </a>
                       <div class="ratprice">
                           <div class="price" *ngIf="products_aletorio.discount_g">
-                              <span class="org_price">{{ getNewPriceS(products_aletorio.price_soles,products_aletorio.discount_g) }} PEN</span>
-                              <span class="prev_price">{{ products_aletorio.price_soles }} PEN</span>
+                              <span class="org_price">{{ getNewPriceS(products_aletorio.price_mxn,products_aletorio.discount_g) }}MXN</span>
+                              <span class="prev_price">{{ products_aletorio.price_mxn }}MXN</span>
                           </div>
                           <div class="price" *ngIf="!products_aletorio.discount_g">
-                            <span class="org_price">{{ products_aletorio.price_soles }} PEN</span>
+                            <span class="org_price">{{ products_aletorio.price_mxn }}MXN</span>
                           </div>
                           <div class="rating">
                             <div class="d-flex align-items-center justify-content-start">

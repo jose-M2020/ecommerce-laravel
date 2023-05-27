@@ -219,12 +219,12 @@
                                        </a>
                                        <div class="ratprice">
                                            <div class="price" *ngIf="product.discount_g">
-                                               <span class="prev_price  px-2">{{ product.price_soles }} PEN</span>
-                                               <span class="org_price  px-2">{{ getNewPriceS(product.price_soles,product.discount_g) }} PEN</span>
+                                               <span class="prev_price  px-2">{{ product.price_mxn }}MXN</span>
+                                               <span class="org_price  px-2">{{ getNewPriceS(product.price_mxn,product.discount_g) }}MXN</span>
                                            </div>
                                            <div class="price" *ngIf="!product.discount_g">
                                             <!-- <span class="org_price">$45.00</span> -->
-                                            <span class="org_price  px-2">{{ product.price_soles }} PEN</span>
+                                            <span class="org_price  px-2">{{ product.price_mxn }}MXN</span>
                                         </div>
                                            <div class="rating">
                                                <div class="d-flex align-items-center justify-content-start">

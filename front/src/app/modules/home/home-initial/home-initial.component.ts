@@ -12,7 +12,7 @@ declare function alertSuccess([]):any;
 @Component({
   selector: 'app-home-initial',
   templateUrl: './home-initial.component.html',
-  styleUrls: ['./home-initial.component.sass']
+  styleUrls: ['./home-initial.component.scss']
 })
 
 export class HomeInitialComponent implements OnInit {
@@ -50,12 +50,12 @@ export class HomeInitialComponent implements OnInit {
     }, 25);
   }
 
-  getNewPriceS(price_soles:number,discount_g:any) {
+  getNewPriceS(price_mxn:number,discount_g:any) {
     if(discount_g.type_discount == 1){ //%
-      return price_soles - (price_soles*discount_g.discount*0.01);
+      return price_mxn - (price_mxn*discount_g.discount*0.01);
     }
     if(discount_g.type_discount == 2){ //PEN
-      return price_soles - price_soles*discount_g.discount;
+      return price_mxn - price_mxn*discount_g.discount;
     }
     return 0;
   }
@@ -83,9 +83,9 @@ export class HomeInitialComponent implements OnInit {
       type_discount_g = product_selected_modal.discount_g.type_discount;
       discount_g = product_selected_modal.discount_g.discount;
       code_discount_g = product_selected_modal.discount_g.code;
-      precio_uni_total = this.getNewPriceS(product_selected_modal.price_soles,product_selected_modal.discount_g);
+      precio_uni_total = this.getNewPriceS(product_selected_modal.price_mxn,product_selected_modal.discount_g);
     }else{
-      precio_uni_total = product_selected_modal.price_soles;
+      precio_uni_total = product_selected_modal.price_mxn;
     }
 
     let data = {
