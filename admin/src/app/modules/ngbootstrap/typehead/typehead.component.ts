@@ -725,15 +725,16 @@ const states = [
   providers: [WikipediaService, NgbTypeaheadConfig],
 })
 export class TypeheadComponent implements OnInit {
-  exampleSimpleTypeahead;
-  exampleOpenOnFocus;
-  exampleFormattedResults;
-  exampleWikipediaSearch;
-  exampleTemplateForResults;
-  exampleGlobalConfigurationOfTypeaheads;
+  exampleSimpleTypeahead: any;
+  exampleOpenOnFocus: any;
+  exampleFormattedResults: any;
+  exampleWikipediaSearch: any;
+  exampleTemplateForResults: any;
+  exampleGlobalConfigurationOfTypeaheads: any;
+
   public model: any;
   model2: any;
-  @ViewChild('instance', { static: true }) instance: NgbTypeahead;
+  @ViewChild('instance', { static: true }) instance!: NgbTypeahead;
   focus$ = new Subject<string>();
   click$ = new Subject<string>();
   model3: any;

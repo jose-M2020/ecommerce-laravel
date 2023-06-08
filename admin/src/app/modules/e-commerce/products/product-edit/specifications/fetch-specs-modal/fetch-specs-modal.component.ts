@@ -12,7 +12,7 @@ import { SpecificationsService } from '../../../../_services';
   styleUrls: ['./fetch-specs-modal.component.scss']
 })
 export class FetchSpecsModalComponent implements OnInit, OnDestroy {
-  @Input() ids: number[];
+  @Input() ids!: number[];
   specs: string[] = SPECIFICATIONS_DICTIONARY;
   specifications: ProductSpecification[] = [];
   isLoading = false;

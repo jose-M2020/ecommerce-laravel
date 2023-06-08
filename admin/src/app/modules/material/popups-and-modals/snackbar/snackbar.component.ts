@@ -123,9 +123,9 @@ export class SnackBarOverviewExample {
   styles: [``],
 })
 export class SnackbarComponent implements OnInit {
-  exampleBasic;
-  exampleCustom;
-  exampleDismissal;
+  exampleBasic: any;
+  exampleCustom: any;
+  exampleDismissal: any;
 
   constructor(public snackBar: MatSnackBar) {}
 

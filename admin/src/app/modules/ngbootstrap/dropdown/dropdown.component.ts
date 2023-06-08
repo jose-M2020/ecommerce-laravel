@@ -184,10 +184,10 @@ export class NgbdDropdownConfig {
   providers: [NgbDropdownConfig], // add NgbDropdownConfig to the component providers
 })
 export class DropdownComponent implements OnInit {
-  exampleDropdown;
-  exampleManualTriggers;
-  exampleButtonGroupsAndSplitButtons;
-  exampleGlobalConfigurationOfDropdowns;
+  exampleDropdown: any;
+  exampleManualTriggers: any;
+  exampleButtonGroupsAndSplitButtons: any;
+  exampleGlobalConfigurationOfDropdowns: any;
 
   constructor(config: NgbDropdownConfig) {
     // customize default values of dropdowns used by this component tree

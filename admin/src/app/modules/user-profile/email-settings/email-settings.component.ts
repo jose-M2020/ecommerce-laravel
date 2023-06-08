@@ -10,9 +10,9 @@ import { AuthService, UserModel } from '../../auth';
   styleUrls: ['./email-settings.component.scss']
 })
 export class EmailSettingsComponent implements OnInit, OnDestroy {
-  formGroup: FormGroup;
-  user: UserModel;
-  firstUserState: UserModel;
+  formGroup!: FormGroup;
+  user!: UserModel;
+  firstUserState!: UserModel;
   subscriptions: Subscription[] = [];
   isLoading$: Observable<boolean>;
 

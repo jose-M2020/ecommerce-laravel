@@ -12,7 +12,7 @@
         [inlineSVG]="
           './assets/media/svg/icons/Navigation/Angle-double-left.svg'
         "
-        cacheSVG="true"
+        [cacheSVG]="true"
         class="svg-icon svg-icon-xl"
       ></span>
     </button>
@@ -78,7 +78,7 @@
       <a class="menu-link" [routerLink]="item.page" routerLinkActive="active">
         <span
           [inlineSVG]="item.svg"
-          cacheSVG="true"
+          [cacheSVG]="true"
           class="svg-icon menu-icon"
         ></span>
         <span class="menu-text" [translate]="item.translate">{{
@@ -106,7 +106,7 @@
       >
         <span
           [inlineSVG]="item.svg"
-          cacheSVG="true"
+          [cacheSVG]="true"
           class="svg-icon menu-icon"
         ></span>
         <span class="menu-text" [translate]="item.translate">{{

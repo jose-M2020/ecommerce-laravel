@@ -10,7 +10,7 @@ import { SpecificationsService } from '../../../../_services';
   styleUrls: ['./delete-spec-modal.component.scss']
 })
 export class DeleteSpecModalComponent implements OnInit, OnDestroy {
-  @Input() id: number;
+  @Input() id!: number;
   isLoading = false;
   subscriptions: Subscription[] = [];
 

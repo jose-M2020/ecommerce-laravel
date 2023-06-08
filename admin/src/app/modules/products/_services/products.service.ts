@@ -38,7 +38,7 @@ export class ProductsService {
       finalize(() => this.isLoadingSubject.next(false))
     );
   }
-  showProduct(product_id){
+  showProduct(product_id: string){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/products/show_product/"+product_id;
@@ -93,7 +93,7 @@ export class ProductsService {
     );
   }
 
-  updateInventario(inventario_id,data){
+  updateInventario(inventario_id: string ,data: any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/products/inventario/update_size/"+inventario_id;
@@ -102,7 +102,7 @@ export class ProductsService {
     );
   }
 
-  deleteInventario(inventario_id){
+  deleteInventario(inventario_id: string){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/products/inventario/delete_size/"+inventario_id;
@@ -111,7 +111,7 @@ export class ProductsService {
     );
   }
 
-  updateSubInventario(sub_inventario_id,data){
+  updateSubInventario(sub_inventario_id: string, data: any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/products/inventario/update/"+sub_inventario_id;
@@ -120,7 +120,7 @@ export class ProductsService {
     );
   }
 
-  deleteSubInventario(sub_inventario_id){
+  deleteSubInventario(sub_inventario_id: string){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/products/inventario/delete/"+sub_inventario_id;

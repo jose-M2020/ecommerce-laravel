@@ -21,7 +21,7 @@ export class SalesService {
     this.isLoading$ = this.isLoadingSubject.asObservable();
   }
 
-  allSales(page=1,data){
+  allSales(page: number = 1, data: any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/sales/all?page="+page;

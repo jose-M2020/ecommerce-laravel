@@ -189,8 +189,8 @@ export class ButtonsComponent implements OnInit {
     right: false,
   };
   secondModel = 1;
-  checkboxGroupForm: FormGroup;
-  radioGroupForm: FormGroup;
+  checkboxGroupForm!: FormGroup;
+  radioGroupForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 

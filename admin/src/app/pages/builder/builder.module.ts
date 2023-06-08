@@ -5,7 +5,7 @@ import { GeneralModule } from '../../_metronic/partials/content/general/general.
 import { BuilderComponent } from './builder.component';
 import { FormsModule } from '@angular/forms';
 import { NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { HighlightModule } from 'ngx-highlightjs';
+import { HighlightModule, HIGHLIGHT_OPTIONS  } from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [BuilderComponent],
@@ -22,6 +22,14 @@ import { HighlightModule } from 'ngx-highlightjs';
         component: BuilderComponent,
       },
     ]),
+  ],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        fullLibraryLoader: () => import('highlight.js'),
+      }
+    }
   ],
 })
 export class BuilderModule {}

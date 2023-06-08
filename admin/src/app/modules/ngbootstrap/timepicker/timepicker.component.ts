@@ -287,14 +287,14 @@ export class NgbdTimepickerConfig {
   providers: [NgbTimepickerConfig], // add NgbTimepickerConfig to the component providers
 })
 export class TimepickerComponent implements OnInit {
-  ctrl;
-  exampleTimepicker;
-  exampleMeridian;
-  exampleSeconds;
-  exampleSpinners;
-  exampleCustomSteps;
-  exampleCustomValidation;
-  exampleGlobalConfigurationOfTimepickers;
+  ctrl: any;
+  exampleTimepicker: any;
+  exampleMeridian: any;
+  exampleSeconds: any;
+  exampleSpinners: any;
+  exampleCustomSteps: any;
+  exampleCustomValidation: any;
+  exampleGlobalConfigurationOfTimepickers: any;
   time = { hour: 13, minute: 30 };
   time2 = { hour: 13, minute: 30 };
   meridian = true;
@@ -304,7 +304,7 @@ export class TimepickerComponent implements OnInit {
   hourStep = 1;
   minuteStep = 15;
   secondStep = 30;
-  time5;
+  time5: any;
   time6: NgbTimeStruct = { hour: 13, minute: 30, second: 0 };
   time7 = { hour: 13, minute: 30 };
   spinners = true;
@@ -336,7 +336,7 @@ export class TimepickerComponent implements OnInit {
     this.exampleCustomValidation = customValidation;
     this.exampleGlobalConfigurationOfTimepickers = globalConfigurationOfTimepickers;
 
-    this.ctrl = new FormControl('', (control: FormControl) => {
+    this.ctrl = new FormControl('', (control: any) => {
       const value = control.value;
 
       if (!value) {

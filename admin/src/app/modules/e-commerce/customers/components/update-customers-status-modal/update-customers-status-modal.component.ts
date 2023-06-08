@@ -11,7 +11,7 @@ import { CustomersService } from '../../../_services';
   styleUrls: ['./update-customers-status-modal.component.scss']
 })
 export class UpdateCustomersStatusModalComponent implements OnInit, OnDestroy {
-  @Input() ids: number[];
+  @Input() ids!: number[];
   status = 2;
   customers: Customer[] = [];
   isLoading = false;

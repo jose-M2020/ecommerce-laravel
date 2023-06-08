@@ -1,7 +1,7 @@
 import { BaseModel } from '../../../_metronic/shared/crud-table';
 
 export interface Customer extends BaseModel {
-  id: number;
+  id: number | undefined;
   firstName: string;
   lastName: string;
   email: string;
@@ -9,7 +9,7 @@ export interface Customer extends BaseModel {
   gender: string;
   status: number; // Active = 1 | Suspended = 2 | Pending = 3
   dateOfBbirth: string;
-  dob: Date;
+  dob: Date | undefined;
   ipAddress: string;
   type: number; // 1 = Business | 2 = Individual
 }

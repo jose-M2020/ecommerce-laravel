@@ -11,7 +11,7 @@ import { catchError, delay, finalize, first, tap } from 'rxjs/operators';
   styleUrls: ['./fetch-remarks-modal.component.scss']
 })
 export class FetchRemarksModalComponent implements OnInit, OnDestroy {
-  @Input() ids: number[];
+  @Input() ids: number[] = [];
   remarks: ProductRemark[] = [];
   isLoading = false;
   subscriptions: Subscription[] = [];

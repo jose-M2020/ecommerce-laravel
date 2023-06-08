@@ -240,12 +240,12 @@ export class NgbdProgressbarConfig {
   providers: [NgbProgressbarConfig], // add the NgbProgressbarConfig to the component providers
 })
 export class ProgressbarComponent implements OnInit {
-  exampleContextualProgressBars;
-  exampleProgressBarsWithCurrentValueLabels;
-  exampleStripedProgressBars;
-  exampleProgressBarsWithCustomLabels;
-  exampleProgressBarsWithHeight;
-  exampleGlobalConfigurationOfProgressBars;
+  exampleContextualProgressBars: any;
+  exampleProgressBarsWithCurrentValueLabels: any;
+  exampleStripedProgressBars: any;
+  exampleProgressBarsWithCustomLabels: any;
+  exampleProgressBarsWithHeight: any;
+  exampleGlobalConfigurationOfProgressBars: any;
   height = '20px';
 
   constructor(config: NgbProgressbarConfig) {

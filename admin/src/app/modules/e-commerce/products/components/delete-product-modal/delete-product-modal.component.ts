@@ -11,7 +11,7 @@ import { ProductsService } from '../../../_services';
 })
 export class DeleteProductModalComponent implements OnInit, OnDestroy {
 
-  @Input() id: number;
+  @Input() id!: number;
   isLoading = false;
   subscriptions: Subscription[] = [];
 

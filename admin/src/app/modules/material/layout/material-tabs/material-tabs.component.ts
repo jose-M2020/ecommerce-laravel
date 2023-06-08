@@ -191,8 +191,8 @@ export class TabsTemplateLabelExample {}
   ],
 })
 export class MaterialTabsComponent implements OnInit {
-  exampleBasicTabs;
-  exampleComplex;
+  exampleBasicTabs: any;
+  exampleComplex: any;
   ngOnInit() {
     this.exampleBasicTabs = basicTabs;
     this.exampleComplex = complex;

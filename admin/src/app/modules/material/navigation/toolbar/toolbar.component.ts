@@ -113,9 +113,9 @@ export class ToolbarMultiExample {}
   ],
 })
 export class ToolbarComponent implements OnInit {
-  exampleSingleRow;
-  examplMultipleRows;
-  examplMultipleRows2;
+  exampleSingleRow: any;
+  examplMultipleRows: any;
+  examplMultipleRows2: any;
 
   ngOnInit() {
     this.exampleSingleRow = singleRow;

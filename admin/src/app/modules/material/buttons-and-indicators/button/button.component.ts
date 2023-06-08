@@ -190,11 +190,11 @@ export class ButtonTypesExample {}`,
   ],
 })
 export class ButtonComponent implements OnInit {
-  exampleBasic;
-  exampleRaised;
-  exampleIcon;
-  exmapleFab;
-  exampleMiniFav;
+  exampleBasic: any;
+  exampleRaised: any;
+  exampleIcon: any;
+  exmapleFab: any;
+  exampleMiniFav: any;
 
   ngOnInit() {
     this.exampleBasic = basic;

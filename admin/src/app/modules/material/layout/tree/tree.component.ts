@@ -790,8 +790,8 @@ export class TreeLoadmoreExample {
  * Each node has a filename, and a type or a list of children.
  */
 export class FileNode {
-  children: FileNode[];
-  filename: string;
+  children!: FileNode[];
+  filename!: string;
   type: any;
 }
 
@@ -855,7 +855,7 @@ const TREE_DATA = JSON.stringify({
 export class FileDatabase {
   dataChange = new BehaviorSubject<FileNode[]>([]);
 
-  get data(): FileNode[] {
+  get data(): FileNode[] | undefined {
     if (this.dataChange) {
       return this.dataChange.value;
     }
@@ -885,7 +885,7 @@ export class FileDatabase {
    */
   buildFileTree(obj: object, level: number): FileNode[] {
     return Object.keys(obj).reduce<FileNode[]>((accumulator, key) => {
-      const value = obj[key];
+      const value = obj[key as keyof typeof obj];
       const node = new FileNode();
       node.filename = key;
 
@@ -1042,15 +1042,15 @@ export class DynamicDataSource {
  * Node for to-do item
  */
 export class TodoItemNode {
-  children: TodoItemNode[];
-  item: string;
+  children!: TodoItemNode[];
+  item!: string;
 }
 
 /** Flat to-do item node with expandable and level information */
 export class TodoItemFlatNode {
-  item: string;
-  level: number;
-  expandable: boolean;
+  item!: string;
+  level!: number;
+  expandable!: boolean;
 }
 
 /**
@@ -1088,7 +1088,7 @@ export class ChecklistDatabase {
       return this.dataChange.value;
     }
 
-    return undefined;
+    return [];
   }
 
   constructor() {
@@ -1110,7 +1110,7 @@ export class ChecklistDatabase {
    */
   buildFileTree(obj: object, level: number): TodoItemNode[] {
     return Object.keys(obj).reduce<TodoItemNode[]>((accumulator, key) => {
-      const value = obj[key];
+      const value = obj[key as keyof typeof obj];
       const node = new TodoItemNode();
       node.item = key;
 
@@ -1253,10 +1253,10 @@ export class LoadmoreDatabase {
   ],
 })
 export class TreeComponent implements OnInit {
-  exampleTreeWithDynamicData;
-  exampleTreeWithFlatNodes;
-  exampleTreeWithCheckboxes;
-  exampleTreeWithPartiallyLoadedData;
+  exampleTreeWithDynamicData: any;
+  exampleTreeWithFlatNodes: any;
+  exampleTreeWithCheckboxes: any;
+  exampleTreeWithPartiallyLoadedData: any;
 
   treeControl: FlatTreeControl<DynamicFlatNode>;
   dataSource: DynamicDataSource;

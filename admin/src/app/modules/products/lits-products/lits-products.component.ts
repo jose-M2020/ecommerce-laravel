@@ -36,10 +36,10 @@ export class LitsProductsComponent implements OnInit {
     this.search = null;
     this.allProducts();
   }
-  edit(product) {
+  edit(product: any) {
 
   }
-  delete(product) {
+  delete(product: any) {
 
   }
 

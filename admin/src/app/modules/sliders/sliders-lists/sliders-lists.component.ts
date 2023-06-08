@@ -13,7 +13,7 @@ import { SlidersService } from '../_services/sliders.service';
 })
 export class SlidersListsComponent implements OnInit {
 
-  isLoading$;
+  isLoading$: any;
   search:any = null;
   
   sliders:any = [];
@@ -51,7 +51,7 @@ export class SlidersListsComponent implements OnInit {
     });
   }
 
-  edit(slider){
+  edit(slider: any){
     const modalRef = this.modelService.open(EditSlidersNewComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.slider_selected = slider;
     modalRef.result.then(
@@ -63,11 +63,12 @@ export class SlidersListsComponent implements OnInit {
       }
     )
     modalRef.componentInstance.sliderE.subscribe((resp:any) => {
-      let INDEX = this.sliders.findIndex(item => item.id == resp.id);
+      let INDEX = this.sliders.findIndex((item: any) => item.id == resp.id);
       this.sliders[INDEX] = resp;
     })
   }
-  delete(slider){
+
+  delete(slider: any){
     const modalRef = this.modelService.open(DeleteSlidersNewComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.slider_selected = slider;
     modalRef.result.then(
@@ -79,7 +80,7 @@ export class SlidersListsComponent implements OnInit {
       }
     )
     modalRef.componentInstance.sliderE.subscribe((resp:any) => {
-      let INDEX = this.sliders.findIndex(item => item.id == resp.id);
+      let INDEX = this.sliders.findIndex((item: any) => item.id == resp.id);
       this.sliders.splice(INDEX,1);
     })
   }

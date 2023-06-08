@@ -115,9 +115,9 @@ export class CardImageExample {}
   ],
 })
 export class CardComponent implements OnInit {
-  exampleBasicCards;
-  exampleCardWithTitle;
-  examplBigExample;
+  exampleBasicCards: any;
+  exampleCardWithTitle: any;
+  examplBigExample: any;
   ngOnInit() {
     this.exampleBasicCards = basicCards;
     this.exampleCardWithTitle = cardWithTitle;

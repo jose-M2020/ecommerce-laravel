@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Toaster } from 'ngx-toast-notifications';
-import { NoticyAlertComponent } from 'src/app/componets/notifications/noticy-alert/noticy-alert.component';
+import { NoticyAlertComponent } from 'src/app/components/notifications/noticy-alert/noticy-alert.component';
 import { URL_BACKEND } from 'src/app/config/config';
 import { SlidersService } from '../../_services/sliders.service';
 
@@ -34,7 +34,7 @@ export class EditSlidersNewComponent implements OnInit {
     this.imagen_previzualiza = URL_BACKEND+'storage/'+this.slider_selected.imagen;
   }
 
-  processFile($event){
+  processFile($event: any){
     if($event.target.files[0].type.indexOf("image") < 0){
       this.toaster.open(NoticyAlertComponent,{text:`danger-'EL ARCHIVO CARGADO NO ES UNA IMAGEN'`});
       return;

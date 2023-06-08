@@ -281,20 +281,20 @@ constructor(config: NgbPopoverConfig) {
   providers: [NgbPopoverConfig], // add NgbPopoverConfig to the component providers
 })
 export class PopoverComponent implements OnInit {
-  exampleQuickAndEasyPopovers;
-  exampleHTMLAndBindingsInPopovers;
-  exampleCustomAndManualTriggers;
-  exampleContextAndManualTriggers;
-  examplePopoverVisibilityEvents;
-  exampleAppendPopoverInTheBody;
-  exampleGlobalConfigurationOfPopovers;
+  exampleQuickAndEasyPopovers : any;
+  exampleHTMLAndBindingsInPopovers : any;
+  exampleCustomAndManualTriggers : any;
+  exampleContextAndManualTriggers : any;
+  examplePopoverVisibilityEvents : any;
+  exampleAppendPopoverInTheBody : any;
+  exampleGlobalConfigurationOfPopovers : any;
 
   name = 'World';
   greeting = {};
   name1 = 'World';
 
-  @ViewChild('p', { static: true }) public popover: NgbPopover;
-  @ViewChild('p2', { static: true }) public popover2: NgbPopover;
+  @ViewChild('p', { static: true }) public popover!: NgbPopover;
+  @ViewChild('p2', { static: true }) public popover2!: NgbPopover;
 
   constructor(config: NgbPopoverConfig) {
     // customize default values of popovers used by this component tree

@@ -12,7 +12,7 @@ export class DeleteSubItemInventarioComponent implements OnInit {
   @Input() sub_inventario:any = null;
   @Output() inventarioG: EventEmitter<any> = new EventEmitter();
   
-  isLoading$;
+  isLoading$: any;
   isLoading = false;
 
   constructor(

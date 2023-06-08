@@ -25,11 +25,11 @@ const EMPTY_REMARK: ProductRemark = {
   ]
 })
 export class EditRemarkModalComponent implements OnInit, OnDestroy {
-  @Input() id: number;
-  @Input() productId: number;
-  isLoading$;
-  remark: ProductRemark;
-  formGroup: FormGroup;
+  @Input() id!: number;
+  @Input() productId!: number;
+  isLoading$: any;
+  remark!: ProductRemark;
+  formGroup!: FormGroup;
   private subscriptions: Subscription[] = [];
   constructor(
     private remarksService: RemarksService,
@@ -47,18 +47,20 @@ export class EditRemarkModalComponent implements OnInit, OnDestroy {
       this.remark.carId = this.productId;
       this.loadForm();
     } else {
-      const sb = this.remarksService.getItemById(this.id).pipe(
+      const sb = this.remarksService.getItemById(this.id)
+      .pipe(
         first(),
-        catchError((errorMessage) => {
+        catchError((errorMessage: any) => {
           this.modal.dismiss(errorMessage);
           const empty = EMPTY_REMARK;
           empty.carId = this.productId;
           return of(empty);
         })
-      ).subscribe((remark: ProductRemark) => {
+      ).subscribe((remark: any) => {
         this.remark = remark;
         this.loadForm();
       });
+      
       this.subscriptions.push(sb);
     }
   }
@@ -85,11 +87,11 @@ export class EditRemarkModalComponent implements OnInit, OnDestroy {
       tap(() => {
         this.modal.close();
       }),
-      catchError((errorMessage) => {
+      catchError((errorMessage: any) => {
         this.modal.dismiss(errorMessage);
         return of(this.remark);
       }),
-    ).subscribe(res => this.remark = res);
+    ).subscribe((res: any) => this.remark = res);
     this.subscriptions.push(sbUpdate);
   }
 
@@ -98,11 +100,11 @@ export class EditRemarkModalComponent implements OnInit, OnDestroy {
       tap(() => {
         this.modal.close();
       }),
-      catchError((errorMessage) => {
+      catchError((errorMessage: any) => {
         this.modal.dismiss(errorMessage);
         return of(this.remark);
       }),
-    ).subscribe((res: ProductRemark) => this.remark = res);
+    ).subscribe((res: any) => this.remark = res);
     this.subscriptions.push(sbCreate);
   }
 
@@ -129,12 +131,12 @@ export class EditRemarkModalComponent implements OnInit, OnDestroy {
     return control.invalid && (control.dirty || control.touched);
   }
 
-  controlHasError(validation, controlName): boolean {
+  controlHasError(validation: any, controlName: any): boolean {
     const control = this.formGroup.controls[controlName];
     return control.hasError(validation) && (control.dirty || control.touched);
   }
 
-  isControlTouched(controlName): boolean {
+  isControlTouched(controlName: any): boolean {
     const control = this.formGroup.controls[controlName];
     return control.dirty || control.touched;
   }

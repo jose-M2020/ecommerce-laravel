@@ -61,8 +61,8 @@ export class IconSvgExample {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent implements OnInit {
-  exampleBasic;
-  exampleSVG;
+  exampleBasic: any;
+  exampleSVG: any;
   ngOnInit() {
     this.exampleBasic = basic;
     this.exampleSVG = sVG;

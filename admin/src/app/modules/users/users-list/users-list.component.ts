@@ -13,7 +13,7 @@ import { UsersService } from '../_services/users.service';
 })
 export class UsersListComponent implements OnInit {
 
-  isLoading$;
+  isLoading$: any;
   isLoading = false;
 
   totalPages = 1;
@@ -65,7 +65,7 @@ export class UsersListComponent implements OnInit {
     })
   }
 
-  editUser(user){
+  editUser(user: any){
     const modalRef = this.modelService.open(EditUsersComponent, {centered : true, size: 'md'});
     modalRef.componentInstance.user_selected = user;
     modalRef.result.then(
@@ -78,12 +78,12 @@ export class UsersListComponent implements OnInit {
     )
     modalRef.componentInstance.usersE.subscribe((resp:any) => {
       console.log(resp);
-      let INDEX = this.users.findIndex(user => user.id == resp.id);
+      let INDEX = this.users.findIndex((user: any) => user.id == resp.id);
       this.users[INDEX] = resp;
     })
   }
 
-  delete(user){
+  delete(user: any){
     const modalRef = this.modelService.open(DeleteUserComponent, {centered : true, size: 'md'});
     modalRef.componentInstance.user_selected = user;
     modalRef.result.then(
@@ -96,13 +96,13 @@ export class UsersListComponent implements OnInit {
     )
     modalRef.componentInstance.usersE.subscribe((resp:any) => {
       console.log(resp);
-      let INDEX = this.users.findIndex(user => user.id == resp.id);
+      let INDEX = this.users.findIndex((user: any) => user.id == resp.id);
       this.users.splice(INDEX,1);
     })
   }
 
 
-  loadPage(index){
+  loadPage(index: number){
     this.allUsers(index);
   }
 }

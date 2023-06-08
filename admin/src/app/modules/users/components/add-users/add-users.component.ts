@@ -2,8 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Toaster } from 'ngx-toast-notifications';
-import { NoticyAlertComponent } from 'src/app/componets/notifications/noticy-alert/noticy-alert.component';
 import { UsersService } from '../../_services/users.service';
+import { NoticyAlertComponent } from 'src/app/components/notifications/noticy-alert/noticy-alert.component';
 
 @Component({
   selector: 'app-add-users',
@@ -14,10 +14,10 @@ export class AddUsersComponent implements OnInit {
 
   @Output() usersE: EventEmitter<any> = new EventEmitter();
   
-  isLoading$;
+  isLoading$: any;
   isLoading = false;
 
-  formGroup: FormGroup;
+  formGroup!: FormGroup;
 
   constructor(
     public fb:FormBuilder,

@@ -188,20 +188,20 @@ export class RadioChangeEventExample {
   ],
 })
 export class RadiobuttonComponent implements OnInit {
-  exampleBasicRadios;
-  exampleRadiosWithNgModel;
-  exampleDisabledRadios;
-  exmapleLabelPosition;
-  exampleChangeEvent;
+  exampleBasicRadios: any;
+  exampleRadiosWithNgModel: any;
+  exampleDisabledRadios: any;
+  exmapleLabelPosition: any;
+  exampleChangeEvent: any;
 
-  favoriteSeason: string;
+  favoriteSeason: string = '';
 
   seasons = ['Winter', 'Spring', 'Summer', 'Autumn'];
 
-  state = '';
-  selectedState = '';
+  state: string = '';
+  selectedState: string = '';
 
-  labelPosition = 'before';
+  labelPosition!: 'before' | 'after';
 
   changeLablesPositions() {
     this.labelPosition = this.labelPosition === 'before' ? 'after' : 'before';

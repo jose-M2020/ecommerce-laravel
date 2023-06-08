@@ -229,7 +229,7 @@ export class AlertComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   private _success = new Subject<string>();
   staticAlertClosed = false;
-  successMessage: string;
+  successMessage: string | null= '';
   private backup: Array<IAlert>;
 
   exampleBasicAlert: any;

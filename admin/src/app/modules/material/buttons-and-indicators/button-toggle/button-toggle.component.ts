@@ -88,9 +88,9 @@ export class ButtonToggleExclusiveExample {}`,
   ],
 })
 export class ButtonToggleComponent implements OnInit {
-  exampleBasic;
-  exampleVertical;
-  exampleList;
+  exampleBasic: any;
+  exampleVertical: any;
+  exampleList: any;
 
   ngOnInit() {
     this.exampleBasic = basic;

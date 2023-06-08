@@ -187,9 +187,9 @@ export class SliderChangeEventExample {\n
   preserveWhitespaces: false,
 })
 export class SliderComponent implements OnInit {
-  exampleBasicSlider;
-  exampleConfigurableSlider;
-  exampleChangeEvent;
+  exampleBasicSlider: any;
+  exampleConfigurableSlider: any;
+  exampleChangeEvent: any;
 
   autoTicks = false;
   disabled = false;

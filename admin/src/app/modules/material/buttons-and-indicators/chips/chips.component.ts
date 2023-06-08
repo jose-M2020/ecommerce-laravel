@@ -152,9 +152,9 @@ export class ChipsStackedExample {
   ],
 })
 export class ChipsComponent implements OnInit {
-  exampleBasic;
-  exampleInput;
-  exampleStacked;
+  exampleBasic: any;
+  exampleInput: any;
+  exampleStacked: any;
 
   visible = true;
   selectable = true;
@@ -166,7 +166,7 @@ export class ChipsComponent implements OnInit {
 
   fruits = [{ name: 'Lemon' }, { name: 'Lime' }, { name: 'Apple' }];
 
-  color: string;
+  color: string = '';
 
   availableColors = [
     { name: 'none', color: '' },

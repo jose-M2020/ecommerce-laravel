@@ -46,12 +46,12 @@ export class CustomersComponent
   IGroupingView,
   ISearchView,
   IFilterView {
-  paginator: PaginatorState;
-  sorting: SortState;
-  grouping: GroupingState;
-  isLoading: boolean;
-  filterGroup: FormGroup;
-  searchGroup: FormGroup;
+  paginator!: PaginatorState;
+  sorting!: SortState;
+  grouping!: GroupingState;
+  isLoading!: boolean;
+  filterGroup!: FormGroup;
+  searchGroup!: FormGroup;
   private subscriptions: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 
   constructor(
@@ -84,23 +84,27 @@ export class CustomersComponent
       searchTerm: [''],
     });
     this.subscriptions.push(
-      this.filterGroup.controls.status.valueChanges.subscribe(() =>
+      this.filterGroup.controls['status'].valueChanges.subscribe(() =>
         this.filter()
       )
     );
     this.subscriptions.push(
-      this.filterGroup.controls.type.valueChanges.subscribe(() => this.filter())
+      this.filterGroup.controls['type'].valueChanges.subscribe(() => this.filter())
     );
   }
 
   filter() {
-    const filter = {};
-    const status = this.filterGroup.get('status').value;
+    const filter = {
+      status: null,
+      type: null
+    };
+    
+    const status = this.filterGroup.get('status')?.value;
     if (status) {
       filter['status'] = status;
     }
 
-    const type = this.filterGroup.get('type').value;
+    const type = this.filterGroup.get('type')?.value;
     if (type) {
       filter['type'] = type;
     }
@@ -112,7 +116,7 @@ export class CustomersComponent
     this.searchGroup = this.fb.group({
       searchTerm: [''],
     });
-    const searchEvent = this.searchGroup.controls.searchTerm.valueChanges
+    const searchEvent = this.searchGroup.controls['searchTerm'].valueChanges
       .pipe(
         /*
       The user can type quite quickly in the input box, and that could trigger a lot of server requests. With this operator,
@@ -152,7 +156,7 @@ export class CustomersComponent
     this.edit(undefined);
   }
 
-  edit(id: number) {
+  edit(id: number | undefined) {
     const modalRef = this.modalService.open(EditCustomerModalComponent, { size: 'xl' });
     modalRef.componentInstance.id = id;
     modalRef.result.then(() =>

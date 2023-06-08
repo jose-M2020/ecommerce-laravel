@@ -9,7 +9,7 @@ import { KTUtil } from '../../../../assets/js/components/util';
 })
 export class Wizard2Component implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild('wizard', { static: true }) el: ElementRef;
+  @ViewChild('wizard', { static: true }) el!: ElementRef;
 
   model: any = {
     fname: 'John',
@@ -53,7 +53,7 @@ export class Wizard2Component implements OnInit, AfterViewInit, OnDestroy {
     });
 
     // Validation before going to next page
-    this.wizard.on('beforeNext', (wizardObj) => {
+    this.wizard.on('beforeNext', (wizardObj: any) => {
       // https://angular.io/guide/forms
       // https://angular.io/guide/form-validation
 

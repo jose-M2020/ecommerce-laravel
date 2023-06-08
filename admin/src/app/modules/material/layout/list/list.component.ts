@@ -138,9 +138,9 @@ export class ListSectionsExample {
   ],
 })
 export class ListComponent implements OnInit {
-  exampleBasicList;
-  exampleListWithSelection;
-  exampleListWithSection;
+  exampleBasicList: any;
+  exampleListWithSelection: any;
+  exampleListWithSection: any;
   folders = [
     {
       name: 'Photos',

@@ -41,12 +41,12 @@ export class ProductsComponent
   IGroupingView,
   ISearchView,
   IFilterView {
-  paginator: PaginatorState;
-  sorting: SortState;
-  grouping: GroupingState;
-  isLoading: boolean;
-  filterGroup: FormGroup;
-  searchGroup: FormGroup;
+  paginator!: PaginatorState;
+  sorting!: SortState;
+  grouping!: GroupingState;
+  isLoading!: boolean;
+  filterGroup!: FormGroup;
+  searchGroup!: FormGroup;
   private subscriptions: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 
   constructor(
@@ -80,25 +80,29 @@ export class ProductsComponent
       searchTerm: [''],
     });
     this.subscriptions.push(
-      this.filterGroup.controls.status.valueChanges.subscribe(() =>
+      this.filterGroup.controls['status'].valueChanges.subscribe(() =>
         this.filter()
       )
     );
     this.subscriptions.push(
-      this.filterGroup.controls.condition.valueChanges.subscribe(() => this.filter())
+      this.filterGroup.controls['condition'].valueChanges.subscribe(() => this.filter())
     );
   }
 
   filter() {
-    const filter = {};
-    const status = this.filterGroup.get('status').value;
+    const filter = {
+      status: undefined,
+      condition: undefined
+    };
+
+    const status = this.filterGroup?.get('status')?.value;
     if (status) {
-      filter['status'] = status;
+      filter.status = status;
     }
 
-    const condition = this.filterGroup.get('condition').value;
+    const condition = this.filterGroup?.get('condition')?.value;
     if (condition) {
-      filter['condition'] = condition;
+      filter.condition = condition;
     }
     this.productsService.patchState({ filter });
   }
@@ -108,7 +112,7 @@ export class ProductsComponent
     this.searchGroup = this.fb.group({
       searchTerm: [''],
     });
-    const searchEvent = this.searchGroup.controls.searchTerm.valueChanges
+    const searchEvent = this.searchGroup.controls['searchTerm'].valueChanges
       .pipe(
         /*
   The user can type quite quickly in the input box, and that could trigger a lot of server requests. With this operator,

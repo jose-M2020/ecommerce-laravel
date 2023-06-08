@@ -75,14 +75,14 @@ export class RippleOverviewExample {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RipplesComponent implements OnInit {
-  exampleBasic;
+  exampleBasic: any;
 
   centered = false;
   disabled = false;
   unbounded = false;
 
-  radius: number;
-  color: string;
+  radius!: number;
+  color: string = '';
 
   ngOnInit() {
     this.exampleBasic = basic;

@@ -470,26 +470,26 @@ export interface StateGroup {
   ],
 })
 export class AutocompleteComponent implements OnInit {
-  exampleSimpleAutocomplete;
-  exampleAddingACustomFilter;
-  exampleSettingSeparateControlAndDisplayValues;
-  exampleAutomaticallyHighlightingTheFirstOption;
-  exampleAutocompleteOverview;
-  exampleOptionGroupsAutocomplete;
+  exampleSimpleAutocomplete: any;
+  exampleAddingACustomFilter: any;
+  exampleSettingSeparateControlAndDisplayValues: any;
+  exampleAutomaticallyHighlightingTheFirstOption: any;
+  exampleAutocompleteOverview: any;
+  exampleOptionGroupsAutocomplete: any;
 
   myControl: FormControl = new FormControl();
   options = ['One', 'Two', 'Three'];
 
   myControl2: FormControl = new FormControl();
-  filteredOptions: Observable<string[]>;
+  filteredOptions!: Observable<string[]>;
 
   myControl33 = new FormControl();
   options33 = [new User('Mary'), new User('Shelley'), new User('Igor')];
-  filteredOptions33: Observable<User[]>;
+  filteredOptions33!: Observable<User[]>;
 
   myControl44: FormControl = new FormControl();
   options44 = ['One', 'Two', 'Three'];
-  filteredOptions44: Observable<string[]>;
+  filteredOptions44!: Observable<string[]>;
 
   stateCtrl: FormControl;
   filteredStates: Observable<any[]>;
@@ -628,7 +628,7 @@ export class AutocompleteComponent implements OnInit {
     },
   ];
 
-  stateGroupOptions: Observable<StateGroup[]>;
+  stateGroupOptions!: Observable<StateGroup[]>;
 
   constructor(private fb: FormBuilder) {
     this.stateCtrl = new FormControl();

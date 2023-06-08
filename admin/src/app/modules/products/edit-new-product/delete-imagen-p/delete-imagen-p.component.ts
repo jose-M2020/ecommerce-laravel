@@ -12,7 +12,7 @@ export class DeleteImagenPComponent implements OnInit {
   @Input() imagen_:any = null;
   @Output() ImagenE: EventEmitter<any> = new EventEmitter();
   
-  isLoading$;
+  isLoading$: any;
   isLoading = false;
 
   constructor(

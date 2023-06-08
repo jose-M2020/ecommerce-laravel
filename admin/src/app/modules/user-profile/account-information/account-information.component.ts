@@ -10,9 +10,9 @@ import { AuthService, UserModel } from '../../auth';
   styleUrls: ['./account-information.component.scss']
 })
 export class AccountInformationComponent implements OnInit, OnDestroy {
-  formGroup: FormGroup;
-  user: UserModel;
-  firstUserState: UserModel;
+  formGroup!: FormGroup;
+  user!: UserModel;
+  firstUserState!: UserModel;
   subscriptions: Subscription[] = [];
   isLoading$: Observable<boolean>;
 

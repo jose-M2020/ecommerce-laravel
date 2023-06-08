@@ -46,7 +46,7 @@ export class UsersService {
     );
   }
 
-  update(user_Id,data){
+  update(user_Id: string, data: any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/users/admin/update/"+user_Id;
@@ -55,7 +55,7 @@ export class UsersService {
     );
   }
 
-  deleteUser(user_Id){
+  deleteUser(user_Id: string){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/users/admin/delete/"+user_Id;

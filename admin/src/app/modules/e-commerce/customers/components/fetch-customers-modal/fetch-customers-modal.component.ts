@@ -11,7 +11,7 @@ import { CustomersService } from '../../../_services';
   styleUrls: ['./fetch-customers-modal.component.scss']
 })
 export class FetchCustomersModalComponent implements OnInit, OnDestroy {
-  @Input() ids: number[];
+  @Input() ids!: number[];
   customers: Customer[] = [];
   isLoading = false;
   subscriptions: Subscription[] = [];

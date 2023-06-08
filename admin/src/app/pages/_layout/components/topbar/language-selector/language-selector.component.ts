@@ -16,7 +16,7 @@ interface LanguageFlag {
   styleUrls: ['./language-selector.component.scss'],
 })
 export class LanguageSelectorComponent implements OnInit {
-  language: LanguageFlag;
+  language!: LanguageFlag;
   languages: LanguageFlag[] = [
     {
       lang: 'en',
@@ -63,12 +63,12 @@ export class LanguageSelectorComponent implements OnInit {
       });
   }
 
-  setLanguageWithRefresh(lang) {
+  setLanguageWithRefresh(lang: string) {
     this.setLanguage(lang);
     window.location.reload();
   }
 
-  setLanguage(lang) {
+  setLanguage(lang: string) {
     this.languages.forEach((language: LanguageFlag) => {
       if (language.lang === lang) {
         language.active = true;

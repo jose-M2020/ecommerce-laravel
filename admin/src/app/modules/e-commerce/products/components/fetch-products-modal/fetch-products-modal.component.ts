@@ -11,7 +11,7 @@ import { ProductsService } from '../../../_services';
   styleUrls: ['./fetch-products-modal.component.scss']
 })
 export class FetchProductsModalComponent implements OnInit, OnDestroy {
-  @Input() ids: number[];
+  @Input() ids!: number[];
   products: Product[] = [];
   isLoading = false;
   subscriptions: Subscription[] = [];

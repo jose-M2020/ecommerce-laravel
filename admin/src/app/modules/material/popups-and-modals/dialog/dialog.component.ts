@@ -292,13 +292,13 @@ export interface DialogData {
 export class DialogComponent implements OnInit {
   animal2 = '';
   animalSubject = new BehaviorSubject<string>('');
-  animal$: Observable<string>;
-  animal: string;
-  name: string;
+  animal$!: Observable<string>;
+  animal: string = '';
+  name: string = '';
 
-  exampleBasic;
-  exampleInjecting;
-  examplHeader;
+  exampleBasic: any;
+  exampleInjecting: any;
+  examplHeader: any;
 
   constructor(public dialog: MatDialog) {}
 

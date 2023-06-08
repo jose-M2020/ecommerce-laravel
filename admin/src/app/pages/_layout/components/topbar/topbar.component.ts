@@ -20,18 +20,18 @@ import { KTUtil } from '../../../../../assets/js/components/util';
 export class TopbarComponent implements OnInit, AfterViewInit {
   user$: any = null;;
   // tobbar extras
-  extraSearchDisplay: boolean;
-  extrasSearchLayout: 'offcanvas' | 'dropdown';
-  extrasNotificationsDisplay: boolean;
-  extrasNotificationsLayout: 'offcanvas' | 'dropdown';
-  extrasQuickActionsDisplay: boolean;
-  extrasQuickActionsLayout: 'offcanvas' | 'dropdown';
-  extrasCartDisplay: boolean;
-  extrasCartLayout: 'offcanvas' | 'dropdown';
-  extrasQuickPanelDisplay: boolean;
-  extrasLanguagesDisplay: boolean;
-  extrasUserDisplay: boolean;
-  extrasUserLayout: 'offcanvas' | 'dropdown';
+  extraSearchDisplay: boolean = false;
+  extrasSearchLayout!: 'offcanvas' | 'dropdown';
+  extrasNotificationsDisplay: boolean = false;
+  extrasNotificationsLayout!: 'offcanvas' | 'dropdown';
+  extrasQuickActionsDisplay: boolean = false;
+  extrasQuickActionsLayout!: 'offcanvas' | 'dropdown';
+  extrasCartDisplay: boolean = false;
+  extrasCartLayout!: 'offcanvas' | 'dropdown';
+  extrasQuickPanelDisplay: boolean = false;
+  extrasLanguagesDisplay: boolean = false;
+  extrasUserDisplay: boolean = false;
+  extrasUserLayout!: 'offcanvas' | 'dropdown';
 
   constructor(private layout: LayoutService, private auth: AuthService) {
     // this.user$ = this.auth.currentUserSubject.asObservable();

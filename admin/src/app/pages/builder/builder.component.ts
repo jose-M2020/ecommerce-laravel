@@ -16,7 +16,7 @@ import KTLayoutExamples from '../../../assets/js/layout/extended/examples';
 })
 export class BuilderComponent implements OnInit, AfterViewInit {
   model: any;
-  @ViewChild('form', { static: true }) form: NgForm;
+  @ViewChild('form', { static: true }) form?: NgForm;
   activeTabId = 1;
   constructor(private layout: LayoutService, private el: ElementRef) {}
 

@@ -53,7 +53,7 @@ export class SalesListComponent implements OnInit {
     this.allSales();
   }
 
-  showDetail(sale){
+  showDetail(sale: any){
     const modalRef = this._modelService.open(DetailSalesListComponent, {centered : true, size: 'md'});
     modalRef.componentInstance.sale = sale;
     modalRef.result.then(

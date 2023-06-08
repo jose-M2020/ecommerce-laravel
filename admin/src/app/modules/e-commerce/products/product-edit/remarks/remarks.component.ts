@@ -39,12 +39,12 @@ export class RemarksComponent
     ISearchView,
     IEditAction,
     ICreateAction {
-  @Input() productId: number;
-  paginator: PaginatorState;
-  sorting: SortState;
-  grouping: GroupingState;
-  isLoading: boolean;
-  searchGroup: FormGroup;
+  @Input() productId!: number;
+  paginator!: PaginatorState;
+  sorting!: SortState;
+  grouping!: GroupingState;
+  isLoading!: boolean;
+  searchGroup!: FormGroup;
   private subscriptions: Subscription[] = [];
 
   constructor(
@@ -74,7 +74,7 @@ export class RemarksComponent
     this.searchGroup = this.fb.group({
       searchTerm: [''],
     });
-    const searchEvent = this.searchGroup.controls.searchTerm.valueChanges
+    const searchEvent = this.searchGroup.controls[`searchTerm`].valueChanges
       .pipe(
         /*
   The user can type quite quickly in the input box, and that could trigger a lot of server requests. With this operator,
@@ -134,7 +134,7 @@ export class RemarksComponent
     );
   }
 
-  edit(id: number): void {
+  edit(id: number | undefined): void {
     const modalRef = this.modalService.open(EditRemarkModalComponent);
     modalRef.componentInstance.id = id;
     modalRef.componentInstance.productId = this.productId;

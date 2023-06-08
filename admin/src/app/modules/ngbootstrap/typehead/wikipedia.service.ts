@@ -24,6 +24,6 @@ export class WikipediaService {
 
     return this.http
       .get(WIKI_URL, { params: PARAMS.set('search', term) })
-      .pipe(map((response) => response[1]));
+      .pipe(map((response: any) => response[1]));
   }
 }

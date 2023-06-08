@@ -4,7 +4,7 @@
 import { KTUtil } from "./util";
 
 // Component Definition
-var KTWizard = function(elementId, options) {
+const KTWizard = function(elementId, options) {
     // Main object
     var the = this;
     var init = false;

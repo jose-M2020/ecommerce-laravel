@@ -125,12 +125,12 @@ export class EditSpecModalComponent implements OnInit, OnDestroy {
     return control.invalid && (control.dirty || control.touched);
   }
 
-  controlHasError(validation, controlName): boolean {
+  controlHasError(validation: any, controlName: string): boolean {
     const control = this.formGroup.controls[controlName];
     return control.hasError(validation) && (control.dirty || control.touched);
   }
 
-  isControlTouched(controlName): boolean {
+  isControlTouched(controlName: string): boolean {
     const control = this.formGroup.controls[controlName];
     return control.dirty || control.touched;
   }

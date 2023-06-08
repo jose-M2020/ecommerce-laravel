@@ -205,9 +205,9 @@ export class ExpansionStepsExample {
   ],
 })
 export class ExpansionPanelComponent implements OnInit {
-  exampleBasicPanel;
-  exampleDisabledPanel;
-  exampleAccordion;
+  exampleBasicPanel: any;
+  exampleDisabledPanel: any;
+  exampleAccordion: any;
   panelOpenState = false;
   isDisabled = true;
   step = 0;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { LayoutService } from '../../../../../_metronic/core';
 
-function getCurrentURL(location) {
+function getCurrentURL(location: any) {
   return location.split(/[?#]/)[0];
 }
 
@@ -12,10 +12,10 @@ function getCurrentURL(location) {
   styleUrls: ['./header-menu.component.scss'],
 })
 export class HeaderMenuComponent implements OnInit {
-  ulCSSClasses: string;
-  rootArrowEnabled: boolean;
+  ulCSSClasses: string = '';
+  rootArrowEnabled: boolean = false;
   location: Location;
-  headerMenuDesktopToggle: string;
+  headerMenuDesktopToggle: string = '';
 
   constructor(private layout: LayoutService, private loc: Location) {
     this.location = this.loc;
@@ -29,11 +29,11 @@ export class HeaderMenuComponent implements OnInit {
     );
   }
 
-  getMenuItemActive(url) {
+  getMenuItemActive(url: any) {
     return this.checkIsActive(url) ? 'menu-item-active' : '';
   }
 
-  checkIsActive(url) {
+  checkIsActive(url: any) {
     const location = this.location.path();
     const current = getCurrentURL(location);
     if (!current || !url) {

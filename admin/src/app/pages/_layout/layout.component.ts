@@ -16,19 +16,19 @@ import KTLayoutContent from '../../../assets/js/layout/base/content';
 export class LayoutComponent implements OnInit, AfterViewInit {
   // Public variables
   selfLayout = 'default';
-  asideSelfDisplay: true;
-  asideMenuStatic: false;
+  asideSelfDisplay!: Boolean;
+  asideMenuStatic!: Boolean;
   contentClasses = '';
   contentContainerClasses = '';
   subheaderDisplay = true;
-  contentExtended: false;
-  asideCSSClasses: string;
+  contentExtended!: Boolean;
+  asideCSSClasses: string = '';
   asideHTMLAttributes: any = {};
   headerMobileClasses = '';
-  headerMobileAttributes = {};
-  footerDisplay: boolean;
-  footerCSSClasses: string;
-  headerCSSClasses: string;
+  headerMobileAttributes:any = {};
+  footerDisplay!: boolean;
+  footerCSSClasses: string = '';
+  headerCSSClasses: string = '';
   headerHTMLAttributes: any = {};
   // offcanvases
   extrasSearchOffcanvasDisplay = false;
@@ -38,9 +38,9 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   extrasUserOffcanvasDisplay = false;
   extrasQuickPanelDisplay = false;
   extrasScrollTopDisplay = false;
-  @ViewChild('ktAside', { static: true }) ktAside: ElementRef;
-  @ViewChild('ktHeaderMobile', { static: true }) ktHeaderMobile: ElementRef;
-  @ViewChild('ktHeader', { static: true }) ktHeader: ElementRef;
+  @ViewChild('ktAside', { static: true }) ktAside!: ElementRef;
+  @ViewChild('ktHeaderMobile', { static: true }) ktHeaderMobile!: ElementRef;
+  @ViewChild('ktHeader', { static: true }) ktHeader!: ElementRef;
 
   constructor(
     private initService: LayoutInitService,

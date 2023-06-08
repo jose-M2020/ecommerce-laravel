@@ -524,14 +524,14 @@ span {
   ],
 })
 export class FormfieldComponent implements OnInit {
-  exampleSimpleFormField;
-  exampleFormFieldWithLabel;
-  exampleFormFieldWithHints;
-  exampleFormFieldWithErrorMessages;
-  exampleFormFieldWithPrefixSuffix;
-  exampleFormFieldTheming;
-  exampleFormFieldWithCustomTelephoneNumberInputControl;
-  exampleFormFieldAppearanceVariants;
+  exampleSimpleFormField: any;
+  exampleFormFieldWithLabel: any;
+  exampleFormFieldWithHints: any;
+  exampleFormFieldWithErrorMessages: any;
+  exampleFormFieldWithPrefixSuffix: any;
+  exampleFormFieldTheming: any;
+  exampleFormFieldWithCustomTelephoneNumberInputControl: any;
+  exampleFormFieldAppearanceVariants: any;
   options: FormGroup;
   options2: FormGroup;
 

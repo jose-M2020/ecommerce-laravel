@@ -48,7 +48,7 @@ export class BottomSheetOverviewExampleSheet {
   templateUrl: './bottom-sheet.component.html',
 })
 export class BottomSheetComponent implements OnInit {
-  exampleBasic;
+  exampleBasic: any;
   constructor(private bottomSheet: MatBottomSheet) {}
 
   openBottomSheet(): void {

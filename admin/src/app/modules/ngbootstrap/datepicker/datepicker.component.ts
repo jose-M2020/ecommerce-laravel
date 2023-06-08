@@ -597,7 +597,7 @@ export class NgbdDatepickerConfig {
  */
 @Injectable()
 export class NgbDateNativeAdapter extends NgbDateAdapter<Date> {
-  fromModel(date: Date): NgbDateStruct {
+  fromModel(date: Date): NgbDateStruct | null {
     return date && date.getFullYear
       ? {
           year: date.getFullYear(),
@@ -607,12 +607,12 @@ export class NgbDateNativeAdapter extends NgbDateAdapter<Date> {
       : null;
   }
 
-  toModel(date: NgbDateStruct): Date {
+  toModel(date: NgbDateStruct): Date | null {
     return date ? new Date(date.year, date.month - 1, date.day) : null;
   }
 }
 
-const I18N_VALUES = {
+const I18N_VALUES: any = {
   fr: {
     weekdays: ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'],
     months: [
@@ -718,11 +718,11 @@ export class DatepickerComponent implements OnInit {
   exampleAlternativeCalendar: any;
   exampleGlobalConfigurationOfDatepickers: any;
 
-  model: NgbDateStruct;
-  date: { year: number; month: number };
-  secondModel;
-  fourthModel;
-  fifthModel: NgbDateStruct;
+  model!: NgbDateStruct;
+  date!: { year: number; month: number };
+  secondModel: any;
+  fourthModel: any;
+  fifthModel!: NgbDateStruct;
   displayMonths = 2;
   navigation = 'select';
   showWeekNumbers = false;
@@ -732,13 +732,13 @@ export class DatepickerComponent implements OnInit {
     day: now.getDate(),
   };
   disabled = true;
-  hoveredDate: NgbDateStruct;
+  hoveredDate?: NgbDateStruct | null;
 
   fromDate: NgbDateStruct;
-  toDate: NgbDateStruct;
-  model1: Date;
-  model2: Date;
-  sixModel;
+  toDate: NgbDateStruct | null;
+  model1!: Date;
+  model2!: Date;
+  sixModel: any;
 
   ngOnInit() {
     this.exampleBasicDatepicker = basicDatepicker;
@@ -770,7 +770,7 @@ export class DatepickerComponent implements OnInit {
     return d.getDay() === 0 || d.getDay() === 6;
   }
 
-  isDisabled(date: NgbDateStruct, current: { month: number }) {
+  isDisabled(date: NgbDateStruct, current: { month: number }): boolean {
     return date.month !== current.month;
   }
 
@@ -802,14 +802,14 @@ export class DatepickerComponent implements OnInit {
     }
   }
 
-  isHovered = (date) =>
+  isHovered = (date: any) =>
     this.fromDate &&
     !this.toDate &&
     this.hoveredDate &&
     after(date, this.fromDate) &&
     // tslint:disable-next-line:semicolon
     before(date, this.hoveredDate);
-  isInside = (date) => after(date, this.fromDate) && before(date, this.toDate);
-  isFrom = (date) => equals(date, this.fromDate);
-  isTo = (date) => equals(date, this.toDate);
+  isInside = (date: any) => after(date, this.fromDate) && before(date, this.toDate);
+  isFrom = (date: any) => equals(date, this.fromDate);
+  isTo = (date: any) => equals(date, this.toDate);
 }

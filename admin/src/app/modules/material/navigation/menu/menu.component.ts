@@ -164,10 +164,10 @@ export class MenuCustomizingExample {}
   templateUrl: './menu.component.html',
 })
 export class MenuComponent implements OnInit {
-  exampleBasicMenu;
-  exampleNestedMenu;
-  exampleMenuWithIcons;
-  exampleToggling;
+  exampleBasicMenu: any;
+  exampleNestedMenu: any;
+  exampleMenuWithIcons: any;
+  exampleToggling: any;
 
   ngOnInit() {
     this.exampleBasicMenu = basicMenu;

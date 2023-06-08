@@ -11,12 +11,12 @@ import { LayoutService, DynamicHeaderMenuService } from '../../../../../_metroni
 })
 export class HeaderMenuDynamicComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
-  currentUrl: string;
+  currentUrl: string = '';
   menuConfig: any;
 
-  ulCSSClasses: string;
-  rootArrowEnabled: boolean;
-  headerMenuDesktopToggle: string;
+  ulCSSClasses: string = '';
+  rootArrowEnabled: boolean = false;
+  headerMenuDesktopToggle: string = '';
 
   constructor(
     private layout: LayoutService,
@@ -33,9 +33,11 @@ export class HeaderMenuDynamicComponent implements OnInit, OnDestroy {
 
     // router subscription
     this.currentUrl = this.router.url.split(/[?#]/)[0];
-    const routerSubscr = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
+    const routerSubscr = this.router.events
+    .pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    )
+    .subscribe((event) => {
       this.currentUrl = event.url;
       this.cdr.detectChanges();
     });
@@ -49,7 +51,7 @@ export class HeaderMenuDynamicComponent implements OnInit, OnDestroy {
     this.subscriptions.push(menuSubscr);
   }
 
-  isMenuItemActive(path) {
+  isMenuItemActive(path: string){
     if (!this.currentUrl || !path) {
       return false;
     }

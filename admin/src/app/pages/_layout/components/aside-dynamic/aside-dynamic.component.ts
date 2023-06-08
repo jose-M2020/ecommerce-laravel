@@ -13,18 +13,18 @@ export class AsideDynamicComponent implements OnInit, OnDestroy {
   menuConfig: any;
   subscriptions: Subscription[] = [];
 
-  disableAsideSelfDisplay: boolean;
-  headerLogo: string;
-  brandSkin: string;
-  ulCSSClasses: string;
+  disableAsideSelfDisplay: boolean = true;
+  headerLogo: string = '';
+  brandSkin: string = '';
+  ulCSSClasses: string = '';
   asideMenuHTMLAttributes: any = {};
-  asideMenuCSSClasses: string;
-  asideMenuDropdown;
-  brandClasses: string;
+  asideMenuCSSClasses: string = '';
+  asideMenuDropdown: any;
+  brandClasses: string = '';
   asideMenuScroll = 1;
   asideSelfMinimizeToggle = false;
 
-  currentUrl: string;
+  currentUrl: string = '';
 
   constructor(
     private layout: LayoutService,
@@ -34,8 +34,7 @@ export class AsideDynamicComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // load view settings
-    this.disableAsideSelfDisplay =
-      this.layout.getProp('aside.self.display') === false;
+    this.disableAsideSelfDisplay = this.layout.getProp('aside.self.display') === false;
     this.brandSkin = this.layout.getProp('brand.self.theme');
     this.headerLogo = this.getLogo();
     this.ulCSSClasses = this.layout.getProp('aside_menu_nav');
@@ -51,9 +50,11 @@ export class AsideDynamicComponent implements OnInit, OnDestroy {
 
     // router subscription
     this.currentUrl = this.router.url.split(/[?#]/)[0];
-    const routerSubscr = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
+    const routerSubscr = this.router.events
+    .pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    )
+    .subscribe( (event) => {
       this.currentUrl = event.url;
       this.cdr.detectChanges();
     });
@@ -75,7 +76,7 @@ export class AsideDynamicComponent implements OnInit, OnDestroy {
     }
   }
 
-  isMenuItemActive(path) {
+  isMenuItemActive(path: any) {
     if (!this.currentUrl || !path) {
       return false;
     }

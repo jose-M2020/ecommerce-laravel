@@ -10,7 +10,7 @@ import { RemarksService } from '../../../../_services';
   styleUrls: ['./delete-remark-modal.component.scss']
 })
 export class DeleteRemarkModalComponent implements OnInit, OnDestroy {
-  @Input() id: number;
+  @Input() id!: number;
   isLoading = false;
   subscriptions: Subscription[] = [];
 

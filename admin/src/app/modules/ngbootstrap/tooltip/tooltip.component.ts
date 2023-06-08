@@ -252,17 +252,17 @@ export class NgbdTooltipConfig {
   providers: [NgbTooltipConfig], // add NgbTooltipConfig to the component providers
 })
 export class TooltipComponent implements OnInit {
-  exampleQuickAndEasyTooltips;
-  exampleHTMLAndBindingsInTooltipsl;
-  exampleCustomAndManualTriggers;
-  exampleContextAndManualTriggers;
-  exampleAppendTooltipInTheBody;
-  exampleGlobalConfigurationOfTooltips;
+  exampleQuickAndEasyTooltips: any;
+  exampleHTMLAndBindingsInTooltipsl: any;
+  exampleCustomAndManualTriggers: any;
+  exampleContextAndManualTriggers: any;
+  exampleAppendTooltipInTheBody: any;
+  exampleGlobalConfigurationOfTooltips: any;
   name = 'World';
   greeting = {};
   name2 = 'World';
 
-  @ViewChild('t2', { static: true }) public tooltip: NgbTooltip;
+  @ViewChild('t2', { static: true }) public tooltip!: NgbTooltip;
 
   public changeGreeting(greeting: any): void {
     const isOpen = this.tooltip.isOpen();

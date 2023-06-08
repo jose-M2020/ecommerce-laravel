@@ -135,9 +135,9 @@ export class DividerComponent implements OnInit {
     },
   ];
 
-  exampleBasicDivider;
-  exampleVertical;
-  exampleList;
+  exampleBasicDivider: any;
+  exampleVertical: any;
+  exampleList: any;
   ngOnInit() {
     this.exampleBasicDivider = basicDivider;
     this.exampleVertical = verticalDivider;

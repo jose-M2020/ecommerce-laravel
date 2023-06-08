@@ -92,11 +92,10 @@
               <mat-option value="option">Kansas</mat-option>
               <mat-option value="option">Michigan</mat-option>
             </mat-select>
-            <mat-placeholder>
-              <!-- <mat-icon>favorite</mat-icon> -->
+            <!-- <mat-placeholder>
               <b> Fancy</b>
               <i> placeholder</i>
-            </mat-placeholder>
+            </mat-placeholder> -->
           </mat-form-field>
         </div>
       </div>
@@ -112,7 +111,7 @@
               maxlength="10"
               placeholder="Enter some input"
             />
-            <mat-hint align="end">{{ input.value?.length || 0 }}/10</mat-hint>
+            <mat-hint align="end">{{ input.value.length || 0 }}/10</mat-hint>
           </mat-form-field>
           <div class="separator separator-dashed my-6"></div>
           <mat-form-field>
@@ -208,7 +207,7 @@
       <div class="example-preview">
         <div class="example-container">
           <p>
-            <mat-form-field appearance="legacy">
+            <mat-form-field appearance="outline">
               <mat-label>Legacy form field</mat-label>
               <input matInput placeholder="Placeholder" />
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
@@ -216,7 +215,7 @@
             </mat-form-field>
           </p>
           <p>
-            <mat-form-field appearance="standard">
+            <mat-form-field appearance="outline">
               <mat-label>Standard form field</mat-label>
               <input matInput placeholder="Placeholder" />
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>

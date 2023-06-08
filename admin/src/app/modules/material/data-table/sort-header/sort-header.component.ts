@@ -208,7 +208,7 @@ const ELEMENT_DATA: Element[] = [
   { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
 ];
 
-function compare(a, b, isAsc) {
+function compare(a: any, b: any, isAsc: any) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
 
@@ -237,8 +237,8 @@ function compare(a, b, isAsc) {
   ],
 })
 export class SortHeaderComponent implements OnInit, AfterViewInit {
-  exampleBasic;
-  exampleConfig;
+  exampleBasic: any;
+  exampleConfig: any;
 
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -271,8 +271,8 @@ export class SortHeaderComponent implements OnInit, AfterViewInit {
 
   sortedData;
 
-  @ViewChild('sort1', { static: true }) sort1: MatSort;
-  @ViewChild('sort2', { static: true }) sort2: MatSort;
+  @ViewChild('sort1', { static: true }) sort1!: MatSort;
+  @ViewChild('sort2', { static: true }) sort2!: MatSort;
 
   ngOnInit() {
     this.exampleBasic = basic;

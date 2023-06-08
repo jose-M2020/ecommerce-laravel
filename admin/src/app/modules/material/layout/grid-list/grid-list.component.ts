@@ -90,8 +90,8 @@ export class GridListComponent implements OnInit {
     { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
   ];
 
-  exampleBasicGrid;
-  exampleDynamicGrid;
+  exampleBasicGrid: any;
+  exampleDynamicGrid: any;
   ngOnInit() {
     this.exampleBasicGrid = basicGrid;
     this.exampleDynamicGrid = dynamicGrid;

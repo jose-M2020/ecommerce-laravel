@@ -229,7 +229,7 @@
         <div class="form-group row" *ngIf="checked_inventario == 2">
             <div class="col-2">
                 <label class="form-label">DIMENSIONES : *</label>
-                <select name="product_size_id" (change)="changeDimension($event.target.value)" class="form-control form-control-solid form-control-lg" [(ngModel)]="product_size_id">
+                <select name="product_size_id" (change)="handleChangeDimension($event)" class="form-control form-control-solid form-control-lg" [(ngModel)]="product_size_id">
                     <option value="">Ninguno</option>
                     <ng-container *ngFor="let item of products_color_sizes">
                         <option [value]="item.id">{{ item.name }}</option>

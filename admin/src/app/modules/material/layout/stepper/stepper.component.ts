@@ -171,13 +171,13 @@ export class ListSectionsExample {
   templateUrl: './stepper.component.html',
 })
 export class StepperComponent implements OnInit {
-  exampleBasicStepper;
-  exampleHorizontalStepper;
-  exampleStepperOverview;
+  exampleBasicStepper: any;
+  exampleHorizontalStepper: any;
+  exampleStepperOverview: any;
 
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  firstFormGroup!: FormGroup;
+  secondFormGroup!: FormGroup;
 
   // tslint:disable-next-line:variable-name
   constructor(private _formBuilder: FormBuilder) {}

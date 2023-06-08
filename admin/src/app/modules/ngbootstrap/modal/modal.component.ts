@@ -484,7 +484,7 @@ export class NgbdModalVerticallycentered {
   `,
 })
 export class NgbdModalContentComponent {
-  @Input() name;
+  @Input() name?: string;
   constructor(public activeModal: NgbActiveModal) {}
 }
 
@@ -505,20 +505,20 @@ export class NgbdModalContentComponent {
   ],
 })
 export class ModalComponent implements OnInit {
-  exampleModalWithDefaultOptions;
-  exampleComponentsAsContent;
-  exampleModalWithCustomClass;
-  exampleScrollableFixedContent;
-  exampleScrollingLongContent;
-  exampleLargeModal;
-  exampleSmallModal;
-  exampleVerticallyCentered;
+  exampleModalWithDefaultOptions: any;
+  exampleComponentsAsContent: any;
+  exampleModalWithCustomClass: any;
+  exampleScrollableFixedContent: any;
+  exampleScrollingLongContent: any;
+  exampleLargeModal: any;
+  exampleSmallModal: any;
+  exampleVerticallyCentered: any;
 
-  closeResult: string;
-  closeResult2: string;
+  closeResult!: string;
+  closeResult2!: string;
   constructor(private modalService: NgbModal) {}
 
-  open(content) {
+  open(content: any) {
     this.modalService.open(content).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
@@ -534,7 +534,7 @@ export class ModalComponent implements OnInit {
     modalRef.componentInstance.name = 'World';
   }
 
-  open3(content) {
+  open3(content: any) {
     this.modalService.open(content, { windowClass: 'dark-modal' });
   }
 
@@ -548,19 +548,19 @@ export class ModalComponent implements OnInit {
     }
   }
 
-  openLarge(content) {
+  openLarge(content: any) {
     this.modalService.open(content, {
       size: 'lg',
     });
   }
 
-  openSmall(content) {
+  openSmall(content: any) {
     this.modalService.open(content, {
       size: 'sm',
     });
   }
 
-  openCentred(content) {
+  openCentred(content: any) {
     this.modalService.open(
       content
       // { centered: true }

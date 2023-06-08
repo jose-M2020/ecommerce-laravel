@@ -10,9 +10,9 @@ import { AuthService, UserModel, ConfirmPasswordValidator } from '../../auth';
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent implements OnInit, OnDestroy {
-  formGroup: FormGroup;
-  user: UserModel;
-  firstUserState: UserModel;
+  formGroup!: FormGroup;
+  user!: UserModel;
+  firstUserState!: UserModel;
   subscriptions: Subscription[] = [];
   isLoading$: Observable<boolean>;
 
@@ -75,12 +75,12 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
     return control.invalid && (control.dirty || control.touched);
   }
 
-  controlHasError(validation, controlName): boolean {
+  controlHasError(validation: any, controlName: any): boolean {
     const control = this.formGroup.controls[controlName];
     return control.hasError(validation) && (control.dirty || control.touched);
   }
 
-  isControlTouched(controlName): boolean {
+  isControlTouched(controlName: any): boolean {
     const control = this.formGroup.controls[controlName];
     return control.dirty || control.touched;
   }

@@ -495,19 +495,19 @@ const moment = _moment;
   ],
 })
 export class DatepickerComponent implements OnInit {
-  exampleBasicDatepicker;
-  exampleDatepickerStartDate;
-  exampleDatepickerSelectedValue;
-  exampleDatepickerWithMinMaxValidation;
-  exampleDatepickerWithFilterValidation;
-  exampleDatepickerInputAndChangeEvents;
-  exampleDisabledDatepicker;
-  exampleDatepickerTouchUI;
-  exampleDatepickerOpenMethod;
-  exampleDatepickerWithDifferentLocale;
-  exampleDatepickerThatUsesMomentJsDates;
-  exampleDatepickerWithCustomFormats;
-  exampleUsesMomentJsDates;
+  exampleBasicDatepicker: any;
+  exampleDatepickerStartDate: any;
+  exampleDatepickerSelectedValue: any;
+  exampleDatepickerWithMinMaxValidation: any;
+  exampleDatepickerWithFilterValidation: any;
+  exampleDatepickerInputAndChangeEvents: any;
+  exampleDisabledDatepicker: any;
+  exampleDatepickerTouchUI: any;
+  exampleDatepickerOpenMethod: any;
+  exampleDatepickerWithDifferentLocale: any;
+  exampleDatepickerThatUsesMomentJsDates: any;
+  exampleDatepickerWithCustomFormats: any;
+  exampleUsesMomentJsDates: any;
 
   startDate = new Date(1990, 0, 1);
   date = new FormControl(new Date());

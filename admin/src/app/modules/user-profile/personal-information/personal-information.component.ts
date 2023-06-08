@@ -10,9 +10,9 @@ import { AuthService, UserModel } from '../../auth';
   styleUrls: ['./personal-information.component.scss']
 })
 export class PersonalInformationComponent implements OnInit, OnDestroy {
-  formGroup: FormGroup;
-  user: UserModel;
-  firstUserState: UserModel;
+  formGroup!: FormGroup;
+  user!: UserModel;
+  firstUserState!: UserModel;
   subscriptions: Subscription[] = [];
   avatarPic = 'none';
   isLoading$: Observable<boolean>;

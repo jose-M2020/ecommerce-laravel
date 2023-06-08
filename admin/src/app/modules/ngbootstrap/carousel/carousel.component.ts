@@ -187,11 +187,11 @@ export class CarouselComponent implements OnInit {
   exampleCarousel: any;
   exampleGlobalConfigurationOfCarousels: any;
   exampleNavigationArrowsAndIndicatorsCarousel: any;
-  images: Array<string>;
-  secondImages: Array<string>;
+  images: Array<string> = [];
+  secondImages: Array<string> = [];
   showNavigationArrows = false;
   showNavigationIndicators = false;
-  thirdImages: Array<string>;
+  thirdImages: Array<string> = [];
 
   // tslint:disable-next-line:variable-name
   constructor(private _http: HttpClient, config: NgbCarouselConfig) {

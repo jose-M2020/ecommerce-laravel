@@ -290,12 +290,12 @@ export class NgbdRatingConfig {
   providers: [NgbRatingConfig], // add NgbRatingConfig to the component providers
 })
 export class RatingComponent implements OnInit {
-  exampleBasicDemo;
-  exampleEventsAndReadonlyRatings;
-  exampleCustomStarTemplate;
-  exampleCustomDecimalRating;
-  exampleFormIntegration;
-  exampleGlobalConfigurationOfRatings;
+  exampleBasicDemo: any;
+  exampleEventsAndReadonlyRatings: any;
+  exampleCustomStarTemplate: any;
+  exampleCustomDecimalRating: any;
+  exampleFormIntegration: any;
+  exampleGlobalConfigurationOfRatings: any;
 
   currentRate = 8;
   currentRate1 = 6;

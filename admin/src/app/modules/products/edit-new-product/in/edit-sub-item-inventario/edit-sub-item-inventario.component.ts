@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Toaster } from 'ngx-toast-notifications';
-import { NoticyAlertComponent } from 'src/app/componets/notifications/noticy-alert/noticy-alert.component';
+import { NoticyAlertComponent } from 'src/app/components/notifications/noticy-alert/noticy-alert.component';
 import { ProductsService } from '../../../_services/products.service';
 
 @Component({

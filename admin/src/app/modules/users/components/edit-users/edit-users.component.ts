@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Toaster } from 'ngx-toast-notifications';
-import { NoticyAlertComponent } from 'src/app/componets/notifications/noticy-alert/noticy-alert.component';
 import { UsersService } from '../../_services/users.service';
+import { NoticyAlertComponent } from 'src/app/components/notifications/noticy-alert/noticy-alert.component';
 
 @Component({
   selector: 'app-edit-users',
@@ -15,10 +15,10 @@ export class EditUsersComponent implements OnInit {
   @Input() user_selected:any = null;
   @Output() usersE: EventEmitter<any> = new EventEmitter();
   
-  isLoading$;
+  isLoading$: any;
   isLoading = false;
 
-  formGroup: FormGroup;
+  formGroup!: FormGroup;
 
   constructor(
     public fb:FormBuilder,

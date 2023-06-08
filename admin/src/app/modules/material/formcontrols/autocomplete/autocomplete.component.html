@@ -102,7 +102,7 @@
               />
               <mat-autocomplete
                 #auto33="matAutocomplete"
-                [displayWith]="displayFn"
+                [displayWith]="$any(displayFn)"
               >
                 <mat-option
                   *ngFor="let option of filteredOptions33 | async"

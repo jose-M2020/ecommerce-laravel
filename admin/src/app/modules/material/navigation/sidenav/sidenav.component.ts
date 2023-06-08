@@ -133,9 +133,9 @@ export class SidenavAutosizeExample {
   ],
 })
 export class SidenavComponent implements OnInit {
-  exampleBasicSidenav;
-  exampleBasicDrawer;
-  exampleAutosizeSidenav;
+  exampleBasicSidenav: any;
+  exampleBasicDrawer: any;
+  exampleAutosizeSidenav: any;
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some((h) =>
     h.test(window.location.host)

@@ -99,6 +99,7 @@ export abstract class TableService<T> {
     this._isLoading$.next(true);
     this._errorMessage.next('');
     const url = `${this.API_URL}/${id}`;
+    
     return this.http.get<BaseModel>(url).pipe(
       catchError(err => {
         this._errorMessage.next(err);

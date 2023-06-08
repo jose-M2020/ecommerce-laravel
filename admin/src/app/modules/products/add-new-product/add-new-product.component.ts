@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Toaster } from 'ngx-toast-notifications';
-import { NoticyAlertComponent } from 'src/app/componets/notifications/noticy-alert/noticy-alert.component';
+import { NoticyAlertComponent } from 'src/app/components/notifications/noticy-alert/noticy-alert.component';
 import { CategorieService } from '../../categorie/_services/categorie.service';
 import { ProductsService } from '../_services/products.service';
 
@@ -51,7 +51,7 @@ export class AddNewProductComponent implements OnInit {
     }, 50);
   }
 
-  processFile($event){
+  processFile($event: any){
     if($event.target.files[0].type.indexOf("image") < 0){
       this.toaster.open(NoticyAlertComponent,{text:`danger-'EL ARCHIVO CARGADO NO ES UNA IMAGEN'`});
       return;
@@ -67,11 +67,11 @@ export class AddNewProductComponent implements OnInit {
     this.tags.push(this.text)
     this.text = null;
   }
-  removeTags(index){
-    this.tags.splice(index,1);
+  removeTags(index: number){
+    this.tags.splice(index, 1);
   }
 
-  addFile($event){
+  addFile($event: any){
     if($event.target.files[0].type.indexOf("image") < 0){
       this.toaster.open(NoticyAlertComponent,{text:`danger-'EL ARCHIVO CARGADO NO ES UNA IMAGEN'`});
       return;
@@ -91,8 +91,8 @@ export class AddNewProductComponent implements OnInit {
     this.img_previzualizar = null;
   }
 
-  removeImages(index){
-    this.images_files.splice(index,1);
+  removeImages(index: number){
+    this.images_files.splice(index, 1);
   }
 
   createProduct(){

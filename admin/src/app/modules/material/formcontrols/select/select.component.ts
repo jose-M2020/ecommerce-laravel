@@ -451,16 +451,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   ],
 })
 export class SelectComponent implements OnInit {
-  exampleBasicSelect;
-  exampleSelectWith2WayValueBinding;
-  exampleSelectInAForm;
-  exampleSelectWithFormFieldFeature;
-  exampleSelectWithResetOption;
-  exampleSelectWithOptionGroups;
-  exampleSelectWithMultipleSelection;
-  exampleSelectWithCustomTriggerText;
-  exampleSelectWithCustomPanelStyling;
-  exampleSelectWithACustomErrorStateMatcher;
+  exampleBasicSelect: any;
+  exampleSelectWith2WayValueBinding: any;
+  exampleSelectInAForm: any;
+  exampleSelectWithFormFieldFeature: any;
+  exampleSelectWithResetOption: any;
+  exampleSelectWithOptionGroups: any;
+  exampleSelectWithMultipleSelection: any;
+  exampleSelectWithCustomTriggerText: any;
+  exampleSelectWithCustomPanelStyling: any;
+  exampleSelectWithACustomErrorStateMatcher: any;
 
   toppings = new FormControl();
   toppings2 = new FormControl();
@@ -543,7 +543,7 @@ export class SelectComponent implements OnInit {
   ];
   selected = 'option2';
 
-  selectedValue: string;
+  selectedValue: string = '';
 
   pokemonControl = new FormControl();
 
@@ -582,7 +582,10 @@ export class SelectComponent implements OnInit {
     },
   ];
 
-  animalControl = new FormControl('', [Validators.required]);
+  animalControl = new FormControl(
+    { name: null, sound: null }, 
+    [Validators.required]
+  );
 
   animals = [
     { name: 'Dog', sound: 'Woof!' },

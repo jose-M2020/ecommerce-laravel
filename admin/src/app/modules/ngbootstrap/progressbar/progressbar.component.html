@@ -34,7 +34,7 @@
         <div>
           <p>
             <ngb-progressbar
-              showValue="true"
+              [showValue]="true"
               type="success"
               [value]="25"
               [max]="100"
@@ -50,7 +50,7 @@
           </p>
           <p>
             <ngb-progressbar
-              showValue="true"
+              [showValue]="true"
               type="warning"
               [value]="150"
               [max]="200"
@@ -166,10 +166,10 @@
       <div class="example-preview">
         <p>
           <ngb-progressbar
-            value="250"
-            max="1000"
-            striped="true"
-            animated="true"
+            [value]="250"
+            [max]="1000"
+            [striped]="true"
+            [animated]="true"
             height="20px"
             type="success"
           ></ngb-progressbar>
@@ -183,10 +183,10 @@
       <div class="example-preview">
         <p>
           <ngb-progressbar
-            value="500"
-            max="1000"
-            striped="true"
-            animated="true"
+            [value]="500"
+            [max]="1000"
+            [striped]="true"
+            [animated]="true"
             height="20px"
             type="info"
           ></ngb-progressbar>

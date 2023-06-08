@@ -40,13 +40,13 @@ export class SpecificationsComponent
     ISearchView,
     IEditAction,
     ICreateAction {
-  @Input() productId: number;
+  @Input() productId!: number;
   specs: string[] = SPECIFICATIONS_DICTIONARY;
-  paginator: PaginatorState;
-  sorting: SortState;
-  grouping: GroupingState;
-  isLoading: boolean;
-  searchGroup: FormGroup;
+  paginator!: PaginatorState;
+  sorting!: SortState;
+  grouping!: GroupingState;
+  isLoading: boolean = false;
+  searchGroup!: FormGroup;
   private subscriptions: Subscription[] = [];
 
   constructor(
@@ -76,7 +76,7 @@ export class SpecificationsComponent
     this.searchGroup = this.fb.group({
       searchTerm: [''],
     });
-    const searchEvent = this.searchGroup.controls.searchTerm.valueChanges
+    const searchEvent = this.searchGroup.controls['searchTerm'].valueChanges
       .pipe(
         /*
   The user can type quite quickly in the input box, and that could trigger a lot of server requests. With this operator,
@@ -136,7 +136,7 @@ export class SpecificationsComponent
     );
   }
 
-  edit(id: number): void {
+  edit(id?: number): void {
     const modalRef = this.modalService.open(EditSpecModalComponent);
     modalRef.componentInstance.id = id;
     modalRef.componentInstance.productId = this.productId;

@@ -286,7 +286,7 @@
                   [(ngModel)]="fifthModel"
                   ngbDatepicker
                   [dayTemplate]="customDay"
-                  [markDisabled]="isDisabled"
+                  [markDisabled]="$any(isDisabled)"
                   #d="ngbDatepicker"
                 />
                 <div class="input-group-append">

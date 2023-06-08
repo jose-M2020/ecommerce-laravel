@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Toaster } from 'ngx-toast-notifications';
-import { NoticyAlertComponent } from 'src/app/componets/notifications/noticy-alert/noticy-alert.component';
+import { NoticyAlertComponent } from 'src/app/components/notifications/noticy-alert/noticy-alert.component';
 import { ProductsService } from '../_services/products.service';
 import { DeleteImagenPComponent } from './delete-imagen-p/delete-imagen-p.component';
 import { DeleteItemInventarioComponent } from './in/delete-item-inventario/delete-item-inventario.component';
@@ -99,10 +99,10 @@ export class EditNewProductComponent implements OnInit {
       this._productService.isLoadingSubject.next(false)
     }, 50);
   }
-  checkedInventario(value){
+  checkedInventario(value: number){
     this.checked_inventario = value;
   }
-  processFile($event){
+  processFile($event: any){
     if($event.target.files[0].type.indexOf("image") < 0){
       this.toaster.open(NoticyAlertComponent,{text:`danger-'EL ARCHIVO CARGADO NO ES UNA IMAGEN'`});
       return;
@@ -118,11 +118,11 @@ export class EditNewProductComponent implements OnInit {
     this.tags.push(this.text)
     this.text = null;
   }
-  removeTags(index){
-    this.tags.splice(index,1);
+  removeTags(index: number){
+    this.tags.splice(index, 1);
   }
 
-  addFile($event){
+  addFile($event: any){
     if($event.target.files[0].type.indexOf("image") < 0){
       this.toaster.open(NoticyAlertComponent,{text:`danger-'EL ARCHIVO CARGADO NO ES UNA IMAGEN'`});
       return;
@@ -148,7 +148,7 @@ export class EditNewProductComponent implements OnInit {
     })
   }
 
-  removeImages(imagen_){
+  removeImages(imagen_: any){
     // this.images_files.splice(index,1);
     const modalRef = this.modelService.open(DeleteImagenPComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.imagen_ = imagen_;
@@ -161,7 +161,7 @@ export class EditNewProductComponent implements OnInit {
       }
     )
     modalRef.componentInstance.ImagenE.subscribe((resp:any) => {
-      let INDEX = this.images_files.findIndex(item => item.id == resp.id);
+      let INDEX = this.images_files.findIndex((item: any) => item.id == resp.id);
       this.images_files.splice(INDEX,1);
     })
   }
@@ -204,7 +204,7 @@ export class EditNewProductComponent implements OnInit {
     })
   }
 
-  OPENEDIT(inventario){
+  OPENEDIT(inventario: any){
     const modalRef = this.modelService.open(EditItemInventarioComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.inventario = inventario;
     modalRef.result.then(
@@ -217,13 +217,13 @@ export class EditNewProductComponent implements OnInit {
     )
     modalRef.componentInstance.inventarioG.subscribe((resp:any) => {
       console.log(resp);
-      let INDEX = this.product_inventaries.findIndex(item => item.id == resp.id);
+      let INDEX = this.product_inventaries.findIndex((item: any) => item.id == resp.id);
       if(INDEX!=-1){
         this.product_inventaries[INDEX] = resp;
       }
     })
   }
-  OPENEDELETE(inventario){
+  OPENEDELETE(inventario: any){
     const modalRef = this.modelService.open(DeleteItemInventarioComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.inventario = inventario;
     modalRef.result.then(
@@ -236,14 +236,14 @@ export class EditNewProductComponent implements OnInit {
     )
     modalRef.componentInstance.inventarioG.subscribe((resp:any) => {
       console.log(resp);
-      let INDEX = this.product_inventaries.findIndex(item => item.id == resp.id);
+      let INDEX = this.product_inventaries.findIndex((item: any) => item.id == resp.id);
       if(INDEX!=-1){
         this.product_inventaries.splice(INDEX,1);
       }
     })
   }
 
-  OPENEDITSUB(sub_inventario,inventario){
+  OPENEDITSUB(sub_inventario: any, inventario: any){
     const modalRef = this.modelService.open(EditSubItemInventarioComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.sub_inventario = sub_inventario;
     modalRef.componentInstance.inventario = inventario;
@@ -258,13 +258,15 @@ export class EditNewProductComponent implements OnInit {
     )
     modalRef.componentInstance.inventarioG.subscribe((resp:any) => {
       console.log(resp);
-      let INDEX = this.product_inventaries.find(item => item.id == inventario.id).variaciones.findIndex(item => item.id == resp.id);
+      let INDEX = this.product_inventaries.find(
+        (item: any) => item.id == inventario.id).variaciones.findIndex((item: any) => item.id == resp.id
+      );
       if(INDEX!=-1){
-        this.product_inventaries.find(item => item.id == inventario.id).variaciones[INDEX] = resp;
+        this.product_inventaries.find((item: any) => item.id == inventario.id).variaciones[INDEX] = resp;
       }
     })
   }
-  OPENEDELETESUB(sub_inventario,inventario){
+  OPENEDELETESUB(sub_inventario: any, inventario: any){
     const modalRef = this.modelService.open(DeleteSubItemInventarioComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.sub_inventario = sub_inventario;
     modalRef.result.then(
@@ -277,18 +279,31 @@ export class EditNewProductComponent implements OnInit {
     )
     modalRef.componentInstance.inventarioG.subscribe((resp:any) => {
       console.log(resp);
-      let INDEX = this.product_inventaries.find(item => item.id == inventario.id).variaciones.findIndex(item => item.id == resp.id);
+      let INDEX = this.product_inventaries
+        .find((item: any) => item.id == inventario.id)
+        .variaciones
+        .findIndex((item: any) => item.id == resp.id);
+
       if(INDEX!=-1){
-        this.product_inventaries.find(item => item.id == inventario.id).variaciones.splice(INDEX,1);
+        this.product_inventaries.find((item: any) => item.id == inventario.id).variaciones.splice(INDEX,1);
       }
     })
   }
 
-  changeDimension(value){
-    if(value){
-      this.is_selected_dimension = false;
-    }else{
-      this.is_selected_dimension = true;
+  // changeDimension(value: string){
+  //   if(value){
+  //     this.is_selected_dimension = false;
+  //   }else{
+  //     this.is_selected_dimension = true;
+  //   }
+  // }
+
+  handleChangeDimension(event: Event) {
+    const target = event.target as HTMLInputElement;
+
+    if (target instanceof HTMLInputElement) {
+      const isSelected = (!!target.value) ? false : true;
+      this.is_selected_dimension = isSelected
     }
   }
 
@@ -325,7 +340,7 @@ export class EditNewProductComponent implements OnInit {
         this.product_size_id = null;
         this.new_nombre = null;
         this.stock = null;
-        let INDEX = this.product_inventaries.findIndex(item => item.id == resp.product_size_color.id);
+        let INDEX = this.product_inventaries.findIndex((item: any) => item.id == resp.product_size_color.id);
         if(INDEX != -1){
           this.product_inventaries[INDEX] = resp.product_size_color;
         }else{

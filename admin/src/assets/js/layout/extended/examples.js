@@ -1,7 +1,7 @@
 /* eslint-disable */
 "use strict";
 
-import { KTUtil } from "./../../components/util.js";
+import { KTUtil } from "../../components/util.js";
 
 var KTLayoutExamples = function() {
 

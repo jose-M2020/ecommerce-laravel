@@ -461,14 +461,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   ],
 })
 export class InputComponent implements OnInit {
-  exampleBasicInputs;
-  exampleInputWithACustomErrorStateMatcher;
-  exampleAutoResizingTextarea;
-  exampleInputWithAClearButton;
-  exampleInputWithErrorMessages;
-  exampleInputsInAForm;
-  exampleInputWithHints;
-  exampleInputsWithPrefixesAndSuffixes;
+  exampleBasicInputs: any;
+  exampleInputWithACustomErrorStateMatcher: any;
+  exampleAutoResizingTextarea: any;
+  exampleInputWithAClearButton: any;
+  exampleInputWithErrorMessages: any;
+  exampleInputsInAForm: any;
+  exampleInputWithHints: any;
+  exampleInputsWithPrefixesAndSuffixes: any;
 
   constructor() {}
   emailFormControl = new FormControl('', [

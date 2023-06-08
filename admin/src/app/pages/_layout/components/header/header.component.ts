@@ -26,17 +26,17 @@ import { Subscription, Observable, BehaviorSubject } from 'rxjs';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
-  headerContainerCSSClasses: string;
-  headerMenuSelfDisplay: boolean;
-  headerMenuSelfStatic: boolean;
-  asideSelfDisplay: boolean;
-  headerLogo: string;
-  headerSelfTheme: string;
-  headerMenuCSSClasses: string;
+  headerContainerCSSClasses: string = '';
+  headerMenuSelfDisplay: boolean = false;
+  headerMenuSelfStatic: boolean = false;
+  asideSelfDisplay: boolean = false;
+  headerLogo: string = '';
+  headerSelfTheme: string = '';
+  headerMenuCSSClasses: string = '';
   headerMenuHTMLAttributes: any = {};
   routerLoaderTimout: any;
 
-  @ViewChild('ktHeaderMenu', { static: true }) ktHeaderMenu: ElementRef;
+  @ViewChild('ktHeaderMenu', { static: true }) ktHeaderMenu!: ElementRef;
   loader$: Observable<number>;
 
   private loaderSubject: BehaviorSubject<number> = new BehaviorSubject<number>(

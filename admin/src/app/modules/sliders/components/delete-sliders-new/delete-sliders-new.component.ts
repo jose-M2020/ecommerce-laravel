@@ -12,7 +12,7 @@ export class DeleteSlidersNewComponent implements OnInit {
   @Input() slider_selected:any = null;
   @Output() sliderE: EventEmitter<any> = new EventEmitter();
   
-  isLoading$;
+  isLoading$: any;
   isLoading = false;
 
   constructor(

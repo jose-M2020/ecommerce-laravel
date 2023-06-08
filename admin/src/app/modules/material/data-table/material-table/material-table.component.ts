@@ -1025,13 +1025,13 @@ function createNewUser(id: number): UserData {
   ],
 })
 export class MaterialTableComponent implements OnInit, AfterViewInit {
-  exampleBasic;
-  examplePagination;
-  exampleSorting;
-  exampleFiltering;
-  exampleSelection;
-  exampleHTTP;
-  exampleMain;
+  exampleBasic: any;
+  examplePagination: any;
+  exampleSorting: any;
+  exampleFiltering: any;
+  exampleSelection: any;
+  exampleHTTP: any;
+  exampleMain: any;
 
   displayedColumns1 = ['position', 'name', 'weight', 'symbol'];
   displayedColumns2: string[] = ['position', 'name', 'weight', 'symbol'];
@@ -1054,20 +1054,20 @@ export class MaterialTableComponent implements OnInit, AfterViewInit {
   dataSource5 = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   dataSource6: GithubIssue[] = [];
   dataSource7: MatTableDataSource<UserData>;
-  exampleDatabase: ExampleHttpDao | null;
+  exampleDatabase!: ExampleHttpDao | null;
 
   selection = new SelectionModel<PeriodicElement>(true, []);
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
 
-  @ViewChild('matPaginator2', { static: true }) paginator2: MatPaginator;
-  @ViewChild('matPaginator6', { static: true }) paginator6: MatPaginator;
-  @ViewChild('matPaginator7', { static: true }) paginator7: MatPaginator;
+  @ViewChild('matPaginator2', { static: true }) paginator2!: MatPaginator;
+  @ViewChild('matPaginator6', { static: true }) paginator6!: MatPaginator;
+  @ViewChild('matPaginator7', { static: true }) paginator7!: MatPaginator;
 
-  @ViewChild('sort3', { static: true }) sort3: MatSort;
-  @ViewChild('sort6', { static: true }) sort6: MatSort;
-  @ViewChild('sort7', { static: true }) sort7: MatSort;
+  @ViewChild('sort3', { static: true }) sort3!: MatSort;
+  @ViewChild('sort6', { static: true }) sort6!: MatSort;
+  @ViewChild('sort7', { static: true }) sort7!: MatSort;
 
   ngAfterViewInit() {}
 

@@ -155,16 +155,16 @@ export class CheckboxChangeEventExample {
   ],
 })
 export class CheckboxComponent implements OnInit {
-  exampleBasicCheckboxes;
-  exampleConfigurableCheckbox;
-  exampleLabelPositions;
-  exampleChangeEvent;
+  exampleBasicCheckboxes: any;
+  exampleConfigurableCheckbox: any;
+  exampleLabelPositions: any;
+  exampleChangeEvent: any;
 
   checked = false;
   indeterminate = false;
   align = 'start';
   disabled = false;
-  labelPosition = 'before';
+  labelPosition!: "before" | "after";
   myValue = true;
 
   constructor() {}

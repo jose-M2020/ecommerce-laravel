@@ -140,15 +140,15 @@ export class SlideToggleLabelPositionsExample {\n
   ],
 })
 export class SlidertoggleComponent implements OnInit {
-  exampleBasicSlideToggles;
-  exampleConfigurableSlideToggle;
-  exampleLabelPositions;
+  exampleBasicSlideToggles: any;
+  exampleConfigurableSlideToggle: any;
+  exampleLabelPositions: any;
 
   color = 'accent';
   checked = false;
   disabled = false;
 
-  labelPosition = 'before';
+  labelPosition: "before" | "after" = "before";
 
   constructor() {}
 

@@ -12,7 +12,7 @@ export class DeleteUserComponent implements OnInit {
   @Input() user_selected:any = null;
   @Output() usersE: EventEmitter<any> = new EventEmitter();
   
-  isLoading$;
+  isLoading$: any;
   isLoading = false;
 
   constructor(
