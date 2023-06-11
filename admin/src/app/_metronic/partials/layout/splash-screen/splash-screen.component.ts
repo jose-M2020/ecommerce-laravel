@@ -7,7 +7,7 @@ import { SplashScreenService } from './splash-screen.service';
   styleUrls: ['./splash-screen.component.scss'],
 })
 export class SplashScreenComponent implements OnInit {
-  @ViewChild('splashScreen', { static: true }) splashScreen: ElementRef;
+  @ViewChild('splashScreen', { static: true }) splashScreen!: ElementRef;
 
   constructor(
     private el: ElementRef,

@@ -141,7 +141,7 @@ export class MixedWidget1Component implements OnInit {
         },
         y: {
           // tslint:disable-next-line
-          formatter: function (val) {
+          formatter: function (val: any) {
             return '$' + val + ' thousands';
           },
         },

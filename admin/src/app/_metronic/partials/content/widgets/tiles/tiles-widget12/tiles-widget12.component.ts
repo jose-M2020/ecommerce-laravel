@@ -8,7 +8,7 @@ export class TilesWidget12Component implements OnInit {
   @Input() cssClass = '';
   @Input() widgetHeight = '150px';
   @Input() iconColor = 'success';
-  svgCSSClass;
+  svgCSSClass: any;
 
   constructor() { }
 

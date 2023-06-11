@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './advance-tables-widget7.component.html',
 })
 export class AdvanceTablesWidget7Component {
-  @Input() cssClass;
+  @Input() cssClass: any;
   currentTab = 'Day';
 
   constructor() {}

@@ -13,7 +13,7 @@ export interface IGroupingState {
 
 export class GroupingState implements IGroupingState {
   selectedRowIds: Set<number> = new Set<number>();
-  itemIds = [];
+  itemIds: any[] = [];
 
 
   checkAreAllRowsSelected(): boolean {

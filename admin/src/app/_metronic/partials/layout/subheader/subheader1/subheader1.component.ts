@@ -15,10 +15,10 @@ export class Subheader1Component implements OnInit {
   subheaderDisplayDesc = false;
   subheaderDisplayDaterangepicker = false;
   title$: Observable<string>;
-  breadcrumbs$: Observable<BreadcrumbItemModel[]>;
+  breadcrumbs$!: Observable<BreadcrumbItemModel[]>;
   breadcrumbs: BreadcrumbItemModel[] = [];
-  description$: Observable<string>;
-  @Input() title: string;
+  description$!: Observable<string>;
+  @Input() title: string = '';
 
   constructor(
     private layout: LayoutService,

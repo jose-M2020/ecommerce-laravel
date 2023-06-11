@@ -6,9 +6,9 @@ import { LayoutService } from '../../../../../core';
   templateUrl: './stats-widget11.component.html',
 })
 export class StatsWidget11Component implements OnInit {
-  @Input() cssClass;
-  @Input() symbolShape;
-  @Input() baseColor;
+  @Input() cssClass: string = '';
+  @Input() symbolShape: any;
+  @Input() baseColor: any;
   chartOptions: any = {};
   fontFamily = '';
   colorsGrayGray500 = '';
@@ -159,7 +159,7 @@ export class StatsWidget11Component implements OnInit {
           fontFamily: this.fontFamily
         },
         y: {
-          formatter: (val) => {
+          formatter: (val: any) => {
             return `$ ${val} thousands`;
           }
         }

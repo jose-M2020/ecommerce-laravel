@@ -138,12 +138,12 @@ export class NgPagination implements OnChanges {
   pageCount = 0;
   pages: number[] = [];
 
-  @ContentChild(NgPaginationEllipsis, { static: false }) tplEllipsis: NgPaginationEllipsis;
-  @ContentChild(NgPaginationFirst, { static: false }) tplFirst: NgPaginationFirst;
-  @ContentChild(NgPaginationLast, { static: false }) tplLast: NgPaginationLast;
-  @ContentChild(NgPaginationNext, { static: false }) tplNext: NgPaginationNext;
-  @ContentChild(NgPaginationNumber, { static: false }) tplNumber: NgPaginationNumber;
-  @ContentChild(NgPaginationPrevious, { static: false }) tplPrevious: NgPaginationPrevious;
+  @ContentChild(NgPaginationEllipsis, { static: false }) tplEllipsis!: NgPaginationEllipsis;
+  @ContentChild(NgPaginationFirst, { static: false }) tplFirst!: NgPaginationFirst;
+  @ContentChild(NgPaginationLast, { static: false }) tplLast!: NgPaginationLast;
+  @ContentChild(NgPaginationNext, { static: false }) tplNext!: NgPaginationNext;
+  @ContentChild(NgPaginationNumber, { static: false }) tplNumber!: NgPaginationNumber;
+  @ContentChild(NgPaginationPrevious, { static: false }) tplPrevious!: NgPaginationPrevious;
 
   /**
    * If `true`, pagination links will be disabled.
@@ -179,7 +179,7 @@ export class NgPagination implements OnChanges {
    *  `collectionSize` and `pageSize`. Ex. if you have 100 items in your collection and displaying 20 items per page,
    *  you'll end up with 5 pages.
    */
-  @Input() collectionSize: number;
+  @Input() collectionSize!: number;
 
   /**
    *  The maximum number of pages to display.
@@ -237,7 +237,7 @@ export class NgPagination implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void { this._updatePages(this.page); }
 
-  isEllipsis(pageNumber): boolean { return pageNumber === -1; }
+  isEllipsis(pageNumber: number): boolean { return pageNumber === -1; }
 
   /**
    * Appends ellipses and first/last page number to the displayed pages
@@ -311,7 +311,7 @@ export class NgPagination implements OnChanges {
     return [start, end];
   }
 
-  private _setPageInRange(newPageNo) {
+  private _setPageInRange(newPageNo: number) {
     const prevPageNo = this.page;
     this.page = getValueInRange(newPageNo, this.pageCount, 1);
 

@@ -6,8 +6,8 @@ import { LayoutService } from '../../../../../core';
   templateUrl: './mixed-widget6.component.html',
 })
 export class MixedWidget6Component implements OnInit {
-  @Input() cssClass: '';
-  @Input() chartColor;
+  @Input() cssClass: string = '';
+  @Input() chartColor: any;
   chartOptions: any = {};
   fontFamily = '';
   colorsGrayGray500 = '';
@@ -124,7 +124,7 @@ export class MixedWidget6Component implements OnInit {
           fontFamily: this.fontFamily
         },
         y: {
-          formatter: (val) => {
+          formatter: (val: any) => {
             return `$ ${val} thousands`;
           }
         },

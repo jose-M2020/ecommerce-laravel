@@ -7,9 +7,9 @@ import { SortDirection } from '../../models/sort.model';
   styleUrls: ['./sort-icon.component.scss']
 })
 export class SortIconComponent implements OnInit, OnChanges {
-  @Input() column: string;
-  @Input() activeColumn: string;
-  @Input() activeDirection: SortDirection;
+  @Input() column!: string;
+  @Input() activeColumn!: string;
+  @Input() activeDirection!: SortDirection;
   @Output() sort: EventEmitter<string> = new EventEmitter<string>();
   isActive = false;
 

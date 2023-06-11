@@ -42,7 +42,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ScrollTopComponent,
     ToolbarComponent,
   ],
-  imports: [CommonModule, InlineSVGModule, PerfectScrollbarModule, CoreModule, RouterModule],
+  imports: [
+    CommonModule,
+    InlineSVGModule,
+    PerfectScrollbarModule,
+    CoreModule,
+    RouterModule
+  ],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

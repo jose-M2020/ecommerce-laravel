@@ -10,9 +10,9 @@ export class BaseTablesWidget1Component implements OnInit {
     'Week',
     'Day'
   ];
-  currentTab;
-  @Input() cssClass: string;
-  @Input() progressWidth;
+  currentTab: any;
+  @Input() cssClass!: string;
+  @Input() progressWidth: any;
 
   constructor() { }
 

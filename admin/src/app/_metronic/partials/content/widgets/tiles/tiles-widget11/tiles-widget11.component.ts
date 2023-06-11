@@ -5,10 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './tiles-widget11.component.html',
 })
 export class TilesWidget11Component implements OnInit {
-  @Input() cssClass = '';
+  @Input() cssClass: string = '';
   @Input() widgetHeight = '150px';
   @Input() baseColor = 'success';
-  textInverseCSSClass;
+  textInverseCSSClass: any;
 
   constructor() { }
 

@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './lists-widget11.component.html',
 })
 export class ListsWidget11Component implements OnInit {
-  @Input() cssClass: '';
+  @Input() cssClass: string = '';
 
   constructor() { }
 

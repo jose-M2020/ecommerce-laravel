@@ -12,7 +12,7 @@ export class MixedWidget4Component implements OnInit {
   colorsGrayGray200 = '';
   colorsGrayGray300 = '';
   colorsThemeBaseDanger = '';
-  @Input() cssClass;
+  @Input() cssClass: string = '';
 
   constructor(private layout: LayoutService) {
     this.fontFamily = this.layout.getProp('js.fontFamily');
@@ -124,7 +124,7 @@ export class MixedWidget4Component implements OnInit {
           fontFamily: this.fontFamily
         },
         y: {
-          formatter: (val) => {
+          formatter: (val: any) => {
             return `$ ${val}  thousands`;
           }
         },

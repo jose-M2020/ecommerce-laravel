@@ -10,8 +10,8 @@ export class BaseTablesWidget6Component implements OnInit {
     'Week',
     'Day'
   ];
-  currentTab;
-  @Input() cssClass: string;
+  currentTab: any;
+  @Input() cssClass!: string;
 
   constructor() { }
 

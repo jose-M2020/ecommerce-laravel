@@ -1,4 +1,3 @@
-import { isQuote } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +5,8 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './lists-widget14.component.html',
 })
 export class ListsWidget14Component implements OnInit {
-  @Input() cssClass;
-  @Input() rowNumber;
+  @Input() cssClass: string = '';
+  @Input() rowNumber: any;
   constructor() { }
 
   ngOnInit(): void {

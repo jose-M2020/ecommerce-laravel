@@ -7,8 +7,8 @@ import { PageSizes, PaginatorState } from '../../models/paginator.model';
   styleUrls: ['./paginator.component.scss']
 })
 export class PaginatorComponent implements OnInit {
-  @Input() paginator: PaginatorState;
-  @Input() isLoading;
+  @Input() paginator!: PaginatorState;
+  @Input() isLoading: boolean = false;
   @Output() paginate: EventEmitter<PaginatorState> = new EventEmitter();
   pageSizes: number[] = PageSizes;
   constructor() {}

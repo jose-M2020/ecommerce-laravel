@@ -48,7 +48,7 @@ export class SubheaderService implements OnDestroy {
   }
 
   // use this method in SubheaderWrapper
-  updateAfterRouteChanges(pathName) {
+  updateAfterRouteChanges(pathName: string) {
     const aside = this.getBreadcrumbsAndTitle('kt_aside_menu', pathName);
     const header = this.getBreadcrumbsAndTitle('kt_header_menu', pathName);
     const breadcrumbs =
@@ -65,12 +65,12 @@ export class SubheaderService implements OnDestroy {
     );
   }
 
-  private getLinksFromMenu(menu): HTMLAnchorElement[] {
+  private getLinksFromMenu(menu: HTMLElement | null): HTMLAnchorElement[] {
     const parentLiElements = Array.from(
-      menu.getElementsByClassName('menu-item-open') || []
+      menu?.getElementsByClassName('menu-item-open') || []
     ) as HTMLElement[];
     const childLiElements = Array.from(
-      menu.getElementsByClassName('menu-item-active') || []
+      menu?.getElementsByClassName('menu-item-active') || []
     ) as HTMLElement[];
     const result: HTMLAnchorElement[] = [];
     parentLiElements.forEach((el) => {
@@ -109,7 +109,7 @@ export class SubheaderService implements OnDestroy {
     return result;
   }
 
-  private getBreadcrumbsAndTitle(menuId, pathName): SubheaderModel {
+  private getBreadcrumbsAndTitle(menuId: string, pathName: string): SubheaderModel {
     const result = new SubheaderModel();
     const menu = document.getElementById(menuId);
     if (!menu) {
@@ -142,7 +142,7 @@ export class SubheaderService implements OnDestroy {
     return result;
   }
 
-  private parseUrlAndReturnPathname(href): string {
+  private parseUrlAndReturnPathname(href: string): string {
     const url = document.createElement('a');
     url.href =
       'https://developer.mozilla.org:8080/en-US/search?q=URL#search-results-close-container';
@@ -150,7 +150,7 @@ export class SubheaderService implements OnDestroy {
     return url.pathname;
   }
 
-  private getTitle(breadCrumbs, pathname) {
+  private getTitle(breadCrumbs: BreadcrumbItemModel[], pathname: string) {
     if (!breadCrumbs || !pathname) {
       return '';
     }

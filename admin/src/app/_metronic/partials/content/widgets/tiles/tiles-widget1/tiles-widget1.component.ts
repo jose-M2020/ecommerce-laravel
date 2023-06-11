@@ -163,7 +163,7 @@ export class TilesWidget1Component implements OnInit {
           fontFamily: this.fontFamily
         },
         y: {
-          formatter: (val) => {
+          formatter: (val: any) => {
             return `$ ${val} thousands`;
           }
         }

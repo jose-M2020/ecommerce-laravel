@@ -6,8 +6,8 @@ import { animate, AnimationBuilder, style } from '@angular/animations';
 })
 export class SplashScreenService {
   // Private properties
-  private el: ElementRef;
-  private stopped: boolean;
+  private el!: ElementRef;
+  private stopped: boolean = false;
 
   /**
    * Service constructor

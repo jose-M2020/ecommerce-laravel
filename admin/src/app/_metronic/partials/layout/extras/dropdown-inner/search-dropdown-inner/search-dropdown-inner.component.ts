@@ -92,9 +92,9 @@ const files = {
   templateUrl: './search-dropdown-inner.component.html',
 })
 export class SearchDropdownInnerComponent implements OnInit {
-  @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
-  data: any[] = null;
-  loading: boolean;
+  @ViewChild('searchInput', { static: true }) searchInput!: ElementRef;
+  data: any[] = [];
+  loading: boolean = false;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
@@ -104,8 +104,8 @@ export class SearchDropdownInnerComponent implements OnInit {
    * Search
    * @param e: Event
    */
-  search(e) {
-    this.data = null;
+  search(e: any) {
+    this.data = [];
     if (e.target.value.length > 1) {
       this.loading = true;
       // simulate getting search result
@@ -123,8 +123,8 @@ export class SearchDropdownInnerComponent implements OnInit {
    *
    * @param e: Event
    */
-  clear(e) {
-    this.data = null;
+  clear(e: any) {
+    this.data = [];
     this.searchInput.nativeElement.value = '';
   }
 

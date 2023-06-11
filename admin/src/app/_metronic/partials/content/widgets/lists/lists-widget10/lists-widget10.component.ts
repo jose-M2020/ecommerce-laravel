@@ -5,6 +5,6 @@ import { Component, Input } from '@angular/core';
   templateUrl: './lists-widget10.component.html',
 })
 export class ListsWidget10Component {
-  @Input() cssClass;
+  @Input() cssClass: string = '';
   constructor() { }
 }

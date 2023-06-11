@@ -17,5 +17,5 @@ export class NgPaginationConfig {
   maxSize = 0;
   pageSize = PageSizes[2];
   rotate = false;
-  size: 'sm' | 'lg';
+  size: 'sm' | 'lg' = 'sm';
 }
