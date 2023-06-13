@@ -13,8 +13,8 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit, OnDestroy {
-  registrationForm: FormGroup;
-  hasError: boolean;
+  registrationForm!: FormGroup;
+  hasError!: boolean;
   isLoading$: Observable<boolean>;
 
   // private fields
@@ -87,7 +87,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   submit() {
     this.hasError = false;
-    const result = {};
+    const result: any = {};
     Object.keys(this.f).forEach(key => {
       result[key] = this.f[key].value;
     });

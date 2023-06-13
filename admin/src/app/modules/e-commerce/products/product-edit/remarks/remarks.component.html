@@ -76,8 +76,8 @@
       <tbody>
         <tr *ngFor="let remark of remarksService.items$ | async">
           <td class="selection-cell">
-            <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow(remark.id)"
-                [checked]="grouping.isRowSelected(remark.id)" />
+            <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow($any(remark.id))"
+                [checked]="grouping.isRowSelected($any(remark?.id))" />
               <span></span>
             </label>
           </td>

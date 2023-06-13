@@ -15,33 +15,33 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService implements OnDestroy {
   // private fields
   private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
-  private authLocalStorageToken = `${environment.appVersion}-${environment.USERDATA_KEY}`;
+  private authLocalStorageToken: string = `${environment.appVersion}-${environment.USERDATA_KEY}`;
 
   // public fields
-  currentUser$: Observable<UserModel>;
+  currentUser$: Observable<UserModel | undefined>;
   isLoading$: Observable<boolean>;
-  currentUserSubject: BehaviorSubject<UserModel>;
+  currentUserSubject: BehaviorSubject<UserModel | undefined>;
   isLoadingSubject: BehaviorSubject<boolean>;
 
 
-  get currentUserValue(): UserModel {
-    return this.currentUserSubject.value;
+  get currentUserValue(): UserModel | undefined{
+    return this.currentUserSubject?.value;
   }
 
   set currentUserValue(user: UserModel) {
-    this.currentUserSubject.next(user);
+    this.currentUserSubject?.next(user);
   }
 
   user: any;
-  token: string;
+  token: string | null = '';
   constructor(
     // private authHttpService: AuthHTTPService,
     private http: HttpClient,
     private router: Router
   ) {
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
-    this.currentUserSubject = new BehaviorSubject<UserModel>(undefined);
-    this.currentUser$ = this.currentUserSubject.asObservable();
+    this.currentUserSubject = new BehaviorSubject<UserModel | undefined >(undefined);
+    this.currentUser$ = this.currentUserSubject?.asObservable();
     this.isLoading$ = this.isLoadingSubject.asObservable();
     // const subscr = this.getUserByToken().subscribe();
     // this.unsubscribe.push(subscr);
@@ -51,15 +51,15 @@ export class AuthService implements OnDestroy {
   loadstorage(){
     if(localStorage.getItem("token")){
       this.token = localStorage.getItem("token");
-      this.user = JSON.parse(localStorage.getItem("user"));
+      this.user = JSON.parse(localStorage.getItem("user") || '{}');
     }else{
-      this.user=null;
+      this.user = null;
       this.token = '';
     }
   }
   // public methods
   isLogued() {
-    return ( this.token.length > 5 ) ? true : false;
+    return ( this.token!.length > 5 ) ? true : false;
   }
 login(email: string, password: string) {
     this.isLoadingSubject.next(true);
@@ -106,10 +106,10 @@ logout() {
     return false;
   }
 
-  private getAuthFromLocalStorage(): AuthModel {
+  private getAuthFromLocalStorage(): AuthModel | undefined {
     try {
       const authData = JSON.parse(
-        localStorage.getItem(this.authLocalStorageToken)
+        localStorage.getItem(this.authLocalStorageToken) || '{}'
       );
       return authData;
     } catch (error) {

@@ -27,7 +27,7 @@ export class UpdateCustomersStatusModalComponent implements OnInit, OnDestroy {
     const sb = this.customersService.items$.pipe(
       first()
     ).subscribe((res: Customer[]) => {
-      this.customers = res.filter(c => this.ids.indexOf(c.id) > -1);
+      this.customers = res.filter(c => this.ids.indexOf(c.id as number) > -1);
     });
     this.subscriptions.push(sb);
   }

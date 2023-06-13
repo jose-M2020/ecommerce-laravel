@@ -12,7 +12,7 @@ export class DeleteNewDiscountComponent implements OnInit {
   @Input() discount_selected:any = null;
   @Output() discountE: EventEmitter<any> = new EventEmitter();
   
-  isLoading$;
+  isLoading$: any;
   isLoading = false;
 
   constructor(

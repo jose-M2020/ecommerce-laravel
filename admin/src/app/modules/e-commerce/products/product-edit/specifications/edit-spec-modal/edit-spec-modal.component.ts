@@ -21,12 +21,12 @@ const EMPTY_SPEC: ProductSpecification = {
   styleUrls: ['./edit-spec-modal.component.scss']
 })
 export class EditSpecModalComponent implements OnInit, OnDestroy {
-  @Input() id: number;
-  @Input() productId: number;
-  isLoading$;
+  @Input() id!: number;
+  @Input() productId!: number;
+  isLoading$: any;
   specs: string[] = SPECIFICATIONS_DICTIONARY;
-  spec: ProductSpecification;
-  formGroup: FormGroup;
+  spec!: ProductSpecification;
+  formGroup!: FormGroup;
   private subscriptions: Subscription[] = [];
   constructor(
     private specsService: SpecificationsService,
@@ -52,7 +52,8 @@ export class EditSpecModalComponent implements OnInit, OnDestroy {
           empty.carId = this.productId;
           return of(empty);
         })
-      ).subscribe((spec: ProductSpecification) => {
+        // TODO: use ProductSpecification instead any in subscribe res
+      ).subscribe((spec: any) => {
         this.spec = spec;
         this.loadForm();
       });
@@ -98,7 +99,8 @@ export class EditSpecModalComponent implements OnInit, OnDestroy {
         this.modal.dismiss(errorMessage);
         return of(this.spec);
       }),
-    ).subscribe((res: ProductSpecification) => this.spec = res);
+      // TODO: use ProductSpecification instead any in subscribe res
+    ).subscribe((res: any) => this.spec = res);
     this.subscriptions.push(sbCreate);
   }
 

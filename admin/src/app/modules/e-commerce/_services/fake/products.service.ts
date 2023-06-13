@@ -11,14 +11,14 @@ import { environment } from '../../../../../environments/environment';
   providedIn: 'root'
 })
 export class ProductsService extends TableService<Product> implements OnDestroy {
-  API_URL = `${environment.apiUrl}/products`;
-  constructor(@Inject(HttpClient) http) {
+  API_ENDPOINT = `${environment.apiUrl}/products`;
+  constructor(@Inject(HttpClient) http: HttpClient) {
     super(http);
   }
 
   // READ
-  find(tableState: ITableState): Observable<TableResponseModel<Product>> {
-    return this.http.get<Product[]>(this.API_URL).pipe(
+  findProducts(tableState: ITableState): Observable<TableResponseModel<Product>> {
+    return this.http.get<Product[]>(this.API_ENDPOINT).pipe(
       map((response: Product[]) => {
         const filteredResult = baseFilter(response, tableState);
         const result: TableResponseModel<Product> = {
@@ -30,24 +30,24 @@ export class ProductsService extends TableService<Product> implements OnDestroy 
     );
   }
 
-  deleteItems(ids: number[] = []): Observable<any> {
-    const tasks$ = [];
+  deleteProducts(ids: number[] = []): Observable<any> {
+    const tasks$: any[] = [];
     ids.forEach(id => {
       tasks$.push(this.delete(id));
     });
     return forkJoin(tasks$);
   }
 
-  updateStatusForItems(ids: number[], status: number): Observable<any> {
-    return this.http.get<Product[]>(this.API_URL).pipe(
+  updateStatusForProducts(ids: number[], status: number): Observable<any> {
+    return this.http.get<Product[]>(this.API_ENDPOINT).pipe(
       map((products: Product[]) => {
-        return products.filter(c => ids.indexOf(c.id) > -1).map(c => {
+        return products.filter(c => ids.indexOf(c.id as number) > -1).map(c => {
           c.status = status;
           return c;
         });
       }),
       exhaustMap((products: Product[]) => {
-        const tasks$ = [];
+        const tasks$: any[] = [];
         products.forEach(product => {
           tasks$.push(this.update(product));
         });

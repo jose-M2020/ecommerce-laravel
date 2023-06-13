@@ -203,7 +203,7 @@
       <ng-container
         *ngIf="
           registrationForm.controls['cPassword'].errors &&
-          registrationForm.controls['cPassword'].errors.ConfirmPassword
+          registrationForm.controls['cPassword'].errors['ConfirmPassword']
         "
       >
         <div class="fv-plugins-message-container">

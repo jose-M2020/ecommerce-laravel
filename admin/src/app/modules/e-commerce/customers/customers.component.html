@@ -117,8 +117,8 @@
         <tbody>
           <tr *ngFor="let customer of customerService.items$ | async">
             <td class="selection-cell">
-              <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow(customer.id)"
-                  [checked]="grouping.isRowSelected(customer.id)" />
+              <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow($any(customer.id))"
+                  [checked]="grouping.isRowSelected($any(customer.id))" />
                 <span></span>
               </label>
             </td>

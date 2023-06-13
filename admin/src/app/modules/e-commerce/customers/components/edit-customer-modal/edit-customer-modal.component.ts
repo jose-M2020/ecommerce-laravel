@@ -33,10 +33,10 @@ const EMPTY_CUSTOMER: Customer = {
   ]
 })
 export class EditCustomerModalComponent implements OnInit, OnDestroy {
-  @Input() id: number;
-  isLoading$;
-  customer: Customer;
-  formGroup: FormGroup;
+  @Input() id!: number;
+  isLoading$: any;
+  customer!: Customer;
+  formGroup!: FormGroup;
   private subscriptions: Subscription[] = [];
   constructor(
     private customersService: CustomersService,
@@ -59,7 +59,8 @@ export class EditCustomerModalComponent implements OnInit, OnDestroy {
           this.modal.dismiss(errorMessage);
           return of(EMPTY_CUSTOMER);
         })
-      ).subscribe((customer: Customer) => {
+        // TODO: use Customer instead any in subscribe res
+      ).subscribe((customer: any) => {
         this.customer = customer;
         this.loadForm();
       });
@@ -111,7 +112,8 @@ export class EditCustomerModalComponent implements OnInit, OnDestroy {
         this.modal.dismiss(errorMessage);
         return of(this.customer);
       }),
-    ).subscribe((res: Customer) => this.customer = res);
+      // TODO: use Customer instead any in subscribe res
+    ).subscribe((res: any) => this.customer = res);
     this.subscriptions.push(sbCreate);
   }
 
@@ -142,12 +144,12 @@ export class EditCustomerModalComponent implements OnInit, OnDestroy {
     return control.invalid && (control.dirty || control.touched);
   }
 
-  controlHasError(validation, controlName): boolean {
+  controlHasError(validation: any, controlName: string): boolean {
     const control = this.formGroup.controls[controlName];
     return control.hasError(validation) && (control.dirty || control.touched);
   }
 
-  isControlTouched(controlName): boolean {
+  isControlTouched(controlName: string): boolean {
     const control = this.formGroup.controls[controlName];
     return control.dirty || control.touched;
   }

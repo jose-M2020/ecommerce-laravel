@@ -26,7 +26,7 @@ export class FetchProductsModalComponent implements OnInit, OnDestroy {
     const sb = this.productsService.items$.pipe(
       first()
     ).subscribe((res: Product[]) => {
-      this.products = res.filter(c => this.ids.indexOf(c.id) > -1);
+      this.products = res.filter(c => this.ids.indexOf(c.id as number) > -1);
     });
     this.subscriptions.push(sb);
   }

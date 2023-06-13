@@ -8,7 +8,7 @@ import { AuthService, UserModel } from '../../../auth';
   styleUrls: ['./profile-card.component.scss']
 })
 export class ProfileCardComponent {
-  user$: Observable<UserModel>;
+  user$: Observable<UserModel | undefined>;
   constructor(public userService: AuthService) {
     this.user$ = this.userService.currentUserSubject.asObservable();
   }

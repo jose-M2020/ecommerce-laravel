@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Toaster } from 'ngx-toast-notifications';
-import { NoticyAlertComponent } from 'src/app/componets/notifications/noticy-alert/noticy-alert.component';
+import { NoticyAlertComponent } from 'src/app/components/notifications/noticy-alert/noticy-alert.component';
 import { CuponesService } from '../_services/cupones.service';
+import { Product } from '../../e-commerce/_models/product.model';
 
 @Component({
   selector: 'app-edit-new-cupon',
@@ -72,8 +73,8 @@ export class EditNewCuponComponent implements OnInit {
       if(this.type_cupon == 1){
         // 2-3-4 => [2,3,4]
         let PRODUCTS = this.cupon.products.split(",");
-        PRODUCTS.forEach(prod_id => {
-          let PRODUCT = this.products.find(item => item.id == prod_id);
+        PRODUCTS.forEach((prod_id: any) => {
+          let PRODUCT = this.products.find((item: any) => item.id == prod_id);
           this.products_selected.push({
             name: PRODUCT.title,
             id:PRODUCT.id,
@@ -82,8 +83,8 @@ export class EditNewCuponComponent implements OnInit {
       }
       if(this.type_cupon == 2){
         let CATEGORIES = this.cupon.categories.split(",");
-        CATEGORIES.forEach(cate_id => {
-          let CATEGORIE = this.categories.find(item => item.id == cate_id);
+        CATEGORIES.forEach((cate_id: any) => {
+          let CATEGORIE = this.categories.find((item: any) => item.id == cate_id);
           this.categories_selected.push({
             name: CATEGORIE.name,
             id:CATEGORIE.id,
@@ -93,13 +94,13 @@ export class EditNewCuponComponent implements OnInit {
 
     })
   }
-  checkedTypeD(value){
+  checkedTypeD(value: any){
     this.type_discount = value;
   }
-  checkedTypeC(value){
+  checkedTypeC(value: any){
     this.type_count = value;
   }
-  checkedTypePC(value){
+  checkedTypePC(value: any){
     this.type_cupon = value;
     this.products_selected = [];
     this.categories_selected = [];
@@ -109,8 +110,8 @@ export class EditNewCuponComponent implements OnInit {
 
   addObject(){
     if(this.type_cupon == 1){
-      let PRODUCT = this.products.find(item => item.id == this.product_id);
-      let INDEX = this.products_selected.findIndex(item => item.id == this.product_id);
+      let PRODUCT = this.products.find((item: Product) => item.id == this.product_id);
+      let INDEX = this.products_selected.findIndex((item: Product) => item.id == this.product_id);
       if(INDEX != -1){
         this.toaster.open(NoticyAlertComponent,{text:`danger-'EL PRODUCTO YA FUE SELECCIONADO.'`});
         return;
@@ -122,8 +123,8 @@ export class EditNewCuponComponent implements OnInit {
         });
       }
     }else{
-      let CATEGORIA = this.categories.find(item => item.id == this.categorie_id);
-      let INDEX = this.categories_selected.findIndex(item => item.id == this.categorie_id);
+      let CATEGORIA = this.categories.find((item: any) => item.id == this.categorie_id);
+      let INDEX = this.categories_selected.findIndex((item: any) => item.id == this.categorie_id);
       if(INDEX != -1){
         this.toaster.open(NoticyAlertComponent,{text:`danger-'EL CATEGORIA YA FUE SELECCIONADO.'`});
         return;
@@ -137,14 +138,14 @@ export class EditNewCuponComponent implements OnInit {
     }
   }
 
-  productD(productS){
-    let INDEX = this.products_selected.findIndex(item => item.id == productS.id);
+  productD(productS: Product){
+    let INDEX = this.products_selected.findIndex((item: Product) => item.id == productS.id);
     if(INDEX != -1){
       this.products_selected.splice(INDEX,1);
     }
   }
-  categorieD(categoriaS){
-    let INDEX = this.categories_selected.findIndex(item => item.id == categoriaS.id);
+  categorieD(categoriaS: any){
+    let INDEX = this.categories_selected.findIndex((item: any) => item.id == categoriaS.id);
     if(INDEX != -1){
       this.categories_selected.splice(INDEX,1);
     }

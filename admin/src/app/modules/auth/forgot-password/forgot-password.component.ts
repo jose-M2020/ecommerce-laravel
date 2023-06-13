@@ -16,7 +16,7 @@ enum ErrorStates {
   styleUrls: ['./forgot-password.component.scss'],
 })
 export class ForgotPasswordComponent implements OnInit {
-  forgotPasswordForm: FormGroup;
+  forgotPasswordForm!: FormGroup;
   errorState: ErrorStates = ErrorStates.NotSubmitted;
   errorStates = ErrorStates;
   isLoading$: Observable<boolean>;

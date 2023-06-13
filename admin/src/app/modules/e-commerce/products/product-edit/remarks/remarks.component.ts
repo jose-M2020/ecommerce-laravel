@@ -107,7 +107,7 @@ export class RemarksComponent
     this.remarksService.patchState({ paginator });
   }
   // actions
-  delete(id: number) {
+  delete(id: number | undefined) {
     const modalRef = this.modalService.open(DeleteRemarkModalComponent);
     modalRef.componentInstance.id = id;
     modalRef.result.then(

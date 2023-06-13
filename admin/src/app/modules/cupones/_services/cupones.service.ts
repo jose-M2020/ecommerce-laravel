@@ -43,7 +43,7 @@ export class CuponesService {
     );
   }
 
-  showCupon(cupon_id){
+  showCupon(cupon_id: string){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/cupones/show/"+cupon_id;

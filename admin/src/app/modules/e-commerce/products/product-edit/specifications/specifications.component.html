@@ -76,8 +76,8 @@
       <tbody>
         <tr *ngFor="let spec of specsService.items$ | async">
           <td class="selection-cell">
-            <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow(spec.id)"
-                [checked]="grouping.isRowSelected(spec.id)" />
+            <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow($any(spec.id))"
+                [checked]="grouping.isRowSelected($any(spec.id))" />
               <span></span>
             </label>
           </td>
@@ -92,7 +92,7 @@
               </span>
             </button>
             <button title="Delete specification" class="btn btn-icon btn-light btn-hover-danger btn-sm"
-              (click)="delete(spec.id)">
+              (click)="delete($any(spec.id))">
               <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" [cacheSVG]="true"
                 class="svg-icon svg-icon-md svg-icon-danger">
               </span>

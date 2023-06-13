@@ -28,7 +28,7 @@ export class FetchSpecsModalComponent implements OnInit, OnDestroy {
     const sb = this.specsService.items$.pipe(
       first()
     ).subscribe((res: ProductSpecification[]) => {
-      this.specifications = res.filter(c => this.ids.indexOf(c.id) > -1);
+      this.specifications = res.filter(c => this.ids.indexOf(c.id as number) > -1);
     });
     this.subscriptions.push(sb);
   }

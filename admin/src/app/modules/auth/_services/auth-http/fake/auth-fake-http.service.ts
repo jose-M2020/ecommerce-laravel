@@ -69,8 +69,8 @@ export class AuthHTTPService {
     );
   }
 
-  getUserByToken(token: string): Observable<UserModel> {
-    const user = UsersTable.users.find((u) => {
+  getUserByToken(token: string): Observable<UserModel | undefined> {
+    const user = UsersTable.users.find((u: any) => {
       return u.accessToken === token;
     });
 

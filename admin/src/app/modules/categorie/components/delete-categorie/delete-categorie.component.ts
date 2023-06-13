@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategorieService } from '../../_services/categorie.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-delete-categorie',
@@ -12,7 +13,7 @@ export class DeleteCategorieComponent implements OnInit {
   @Input() categoria_selected:any = null;
   @Output() clientsE: EventEmitter<any> = new EventEmitter();
   
-  isLoading$;
+  isLoading$!: Observable<boolean>;
   isLoading = false;
 
   constructor(

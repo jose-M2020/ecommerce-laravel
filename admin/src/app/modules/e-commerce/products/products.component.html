@@ -203,8 +203,8 @@
               <label class="checkbox checkbox-single"
                 ><input
                   type="checkbox"
-                  (click)="grouping.selectRow(product.id)"
-                  [checked]="grouping.isRowSelected(product.id)"
+                  (click)="grouping.selectRow($any(product.id))"
+                  [checked]="grouping.isRowSelected($any(product.id))"
                 />
                 <span></span>
               </label>
@@ -251,7 +251,7 @@
               <a
                 title="Delete product"
                 class="btn btn-icon btn-light btn-hover-danger btn-sm"
-                (click)="delete(product.id)"
+                (click)="delete($any(product.id))"
               >
                 <span
                   [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'"

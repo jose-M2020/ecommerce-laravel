@@ -26,7 +26,7 @@ export class FetchRemarksModalComponent implements OnInit, OnDestroy {
     const sb = this.remarksService.items$.pipe(
       first()
     ).subscribe((res: ProductRemark[]) => {
-      this.remarks = res.filter(c => this.ids.indexOf(c.id) > -1);
+      this.remarks = res.filter(c => this.ids.indexOf(c.id as number) > -1);
     });
     this.subscriptions.push(sb);
   }

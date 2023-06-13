@@ -33,7 +33,7 @@ export class ListDiscountsComponent implements OnInit {
     this.search = null;
     this.allDescuentos();
   }
-  getTypeDiscount(value){
+  getTypeDiscount(value: number){
     if(value == 1){
       return "PORCENTAJE"
     }else{
@@ -41,7 +41,7 @@ export class ListDiscountsComponent implements OnInit {
     }
   }
 
-  getTypeDes(cupon){
+  getTypeDes(cupon: any){
     if(cupon.products){
       return "PRODUCTOS";
     }else{ 
@@ -49,7 +49,7 @@ export class ListDiscountsComponent implements OnInit {
     }
   }
 
-  delete(discount){
+  delete(discount: any){
     const modalRef = this._modalService.open(DeleteNewDiscountComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.discount_selected = discount;
     modalRef.result.then(
@@ -61,7 +61,7 @@ export class ListDiscountsComponent implements OnInit {
       }
     )
     modalRef.componentInstance.discountE.subscribe((resp:any) => {
-      let INDEX = this.discounts.findIndex(item => item.id == resp.id);
+      let INDEX = this.discounts.findIndex((item: any) => item.id == resp.id);
       this.discounts.splice(INDEX,1);
     })
   }

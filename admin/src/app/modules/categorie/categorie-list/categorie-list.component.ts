@@ -13,7 +13,7 @@ import { CategorieService } from '../_services/categorie.service';
 })
 export class CategorieListComponent implements OnInit {
 
-  isLoading$;
+  isLoading$: any;
   search:any = null;
   
   categorias:any = [];
@@ -55,7 +55,7 @@ export class CategorieListComponent implements OnInit {
     });
   }
 
-  edit(categoria){
+  edit(categoria: any){
     const modalRef = this.modelService.open(EditCategorieComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.categoria_selected = categoria;
     modalRef.result.then(
@@ -67,11 +67,11 @@ export class CategorieListComponent implements OnInit {
       }
     )
     modalRef.componentInstance.clientsE.subscribe((resp:any) => {
-      let INDEX = this.categorias.findIndex(item => item.id == resp.id);
+      let INDEX = this.categorias.findIndex((item: any) => item.id == resp.id);
       this.categorias[INDEX] = resp;
     })
   }
-  delete(categoria){
+  delete(categoria: any){
     const modalRef = this.modelService.open(DeleteCategorieComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.categoria_selected = categoria;
     modalRef.result.then(
@@ -83,7 +83,7 @@ export class CategorieListComponent implements OnInit {
       }
     )
     modalRef.componentInstance.clientsE.subscribe((resp:any) => {
-      let INDEX = this.categorias.findIndex(item => item.id == resp.id);
+      let INDEX = this.categorias.findIndex((item: any) => item.id == resp.id);
       this.categorias.splice(INDEX,1);
     })
   }

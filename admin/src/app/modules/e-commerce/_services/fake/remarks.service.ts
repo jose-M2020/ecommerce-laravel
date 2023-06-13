@@ -11,14 +11,14 @@ import { ProductRemark } from '../../_models/product-remark.model';
   providedIn: 'root'
 })
 export class RemarksService extends TableService<ProductRemark> implements OnDestroy {
-  API_URL = `${environment.apiUrl}/productRemarks`;
-  constructor(@Inject(HttpClient) http) {
+  private API_ENDPOINT: string = `${environment.apiUrl}/productRemarks`;
+  constructor(@Inject(HttpClient) http: HttpClient) {
     super(http);
   }
 
   // READ
-  find(tableState: ITableState): Observable<TableResponseModel<ProductRemark>> {
-    return this.http.get<ProductRemark[]>(this.API_URL).pipe(
+  findRemarks(tableState: ITableState): Observable<TableResponseModel<ProductRemark>> {
+    return this.http.get<ProductRemark[]>(this.API_ENDPOINT).pipe(
       map((response: ProductRemark[]) => {
         const filteredResult = baseFilter(response.filter(el => el.carId === tableState.entityId), tableState);
         const result: TableResponseModel<ProductRemark> = {
@@ -30,8 +30,8 @@ export class RemarksService extends TableService<ProductRemark> implements OnDes
     );
   }
 
-  deleteItems(ids: number[] = []): Observable<any> {
-    const tasks$ = [];
+  deleteRemarks(ids: number[] = []): Observable<any> {
+    const tasks$: any[] = [];
     ids.forEach(id => {
       tasks$.push(this.delete(id));
     });

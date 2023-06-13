@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     email: 'admin@demo.com',
     password: 'demo',
   };
-  loginForm: FormGroup;
-  hasError: boolean;
-  returnUrl: string;
+  loginForm!: FormGroup;
+  hasError!: boolean;
+  returnUrl!: string;
   isLoading$: Observable<boolean>;
 
   // private fields
@@ -91,28 +91,34 @@ export class LoginComponent implements OnInit, OnDestroy {
     //       this.hasError = true;
     //     }
     //   });
-    this.authService.login(this.f.email.value, this.f.password.value).subscribe((resp:any)=>{
-      console.log(resp)
-      // this.router.navigate(['/dashboard']);
-      if (resp) {
-          // this.router.navigate([this.  returnUrl]);
-          document.location.reload();
-      } else {
+    this.authService.login(
+      this.f['email'].value,
+      this.f['password'].value
+    ).subscribe({
+      next: (resp:any)=>{
+        console.log(resp)
+        // this.router.navigate(['/dashboard']);
+        if (resp) {
+            // this.router.navigate([this.  returnUrl]);
+            document.location.reload();
+        } else {
+            this.hasError = true;
+        }
+      },
+      error: (error:any)=>{
+        console.log(error)
+        if(error.error.error=="Unauthorized"){
+          // this.toastr.error('Upps!!', 'Las Credenciales Ingresadas No Existen');
           this.hasError = true;
-      }
-    },(error:any)=>{
-      console.log(error)
-      if(error.error.error=="Unauthorized"){
-        // this.toastr.error('Upps!!', 'Las Credenciales Ingresadas No Existen');
-        this.hasError = true;
-      }else{
-        // this.toastr.error('Upps!!', 'Sucedio Algo Inesperado.Intentelo nuevamente');
-        this.hasError = true;
+        }else{
+          // this.toastr.error('Upps!!', 'Sucedio Algo Inesperado.Intentelo nuevamente');
+          this.hasError = true;
+        }
       }
     })
     // this.unsubscribe.push(loginSubscr);
   }
-
+  
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }

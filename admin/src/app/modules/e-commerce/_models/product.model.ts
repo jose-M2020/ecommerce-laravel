@@ -1,7 +1,7 @@
 import { BaseModel } from '../../../_metronic/shared/crud-table';
 
 export interface Product extends BaseModel {
-  id: number;
+  id: number | undefined;
   model: string;
   manufacture: string;
   modelYear: number;

@@ -43,7 +43,7 @@ export class DiscountService {
     );
   }
 
-  showDescuento(discount_id){
+  showDescuento(discount_id: any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/descuentos/show/"+discount_id;

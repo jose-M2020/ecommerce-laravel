@@ -21,14 +21,14 @@ const DEFAULT_STATE: ITableState = {
   providedIn: 'root'
 })
 export class CustomersService extends TableService<Customer> implements OnDestroy {
-  API_URL = `${environment.apiUrl}/customers`;
-  constructor(@Inject(HttpClient) http) {
+  API_ENDPOINT = `${environment.apiUrl}/customers`;
+  constructor(@Inject(HttpClient) http: HttpClient) {
     super(http);
   }
 
   // READ
-  find(tableState: ITableState): Observable<TableResponseModel<Customer>> {
-    return this.http.get<Customer[]>(this.API_URL).pipe(
+  findCustomers(tableState: ITableState): Observable<TableResponseModel<Customer>> {
+    return this.http.get<Customer[]>(this.API_ENDPOINT).pipe(
       map((response: Customer[]) => {
         const filteredResult = baseFilter(response, tableState);
         const result: TableResponseModel<Customer> = {
@@ -40,24 +40,24 @@ export class CustomersService extends TableService<Customer> implements OnDestro
     );
   }
 
-  deleteItems(ids: number[] = []): Observable<any> {
-    const tasks$ = [];
+  deleteCustomers(ids: number[] = []): Observable<any> {
+    const tasks$: any[] = [];
     ids.forEach(id => {
       tasks$.push(this.delete(id));
     });
     return forkJoin(tasks$);
   }
 
-  updateStatusForItems(ids: number[], status: number): Observable<any> {
-    return this.http.get<Customer[]>(this.API_URL).pipe(
+  updateStatusForCustomers(ids: number[], status: number): Observable<any> {
+    return this.http.get<Customer[]>(this.API_ENDPOINT).pipe(
       map((customers: Customer[]) => {
-        return customers.filter(c => ids.indexOf(c.id) > -1).map(c => {
+        return customers.filter(c => ids.indexOf(c.id as number) > -1).map(c => {
           c.status = status;
           return c;
         });
       }),
       exhaustMap((customers: Customer[]) => {
-        const tasks$ = [];
+        const tasks$: any[] = [];
         customers.forEach(customer => {
           tasks$.push(this.update(customer));
         });

@@ -11,14 +11,15 @@ import { ProductSpecification } from '../../_models/product-specification.model'
   providedIn: 'root'
 })
 export class SpecificationsService extends TableService<ProductSpecification> implements OnDestroy {
-  API_URL = `${environment.apiUrl}/productSpecs`;
-  constructor(@Inject(HttpClient) http) {
+  private API_ENDPOINT: string = `${environment.apiUrl}/productSpecs`;
+
+  constructor(@Inject(HttpClient) http: HttpClient) {
     super(http);
   }
 
   // READ
-  find(tableState: ITableState): Observable<TableResponseModel<ProductSpecification>> {
-    return this.http.get<ProductSpecification[]>(this.API_URL).pipe(
+  findSpecs(tableState: ITableState): Observable<TableResponseModel<ProductSpecification>> {
+    return this.http.get<ProductSpecification[]>(this.API_ENDPOINT).pipe(
       map((response: ProductSpecification[]) => {
         const filteredResult = baseFilter(response.filter(el => el.carId === tableState.entityId), tableState);
         const result: TableResponseModel<ProductSpecification> = {
@@ -30,8 +31,8 @@ export class SpecificationsService extends TableService<ProductSpecification> im
     );
   }
 
-  deleteItems(ids: number[] = []): Observable<any> {
-    const tasks$ = [];
+  deleteSpecs(ids: number[] = []): Observable<any> {
+    const tasks$: any[] = [];
     ids.forEach(id => {
       tasks$.push(this.delete(id));
     });

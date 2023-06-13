@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Toaster } from 'ngx-toast-notifications';
-import { NoticyAlertComponent } from 'src/app/componets/notifications/noticy-alert/noticy-alert.component';
+import { NoticyAlertComponent } from 'src/app/components/notifications/noticy-alert/noticy-alert.component';
 import { DiscountService } from '../_services/discount.service';
 
 @Component({
@@ -57,8 +57,8 @@ export class EditNewDiscountComponent implements OnInit {
       this.state = this.discount_selected.state;
       this.type_dis  = this.discount_selected.type;
       if(this.type_dis == 1){
-        this.discount_selected.products.forEach(element => {
-          let PROD = this.products.find(item => item.id == element.product_id);
+        this.discount_selected.products.forEach((element: any) => {
+          let PROD = this.products.find((item: any) => item.id == element.product_id);
           this.products_selected.push({
             name:PROD.title,
             id:PROD.id
@@ -66,8 +66,8 @@ export class EditNewDiscountComponent implements OnInit {
         });
       }
       if(this.type_dis == 2){
-        this.discount_selected.categories.forEach(element => {
-          let CATEG = this.categories.find(item => item.id == element.categorie_id);
+        this.discount_selected.categories.forEach((element: any) => {
+          let CATEG = this.categories.find((item: any) => item.id == element.categorie_id);
           this.categories_selected.push({
             name:CATEG.name,
             id:CATEG.id
@@ -83,11 +83,11 @@ export class EditNewDiscountComponent implements OnInit {
       this.products = resp.products;
     });
   }
-  checkedTypeD(value){
+  checkedTypeD(value: any){
     this.type_discount = value;
   }
 
-  checkedTypePC(value){
+  checkedTypePC(value: any){
     this.type_dis = value;
     this.products_selected = [];
     this.categories_selected = [];
@@ -97,8 +97,8 @@ export class EditNewDiscountComponent implements OnInit {
 
   addObject(){
     if(this.type_dis == 1){
-      let PRODUCT = this.products.find(item => item.id == this.product_id);
-      let INDEX = this.products_selected.findIndex(item => item.id == this.product_id);
+      let PRODUCT = this.products.find((item: any) => item.id == this.product_id);
+      let INDEX = this.products_selected.findIndex((item: any) => item.id == this.product_id);
       if(INDEX != -1){
         this.toaster.open(NoticyAlertComponent,{text:`danger-'EL PRODUCTO YA FUE SELECCIONADO.'`});
         return;
@@ -110,8 +110,8 @@ export class EditNewDiscountComponent implements OnInit {
         });
       }
     }else{
-      let CATEGORIA = this.categories.find(item => item.id == this.categorie_id);
-      let INDEX = this.categories_selected.findIndex(item => item.id == this.categorie_id);
+      let CATEGORIA = this.categories.find((item: any) => item.id == this.categorie_id);
+      let INDEX = this.categories_selected.findIndex((item: any) => item.id == this.categorie_id);
       if(INDEX != -1){
         this.toaster.open(NoticyAlertComponent,{text:`danger-'EL CATEGORIA YA FUE SELECCIONADO.'`});
         return;
@@ -169,14 +169,14 @@ export class EditNewDiscountComponent implements OnInit {
     })
   }
 
-  productD(productS){
-    let INDEX = this.products_selected.findIndex(item => item.id == productS.id);
+  productD(products: any){
+    let INDEX = this.products_selected.findIndex((item: any) => item.id == products.id);
     if(INDEX != -1){
       this.products_selected.splice(INDEX,1);
     }
   }
-  categorieD(categoriaS){
-    let INDEX = this.categories_selected.findIndex(item => item.id == categoriaS.id);
+  categorieD(categorias: any){
+    let INDEX = this.categories_selected.findIndex((item: any) => item.id == categorias.id);
     if(INDEX != -1){
       this.categories_selected.splice(INDEX,1);
     }

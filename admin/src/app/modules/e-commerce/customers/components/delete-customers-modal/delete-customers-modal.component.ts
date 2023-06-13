@@ -10,7 +10,7 @@ import { CustomersService } from '../../../_services';
   styleUrls: ['./delete-customers-modal.component.scss']
 })
 export class DeleteCustomersModalComponent implements OnInit, OnDestroy {
-  @Input() ids: number[];
+  @Input() ids!: number[];
   isLoading = false;
   subscriptions: Subscription[] = [];
 

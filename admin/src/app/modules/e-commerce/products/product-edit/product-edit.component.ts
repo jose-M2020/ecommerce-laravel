@@ -26,11 +26,11 @@ const EMPTY_PRODUCT: Product = {
   styleUrls: ['./product-edit.component.scss']
 })
 export class ProductEditComponent implements OnInit, OnDestroy {
-  id: number;
-  product: Product;
-  previous: Product;
-  formGroup: FormGroup;
-  isLoading$: Observable<boolean>;
+  id!: number;
+  product!: Product;
+  previous!: Product;
+  formGroup!: FormGroup;
+  isLoading$!: Observable<boolean>;
   errorMessage = '';
   tabs = {
     BASIC_TAB: 0,
@@ -66,7 +66,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
         this.errorMessage = errorMessage;
         return of(undefined);
       }),
-    ).subscribe((res: Product) => {
+    ).subscribe((res: any) => {
       if (!res) {
         this.router.navigate(['/products'], { relativeTo: this.route });
       }

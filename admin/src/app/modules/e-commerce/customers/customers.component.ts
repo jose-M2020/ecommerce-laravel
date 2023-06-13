@@ -165,7 +165,7 @@ export class CustomersComponent
     );
   }
 
-  delete(id: number) {
+  delete(id: number | undefined) {
     const modalRef = this.modalService.open(DeleteCustomerModalComponent);
     modalRef.componentInstance.id = id;
     modalRef.result.then(() => this.customerService.fetch(), () => { });

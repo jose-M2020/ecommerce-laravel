@@ -18,13 +18,13 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 const now = new Date();
-const equals = (one: NgbDateStruct, two: NgbDateStruct) =>
+const equals = (one: NgbDateStruct, two: NgbDateStruct | null) =>
   one &&
   two &&
   two.year === one.year &&
   two.month === one.month &&
   two.day === one.day;
-const before = (one: NgbDateStruct, two: NgbDateStruct) =>
+const before = (one: NgbDateStruct, two: NgbDateStruct | null) =>
   !one || !two
     ? false
     : one.year === two.year
@@ -651,7 +651,7 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
     super();
   }
 
-  getWeekdayShortName(weekday: number): string {
+  getWeekdayLabel(weekday: number): string {
     return I18N_VALUES[this._i18n.language].weekdays[weekday - 1];
   }
   getMonthShortName(month: number): string {

@@ -33,14 +33,14 @@ export class ListCuponesComponent implements OnInit {
     this.search = null;
     this.allCupones();
   }
-  getTypeDiscount(value){
+  getTypeDiscount(value: any){
     if(value == 1){
       return "PORCENTAJE"
     }else{
       return "MONEDA"
     }
   }
-  getTypeCount(cupon){
+  getTypeCount(cupon: any){
     if(cupon.type_count == 1){ //ILIMITADO
       return "ILIMITADO";
     }else{ //LIMITADO
@@ -48,7 +48,7 @@ export class ListCuponesComponent implements OnInit {
     }
   }
 
-  getTypeCupon(cupon){
+  getTypeCupon(cupon: any){
     if(cupon.products){
       return "PRODUCTOS";
     }else{ 
@@ -56,10 +56,10 @@ export class ListCuponesComponent implements OnInit {
     }
   }
 
-  edit(cupon){
+  edit(cupon: any){
 
   }
-  delete(cupon){
+  delete(cupon: any){
     const modalRef = this._modalService.open(DeleteNewCuponComponent, {centered : true, size: 'sm'});
     modalRef.componentInstance.cupon_selected = cupon;
     modalRef.result.then(
@@ -71,7 +71,7 @@ export class ListCuponesComponent implements OnInit {
       }
     )
     modalRef.componentInstance.cuponE.subscribe((resp:any) => {
-      let INDEX = this.cupones.findIndex(item => item.id == resp.id);
+      let INDEX = this.cupones.findIndex((item: any) => item.id == resp.id);
       this.cupones.splice(INDEX,1);
     })
   }
