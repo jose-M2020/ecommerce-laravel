@@ -23,8 +23,8 @@ export class AuthService implements OnDestroy {
   currentUserSubject: BehaviorSubject<UserModel | undefined>;
   isLoadingSubject: BehaviorSubject<boolean>;
 
-
-  get currentUserValue(): UserModel | undefined{
+  // FIXME: defined value type returned as UserModel instead of any
+  get currentUserValue(): any{
     return this.currentUserSubject?.value;
   }
 

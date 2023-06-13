@@ -67,8 +67,8 @@ export function searchInArray(incomingArray: any[], searchTerm: string = ''): an
     return incomingArray;
   }
 
-  const acceptableForSearchTypes = { number: 1, string: 2 };
-  const result = incomingArray.filter(row => {
+  const acceptableForSearchTypes: any = { number: 1, string: 2 };
+  const result = incomingArray.filter((row) => {
     let termIsFoundInRow = false;
     const keys = Object.keys(row).filter(keyName => acceptableForSearchTypes[typeof row[keyName]] && row[keyName]);
     for (const keyName of keys) {

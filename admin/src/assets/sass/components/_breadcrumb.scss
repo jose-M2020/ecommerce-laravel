@@ -36,7 +36,8 @@
 
             &:after {
                 content: "-";
-                padding-left: $breadcrumb-item-padding;
+                // FIXME: padding-left Temporarily commented out due to an error
+                // padding-left: $breadcrumb-item-padding;
             }
 
             &:last-child {
@@ -55,7 +56,8 @@
 
             &:after {
                 content: "\2022";
-                padding-left: $breadcrumb-item-padding;
+                // FIXME: padding-left Temporarily commented out due to an error
+                // padding-left: $breadcrumb-item-padding;
             }
 
             &:last-child {

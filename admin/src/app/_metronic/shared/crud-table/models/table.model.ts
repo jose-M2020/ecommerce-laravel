@@ -3,7 +3,7 @@ import { PaginatorState } from './paginator.model';
 import { SortState } from './sort.model';
 
 export interface ITableState {
-  filter: {};
+  filter: any;
   paginator: PaginatorState;
   sorting: SortState;
   searchTerm: string;

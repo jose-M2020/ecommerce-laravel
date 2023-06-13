@@ -12,11 +12,10 @@ import { AppComponent } from './app.component';
 import { AuthService } from './modules/auth/_services/auth.service';
 import { environment } from 'src/environments/environment';
 // Highlight JS
-import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
-import { NoticyAlertComponent } from './componets/notifications/noticy-alert/noticy-alert.component';
+import { NoticyAlertComponent } from './components/notifications/noticy-alert/noticy-alert.component';
 import { ToastNotificationsModule } from 'ngx-toast-notifications';
 // #fake-end#
 
@@ -30,14 +29,17 @@ function appInitializer(authService: AuthService) {
 
 
 @NgModule({
-  declarations: [AppComponent,NoticyAlertComponent],
+  declarations: [
+    AppComponent,
+    NoticyAlertComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     SplashScreenModule,
     TranslateModule.forRoot(),
     HttpClientModule,
-    HighlightModule,
+    // HighlightModule,
     ClipboardModule,
     // #fake-start#
     environment.isMockEnabled
@@ -59,18 +61,18 @@ function appInitializer(authService: AuthService) {
     //   multi: true,
     //   deps: [AuthService],
     // },
-    {
-      provide: HIGHLIGHT_OPTIONS,
-      useValue: {
-        coreLibraryLoader: () => import('highlight.js/lib/core'),
-        languages: {
-          xml: () => import('highlight.js/lib/languages/xml'),
-          typescript: () => import('highlight.js/lib/languages/typescript'),
-          scss: () => import('highlight.js/lib/languages/scss'),
-          json: () => import('highlight.js/lib/languages/json')
-        },
-      },
-    },
+    // {
+    //   provide: HIGHLIGHT_OPTIONS,
+    //   useValue: {
+    //     coreLibraryLoader: () => import('highlight.js/lib/core'),
+    //     languages: {
+    //       xml: () => import('highlight.js/lib/languages/xml'),
+    //       typescript: () => import('highlight.js/lib/languages/typescript'),
+    //       scss: () => import('highlight.js/lib/languages/scss'),
+    //       json: () => import('highlight.js/lib/languages/json')
+    //     },
+    //   },
+    // },
   ],
   exports: [
     NoticyAlertComponent,

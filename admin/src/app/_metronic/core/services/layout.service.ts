@@ -15,7 +15,7 @@ export class LayoutService {
   );
 
   // scope list of css classes
-  private classes = {
+  private classes: any = {
     header: [],
     header_container: [],
     header_mobile: [],
@@ -29,7 +29,7 @@ export class LayoutService {
   };
 
   // scope list of html attributes
-  private attrs = {
+  private attrs: any = {
     aside_menu: {},
   };
 
@@ -123,7 +123,7 @@ export class LayoutService {
     return attributesObj;
   }
 
-  setHTMLAttribute(path, attrKey: string, attrValue: any) {
+  setHTMLAttribute(path: any, attrKey: string, attrValue: any) {
     const attributesObj = this.attrs[path];
     if (!attributesObj) {
       this.attrs[path] = {};

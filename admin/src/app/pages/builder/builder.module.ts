@@ -5,7 +5,9 @@ import { GeneralModule } from '../../_metronic/partials/content/general/general.
 import { BuilderComponent } from './builder.component';
 import { FormsModule } from '@angular/forms';
 import { NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { HighlightModule, HIGHLIGHT_OPTIONS  } from 'ngx-highlightjs';
+
+// FIXME: Temporarily commented (in multiple files) out due to an error in HighlightModule
+// import { HighlightModule, HIGHLIGHT_OPTIONS  } from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [BuilderComponent],
@@ -13,7 +15,7 @@ import { HighlightModule, HIGHLIGHT_OPTIONS  } from 'ngx-highlightjs';
     CommonModule,
     FormsModule,
     GeneralModule,
-    HighlightModule,
+    // HighlightModule,
     NgbNavModule,
     NgbTooltipModule,
     RouterModule.forChild([
@@ -24,12 +26,12 @@ import { HighlightModule, HIGHLIGHT_OPTIONS  } from 'ngx-highlightjs';
     ]),
   ],
   providers: [
-    {
-      provide: HIGHLIGHT_OPTIONS,
-      useValue: {
-        fullLibraryLoader: () => import('highlight.js'),
-      }
-    }
+    // {
+    //   provide: HIGHLIGHT_OPTIONS,
+    //   useValue: {
+    //     fullLibraryLoader: () => import('highlight.js'),
+    //   }
+    // }
   ],
 })
 export class BuilderModule {}

@@ -42,7 +42,7 @@ export class DynamicAsideMenuService {
     }
   }
 
-  private setMenu(menuConfig) {
+  private setMenu(menuConfig: any) {
     this.menuConfigSubject.next(menuConfig);
   }
 

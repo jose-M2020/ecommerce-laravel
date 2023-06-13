@@ -5,6 +5,6 @@ import { Component, Input } from '@angular/core';
   templateUrl: './advance-tables-widget1.component.html',
 })
 export class AdvanceTablesWidget1Component {
-  @Input() cssClass: '';
+  @Input() cssClass: string = '';
   constructor() { }
 }

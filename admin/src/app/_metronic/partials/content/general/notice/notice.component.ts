@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NoticeComponent implements OnInit {
   // Public properties
-  @Input() classes: string;
-  @Input() icon: string;
-  @Input() svg: string;
+  @Input() classes: string = '';
+  @Input() icon: string = '';
+  @Input() svg: string = '';
 
   constructor() {}
 
