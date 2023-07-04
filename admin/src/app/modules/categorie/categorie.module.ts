@@ -9,10 +9,10 @@ import { EditCategorieComponent } from './components/edit-categorie/edit-categor
 import { DeleteCategorieComponent } from './components/delete-categorie/delete-categorie.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule, NgbModalModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbDatepickerModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
-
+1
 
 @NgModule({
   declarations: [CategorieComponent, CategorieListComponent, AddCategorieComponent, EditCategorieComponent, DeleteCategorieComponent],
@@ -22,11 +22,11 @@ import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
 
     HttpClientModule,
     FormsModule,
-    NgbModule,
     ReactiveFormsModule,
     InlineSVGModule,
     CRUDTableModule,
     NgbModalModule,
+    NgbTooltipModule,
     NgbDatepickerModule,
   ]
 })

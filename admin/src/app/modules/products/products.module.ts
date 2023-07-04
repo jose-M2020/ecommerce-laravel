@@ -9,7 +9,7 @@ import { EditNewProductComponent } from './edit-new-product/edit-new-product.com
 import { DeleteNewProductComponent } from './delete-new-product/delete-new-product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule, NgbModalModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbDatepickerModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
 import { EditorModule } from '@tinymce/tinymce-angular';
@@ -28,10 +28,10 @@ import { EditSubItemInventarioComponent } from './edit-new-product/in/edit-sub-i
 
     HttpClientModule,
     FormsModule,
-    NgbModule,
     ReactiveFormsModule,
     InlineSVGModule,
     CRUDTableModule,
+    NgbTooltip,
     NgbModalModule,
     NgbDatepickerModule,
     EditorModule

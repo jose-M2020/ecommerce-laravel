@@ -9,7 +9,7 @@ import { EditNewCuponComponent } from './edit-new-cupon/edit-new-cupon.component
 import { DeleteNewCuponComponent } from './delete-new-cupon/delete-new-cupon.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule, NgbModalModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbDatepickerModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
 
@@ -19,13 +19,12 @@ import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
   imports: [
     CommonModule,
     CuponesRoutingModule,
-
     HttpClientModule,
     FormsModule,
-    NgbModule,
     ReactiveFormsModule,
     InlineSVGModule,
     CRUDTableModule,
+    NgbTooltip,
     NgbModalModule,
     NgbDatepickerModule,
   ]

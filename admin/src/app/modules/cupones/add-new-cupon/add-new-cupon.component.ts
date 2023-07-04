@@ -38,7 +38,6 @@ export class AddNewCuponComponent implements OnInit {
   }
   configAll(){
     this._cuponesServices.configAll().subscribe((resp:any)=>{
-      console.log(resp);
       this.categories = resp.categories;
       this.products = resp.products;
     });

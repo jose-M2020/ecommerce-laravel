@@ -11,7 +11,7 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
 import { ChangeStateUserComponent } from './components/change-state-user/change-state-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule, NgbModalModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbDatepickerModule, NgbTooltip, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
 
@@ -23,10 +23,11 @@ import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
     UsersRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule,
     ReactiveFormsModule,
     InlineSVGModule,
     CRUDTableModule,
+    NgbTooltip,
+    NgbPaginationModule,
     NgbModalModule,
     NgbDatepickerModule,
   ]
