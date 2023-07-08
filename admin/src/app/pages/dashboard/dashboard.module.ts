@@ -13,9 +13,22 @@ import { SaleCardComponent } from './components/stat-cards/sale-card/sale-card.c
 import { OrderCardComponent } from './components/stat-cards/order-card/order-card.component';
 import { CustomerCardComponent } from './components/stat-cards/customer-card/customer-card.component';
 import { ProductCardComponent } from './components/stat-cards/product-card/product-card.component';
+import { InlineSVGModule } from 'ng-inline-svg';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
-  declarations: [DashboardComponent, OrdersComponent, ProductsComponent, ProductDeliveryComponent, SaleChartComponent, UserChartComponent, SaleCardComponent, OrderCardComponent, CustomerCardComponent, ProductCardComponent],
+  declarations: [
+    DashboardComponent,
+    OrdersComponent,
+    ProductsComponent,
+    ProductDeliveryComponent,
+    SaleChartComponent,
+    UserChartComponent,
+    SaleCardComponent,
+    OrderCardComponent,
+    CustomerCardComponent,
+    ProductCardComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild([
@@ -25,7 +38,9 @@ import { ProductCardComponent } from './components/stat-cards/product-card/produ
       },
     ]),
     DashboardsModule,
-    WidgetsModule
+    WidgetsModule,
+    NgApexchartsModule,
+    InlineSVGModule,
   ],
 })
 export class DashboardModule {}
