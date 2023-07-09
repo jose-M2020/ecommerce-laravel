@@ -30,7 +30,7 @@ function appInitializer(authService: AuthService) {
 @NgModule({
   declarations: [
     AppComponent,
-    NoticyAlertComponent
+    NoticyAlertComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@ import { CustomerCardComponent } from './components/stat-cards/customer-card/cus
 import { ProductCardComponent } from './components/stat-cards/product-card/product-card.component';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     WidgetsModule,
     NgApexchartsModule,
     InlineSVGModule,
+    ComponentsModule
   ],
 })
 export class DashboardModule {}
