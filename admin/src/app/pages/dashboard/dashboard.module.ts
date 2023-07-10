@@ -16,6 +16,7 @@ import { ProductCardComponent } from './components/stat-cards/product-card/produ
 import { InlineSVGModule } from 'ng-inline-svg';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { StatCardsComponent } from './components/stat-cards/stat-cards.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     SaleCardComponent,
     OrderCardComponent,
     CustomerCardComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    StatCardsComponent
   ],
   imports: [
     CommonModule,
