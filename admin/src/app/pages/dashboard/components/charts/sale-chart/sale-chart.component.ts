@@ -45,7 +45,7 @@ export class SaleChartComponent {
       this.symbolShape = 'symbol-circle';
     }
     this.loadLayoutView();
-    this.symbolCSSClasses = `symbol ${this.symbolShape} symbol-50 symbol-light-${this.baseColor} mr-2`;
+    this.symbolCSSClasses = `symbol ${this.symbolShape} symbol-50 symbol-light-${this.baseColor} me-2`;
     this.svgCSSClasses = `svg-icon svg-icon-xl svg-icon-${this.baseColor}`;
     this.chartOptions = this.getChartOptions();
   }

@@ -3,7 +3,7 @@
   <ng-container *ngIf="extrasSearchLayout === 'offcanvas'">
     <!--begin::Search-->
     <div class="topbar-item">
-      <div class="btn btn-icon btn-clean btn-lg mr-1" id="kt_quick_search_toggle">
+      <div class="btn btn-icon btn-clean btn-lg me-1" id="kt_quick_search_toggle">
         <span [inlineSVG]="'./assets/media/svg/icons/General/Search.svg'" [cacheSVG]="true"
           class="svg-icon svg-icon-xl svg-icon-primary"></span>
       </div>
@@ -15,7 +15,7 @@
     <div class="dropdown" id="kt_quick_search_toggle" autoClose="outside" ngbDropdown>
       <!--begin::Toggle-->
       <div class="topbar-item" ngbDropdownToggle>
-        <div class="btn btn-icon btn-clean btn-lg btn-dropdown mr-1">
+        <div class="btn btn-icon btn-clean btn-lg btn-dropdown me-1">
           <span [inlineSVG]="'./assets/media/svg/icons/General/Search.svg'" [cacheSVG]="true"
             class="svg-icon svg-icon-xl svg-icon-primary"></span>
         </div>
@@ -47,9 +47,9 @@
               user$.name[0]
             }}</span>
           </span>
-          <span class="text-muted font-weight-bold font-size-base d-none d-md-inline ml-3">Hi,</span>
+          <span class="text-muted font-weight-bold font-size-base d-none d-md-inline ms-3">Hi,</span>
           <span
-            class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline ml-1">{{ user$.name }}</span>
+            class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline ms-1">{{ user$.name }}</span>
         </div>
       </div>
       <!--end::User-->
@@ -62,9 +62,9 @@
       <div class="dropdown" ngbDropdown placement="bottom-right">
         <div class="topbar-item" data-toggle="dropdown" data-offset="0px,0px" ngbDropdownToggle>
           <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2">
-            <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
+            <span class="text-muted font-weight-bold font-size-base d-none d-md-inline me-1">Hi,</span>
             <span
-              class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ user$.name }}</span>
+              class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline me-3">{{ user$.name }}</span>
             <span class="symbol symbol-35 symbol-light-success">
               <span class="symbol-label font-size-h5 font-weight-bold">{{
                 user$.name | firstLetter

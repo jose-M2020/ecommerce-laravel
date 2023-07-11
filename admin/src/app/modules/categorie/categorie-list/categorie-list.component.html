@@ -15,7 +15,7 @@
     <div class="card-body">
         
         <ng-container *ngIf="isLoading$ | async">
-            <span class="spinner spinner-primary ml-5"></span>
+            <span class="spinner spinner-primary ms-5"></span>
         </ng-container>
 
         <div class="row">
@@ -32,10 +32,10 @@
             >
           </div>
           <div class="col-3">
-            <button class="btn btn-primary ml-2" placement="top" [ngbTooltip]="'Filtro'" (click)="allCategories()">
+            <button class="btn btn-primary ms-2" placement="top" [ngbTooltip]="'Filtro'" (click)="allCategories()">
               <i class="icon text-white flaticon-search-1"></i>
             </button>
-            <button class="btn btn-dark ml-2" placement="top" [ngbTooltip]="'Reset'" (click)="reset()">
+            <button class="btn btn-dark ms-2" placement="top" [ngbTooltip]="'Reset'" (click)="reset()">
                 <i class="icon text-white flaticon-refresh"></i>
             </button>
           </div>
@@ -43,17 +43,17 @@
         <div class="table-responsive">
           <table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
               <thead>
-                  <tr class="text-left">
-                      <th class="pr-0" style="width: 50px">Imagen</th>
+                  <tr class="text-start">
+                      <th class="pe-0" style="width: 50px">Imagen</th>
                       <th style="min-width: 150px">Nombre</th>
                       <th style="min-width: 150px">Icono</th>
-                      <th class="pr-0 text-right" style="min-width: 150px">Acción</th>
+                      <th class="pe-0 text-end" style="min-width: 150px">Acción</th>
                   </tr>
               </thead>
               <tbody>
                   <tr *ngFor="let categoria of categorias">
                     <td>
-                      <div class="symbol symbol-50 flex-shrink-0 mr-4">
+                      <div class="symbol symbol-50 flex-shrink-0 me-4">
                         <div class="symbol-label" [ngStyle]="{'background-image': 'url('+URL_BACKEND+'storage/'+categoria.imagen+')'}"></div>
                       </div>
                     </td>

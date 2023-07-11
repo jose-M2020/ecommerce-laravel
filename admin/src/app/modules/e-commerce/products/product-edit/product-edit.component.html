@@ -29,7 +29,7 @@
       <a type="button" class="btn btn-light" routerLink="/ecommerce/products">
         <i class="fa fa-arrow-left"></i>Back
       </a>
-      <button class="btn btn-secondary ml-2" (click)="reset()">
+      <button class="btn btn-secondary ms-2" (click)="reset()">
         <i class="fa fa-redo"></i>Reset
       </button>
     </div>
@@ -373,15 +373,15 @@
               formControlName="description"
             ></textarea>
           </div>
-          <div class="float-right">
+          <div class="float-end">
             <a
-              class="btn btn-default font-weight-bold mr-2"
+              class="btn btn-default font-weight-bold me-2"
               routerLink="/ecommerce/products"
               >Cancel</a
             >
             <button
               type="submit"
-              class="btn btn-primary font-weight-bold mr-2"
+              class="btn btn-primary font-weight-bold me-2"
               [disabled]="formGroup.invalid"
             >
               Save

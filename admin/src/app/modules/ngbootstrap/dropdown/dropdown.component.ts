@@ -17,7 +17,7 @@ const dropdown = {
           </div>
         </div>
       </div>
-      <div class="col text-right">
+      <div class="col text-end">
         <div ngbDropdown placement="top-right" class="d-inline-block">
           <button class="btn btn-outline-success" id="dropdownBasic2" ngbDropdownToggle>Toggle dropup</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic2">

@@ -9,11 +9,11 @@
     class="d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
   >
     <!--begin::Info-->
-    <div class="d-flex align-items-center mr-1">
+    <div class="d-flex align-items-center me-1">
       <ng-container *ngIf="subheaderMobileToggle">
         <!--begin::Mobile Toggle-->
         <button
-          class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none"
+          class="burger-icon burger-icon-left me-4 d-inline-block d-lg-none"
           id="kt_subheader_mobile_toggle"
         >
           <span></span>
@@ -22,11 +22,11 @@
       </ng-container>
 
       <!--begin::Page Heading-->
-      <div class="d-flex align-items-baseline flex-wrap mr-5">
+      <div class="d-flex align-items-baseline flex-wrap me-5">
         <!--begin::Page Title-->
         <ng-container *ngIf="title$ | async as _title">
           <h2
-            class="d-flex align-items-center text-dark font-weight-bold my-1 mr-3"
+            class="d-flex align-items-center text-dark font-weight-bold my-1 me-3"
           >
             {{ _title }}
             <ng-container *ngIf="subheaderDisplayDesc">
@@ -61,7 +61,7 @@
     <div class="d-flex align-items-center flex-wrap">
       <!--begin::Button-->
       <a
-        class="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2"
+        class="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 me-2"
       >
         <span
           [inlineSVG]="'./assets/media/svg/icons/Communication/Add-user.svg'"
@@ -82,7 +82,7 @@
         ngbDropdown
       >
         <a
-          class="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2"
+          class="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 me-2"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"

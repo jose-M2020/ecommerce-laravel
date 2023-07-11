@@ -8,7 +8,7 @@
     </div>
     <div class="card-body">
         <ng-container *ngIf="isLoading$ | async">
-            <span class="spinner spinner-primary ml-5"></span>
+            <span class="spinner spinner-primary ms-5"></span>
         </ng-container>
 
         <div class="form-group row">
@@ -131,12 +131,12 @@
                         autocomplete="off"
                         [(ngModel)]="text"
                     >
-                    <button class="ml-5 btn btn-sm btn-primary" (click)="addTags()">+</button>
+                    <button class="ms-5 btn btn-sm btn-primary" (click)="addTags()">+</button>
                 </div>
                 <div class="table-responsive w-50">
                     <table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
                         <thead>
-                            <tr class="text-left">
+                            <tr class="text-start">
                                 <th>PALABRA</th>
                                 <th>ACCIÓN</th>
                             </tr>
@@ -145,7 +145,7 @@
                             <tr *ngFor="let tag of tags;let i=index">
                                 <td>{{ tag }}</td>
                                 <td>
-                                    <button class="ml-5 btn btn-sm btn-danger" (click)="removeTags(i)">-</button>
+                                    <button class="ms-5 btn btn-sm btn-danger" (click)="removeTags(i)">-</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -159,13 +159,13 @@
                         <input type="file" class="custom-file-input" id="customFile"  accept=".jpeg, .bmp, .jpg, .png, .gif, .webp"  (change)="addFile($event)">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
-                    <button class="ml-5 btn btn-sm btn-primary" (click)="addImages()">+</button>
+                    <button class="ms-5 btn btn-sm btn-primary" (click)="addImages()">+</button>
                 </div>
                 <span *ngIf="img_files"> <b>IMAGEN: {{ img_files.name }}</b> </span>
                 <div class="table-responsive w-100">
                     <table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
                         <thead>
-                            <tr class="text-left">
+                            <tr class="text-start">
                                 <th>IMAGEN</th>
                                 <th>NOMBRE</th>
                                 <th>ACCIÓN</th>
@@ -178,7 +178,7 @@
                                 </td>
                                 <td>{{ imagen_.file_name }}</td>
                                 <td>
-                                    <button class="ml-5 btn btn-sm btn-danger" (click)="removeImages(imagen_)">-</button>
+                                    <button class="ms-5 btn btn-sm btn-danger" (click)="removeImages(imagen_)">-</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -274,7 +274,7 @@
                 <div class="table-responsive w-100">
                     <table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_1">
                         <thead>
-                            <tr class="text-left">
+                            <tr class="text-start">
                                 <th>NOMBRE</th>
                                 <th></th>
                                 <th>CANTIDAD</th>
@@ -288,8 +288,8 @@
                                     <td></td>
                                     <td>{{ inventario.total }}</td>
                                     <td>
-                                        <button class="ml-5 btn btn-sm btn-primary" (click)="OPENEDIT(inventario)">E</button>
-                                        <button class="ml-5 btn btn-sm btn-danger" (click)="OPENEDELETE(inventario)">D</button>
+                                        <button class="ms-5 btn btn-sm btn-primary" (click)="OPENEDIT(inventario)">E</button>
+                                        <button class="ms-5 btn btn-sm btn-danger" (click)="OPENEDELETE(inventario)">D</button>
                                     </td>
                                 </tr>
                                 <tr *ngFor="let varT of inventario.variaciones">
@@ -297,8 +297,8 @@
                                     <td>{{ varT.product_color.name }}</td>
                                     <td>{{ varT.stock }}</td>
                                     <td>
-                                        <button class="ml-5 btn btn-sm btn-primary" (click)="OPENEDITSUB(varT,inventario)">E</button>
-                                        <button class="ml-5 btn btn-sm btn-danger" (click)="OPENEDELETESUB(varT,inventario)">D</button>
+                                        <button class="ms-5 btn btn-sm btn-primary" (click)="OPENEDITSUB(varT,inventario)">E</button>
+                                        <button class="ms-5 btn btn-sm btn-danger" (click)="OPENEDELETESUB(varT,inventario)">D</button>
                                     </td>
                                 </tr>
                             </ng-container>

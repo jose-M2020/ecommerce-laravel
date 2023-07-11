@@ -35,14 +35,14 @@
 </div>
 
 <div class="form modal-footer">
-  <div class="form-group mr-2">
+  <div class="form-group me-2">
     <select class="form-control" [(ngModel)]="status" name="status">
       <option value="1">Selling</option>
       <option value="2">Sold</option>
     </select>
   </div>
   <div class="form-group">
-    <button type="button" class="btn btn-light btn-elevate mr-3" (click)="modal.dismiss()">Cancel</button>
+    <button type="button" class="btn btn-light btn-elevate me-3" (click)="modal.dismiss()">Cancel</button>
     <button type="button" class="btn btn-primary btn-elevate" (click)="updateProductsStatus()">Update Status</button>
   </div>
 </div>

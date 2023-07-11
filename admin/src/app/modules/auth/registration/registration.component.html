@@ -237,7 +237,7 @@
         [disabled]="
           registrationForm.invalid || !registrationForm.controls['agree'].value
         "
-        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4"
+        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 me-4"
       >
         Submit
       </button>
@@ -251,7 +251,7 @@
       </a>
 
       <ng-container *ngIf="isLoading$ | async">
-        <span class="spinner spinner-primary ml-5"></span>
+        <span class="spinner spinner-primary ms-5"></span>
       </ng-container>
     </div>
     <!--end::Form group-->

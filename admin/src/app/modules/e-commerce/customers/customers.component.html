@@ -49,15 +49,15 @@
                     <b>{{ grouping.getSelectedRowsCount() }}</b></span></label>
               </div>
               <div>
-                <button type="button" class="btn btn-danger font-weight-bolder font-size-sm mr-1"
+                <button type="button" class="btn btn-danger font-weight-bolder font-size-sm me-1"
                   (click)="deleteSelected()">
                   <i class="fa fa-trash"></i> Delete All
                 </button>&nbsp;
-                <button type="button" class="btn btn-light-primary font-weight-bolder font-size-sm mr-1"
+                <button type="button" class="btn btn-light-primary font-weight-bolder font-size-sm me-1"
                   (click)="fetchSelected()">
                   <i class="fa fa-stream"></i> Fetch Selected
                 </button>&nbsp;
-                <button type="button" class="btn btn-light-primary font-weight-bolder font-size-sm mr-1"
+                <button type="button" class="btn btn-light-primary font-weight-bolder font-size-sm me-1"
                   (click)="updateStatusForSelected()">
                   <i class="fa fa-sync-alt"></i> Update Status
                 </button>
@@ -136,7 +136,7 @@
               </span>
             </td>
             <td>
-              <span class="label label-dot label-primary mr-2" [class.label-success]="customer.type === 1"
+              <span class="label label-dot label-primary me-2" [class.label-success]="customer.type === 1"
                 [class.label-primary]="customer.type === 2"></span>&nbsp;<span class="font-bold font-primary">
                 <ng-container *ngIf="customer.type === 1">Business</ng-container>
                 <ng-container *ngIf="customer.type === 2">Individual</ng-container>
