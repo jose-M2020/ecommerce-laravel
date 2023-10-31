@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModalModule, NgbDatepickerModule, NgbTooltip, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CRUDTableModule } from 'src/app/_metronic/shared/crud-table';
     NgbPaginationModule,
     NgbModalModule,
     NgbDatepickerModule,
+    ComponentsModule,
   ]
 })
 export class UsersModule { }

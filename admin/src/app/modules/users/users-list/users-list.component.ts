@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddUsersComponent } from '../components/add-users/add-users.component';
 import { DeleteUserComponent } from '../components/delete-user/delete-user.component';
 import { EditUsersComponent } from '../components/edit-users/edit-users.component';
 import { UsersService } from '../_services/users.service';
+import { Column } from 'src/app/components/table/_models/column.interface';
+import { Config } from 'src/app/components/table/_models/config.interface';
 
 @Component({
   selector: 'app-users-list',
@@ -23,6 +25,36 @@ export class UsersListComponent implements OnInit {
   search:any = '';
 
   users:any = [];
+
+  @ViewChild('nameHeader', { static: true }) nameHeaderTemplate!: TemplateRef<any>;
+  @ViewChild('statusBody', { static: true }) statusBodyTemplate!: TemplateRef<any>;
+
+
+  
+  columns: Column[] = []
+  config!: Config;
+  data: any[] = [
+    {
+      id: '1',
+      name: 'jose',
+      email: 'jose@gmail.com',
+      status: 'active'
+    },
+    {
+      id: '2',
+      name: 'jose',
+      email: 'jose@gmail.com',
+      status: 'no active'
+    },
+    {
+      id: '3',
+      name: 'jose',
+      email: 'jose@gmail.com',
+      status: 'active'
+    },
+  ]
+
+
   constructor(
     public fb:FormBuilder,
     public _userService: UsersService,
@@ -32,6 +64,25 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading$ = this._userService.isLoading$;
     this.allUsers();
+
+    this.columns = [
+      {
+        headerTemplate: this.nameHeaderTemplate,
+        field: 'name',
+      },
+      {
+        headerName: 'Email',
+        field: 'email',
+      },
+      {
+        headerName: 'status',
+        // bodyTemplate: this.statusBodyTemplate,
+        field: 'status',
+      },
+    ]
+
+    this.config.grouping = this._userService.grouping;
+    this.config.sorting = this._userService.sorting;
   }
 
   allUsers(page=1){

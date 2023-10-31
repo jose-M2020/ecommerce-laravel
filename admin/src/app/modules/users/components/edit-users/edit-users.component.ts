@@ -65,7 +65,7 @@ export class EditUsersComponent implements OnInit {
       return;
       }
     }
-    this._userService.update(this.user_selected.id,this.formGroup.value).subscribe((resp:any) => {
+    this._userService.updateUser(this.user_selected.id,this.formGroup.value).subscribe((resp:any) => {
       console.log(resp);
       if(resp.message == 400){
         this.toaster.open(NoticyAlertComponent,{text:`warning-'EL USUARIO YA EXISTE.'`});

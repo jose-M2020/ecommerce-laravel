@@ -123,6 +123,34 @@
         (pageChange)="loadPage($event)"
       ></ngb-pagination>
     </div>
-
   </div>
+
+  <app-table [columns]="columns" [data]="data">
+    
+    <ng-template #nameHeader >
+      <div style="background-color: blue; padding: 10px;">
+        Custom Name
+      </div>
+    </ng-template>
+    
+    <!-- <ng-template #statusBody let-row >
+      <div style="background-color: blue; padding: 10px;">
+        {{  row.status }}
+      </div>
+    </ng-template> -->
+    
+</app-table>
+
+<!-- <app-table [columns]="columns" [data]="data">
+  <ng-template appSlot="name" let-data>
+    Status Header
+  </ng-template>
+  
+  <ng-template appSlot="statusBodySlot" let-rowData="rowData">
+    xz
+  </ng-template>
+
+</app-table> -->
+
+
 </div>

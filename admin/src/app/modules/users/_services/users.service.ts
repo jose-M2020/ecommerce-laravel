@@ -1,24 +1,33 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, OnDestroy } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { URL_SERVICIOS } from 'src/app/config/config';
 import { AuthService } from '../../auth';
+import { TableService } from 'src/app/_metronic/shared/crud-table';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UsersService extends TableService<any> implements OnDestroy {
 
-  isLoading$: Observable<boolean>;
+  // isLoading$: Observable<boolean>;
   isLoadingSubject: BehaviorSubject<boolean>;
   
+  // constructor(
+  //   private http: HttpClient,
+  //   public authservice: AuthService,
+  // ) {
+  //   this.isLoadingSubject = new BehaviorSubject<boolean>(false);
+  //   this.isLoading$ = this.isLoadingSubject.asObservable();
+  // }
+
   constructor(
-    private http: HttpClient,
-    public authservice: AuthService,
+    @Inject(HttpClient) http: HttpClient,
+    public authservice: AuthService,  
   ) {
+    super(http);
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
-    this.isLoading$ = this.isLoadingSubject.asObservable();
   }
 
   allUsers(page=1,state='',search=''){
@@ -46,7 +55,7 @@ export class UsersService {
     );
   }
 
-  update(user_Id: string, data: any){
+  updateUser(user_Id: string, data: any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'Authorization' : 'Bearer '+this.authservice.token});
     let URL = URL_SERVICIOS + "/users/admin/update/"+user_Id;
@@ -62,5 +71,9 @@ export class UsersService {
     return this.http.delete(URL,{headers: headers}).pipe(
       finalize(() => this.isLoadingSubject.next(false))
     );
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sb => sb.unsubscribe());
   }
 }
