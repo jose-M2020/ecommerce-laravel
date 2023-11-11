@@ -32,7 +32,7 @@ class ProductCResource extends JsonResource
             "resumen" => $this->resource->resumen,
             "description" => $this->resource->description,
             "state" => $this->resource->state,
-            "imagen" => env("APP_URL")."storage/".$this->resource->imagen,
+            "imagen" => env("APP_URL")."/storage/".$this->resource->imagen,
             "stock" => $this->resource->stock,
             "checked_inventario" => $this->resource->type_inventario,
             "images" => $this->resource->images->map(function($img){
