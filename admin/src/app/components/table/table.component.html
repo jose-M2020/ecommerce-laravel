@@ -1,0 +1,108 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Products list</h3>
+    </div>
+    <div class="card-toolbar">
+      <a
+        type="button"
+        class="btn btn-primary"
+        routerLink="/ecommerce/product/add"
+        >New Product</a
+      >
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table">
+      <table
+        class="table table-head-custom table-vertical-center overflow-hidden"
+      >
+        <thead>
+          <th class="selection-cell-header" data-row-selection="true">
+            <label class="checkbox checkbox-single"
+              ><input
+                type="checkbox"
+                (click)="grouping.selectAllRows()"
+                [checked]="grouping.checkAreAllRowsSelected()" /><span></span
+            ></label>
+          </th>
+
+          <ng-container *ngFor="let column of columns">
+            <th>
+                <ng-container *ngIf="column.headerName; else showSlot">
+                  {{ column.headerName }}
+                  <!-- <app-sort-icon
+                    [column]="VINCode"
+                    [activeColumn]="sorting.column"
+                    [activeDirection]="sorting.direction"
+                    (sort)="sort($event)"
+                  ></app-sort-icon> -->
+                </ng-container>
+                <ng-template #showSlot>
+                  <ng-container *ngTemplateOutlet="column.headerTemplate || null; context: { $implicit: column }"></ng-container>                    
+                </ng-template>
+            </th>
+          </ng-container>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <!-- <td class="selection-cell">
+              <label class="checkbox checkbox-single"
+                ><input
+                  type="checkbox"
+                  (click)="grouping.selectRow($any(row.id))"
+                  [checked]="grouping.isRowSelected($any(row.id))"
+                />
+                <span></span>
+              </label>
+            </td> -->
+            <td *ngFor="let column of columns">
+              <ng-container *ngIf="!column.bodyTemplate; else showTemplate">
+                {{ row[column.field] }}
+              </ng-container>
+              <ng-template #showTemplate>
+                <ng-container *ngTemplateOutlet="column.bodyTemplate || null; context: { $implicit: row }"></ng-container>                    
+              </ng-template>
+            </td>
+            <!-- <td>
+              <a
+                title="Edit product"
+                class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                [routerLink]="'/ecommerce/product/edit/' + product.id"
+              >
+                <span
+                  [inlineSVG]="
+                    './assets/media/svg/icons/Communication/Write.svg'
+                  "
+                  [cacheSVG]="true"
+                  class="svg-icon svg-icon-md svg-icon-primary"
+                >
+                </span>
+              </a>
+              <a
+                title="Delete product"
+                class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete($any(product.id))"
+              >
+                <span
+                  [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'"
+                  [cacheSVG]="true"
+                  class="svg-icon svg-icon-md svg-icon-danger"
+                >
+                </span>
+              </a>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    <!-- <app-paginator
+      class="d-flex justify-content-between align-items-center flex-wrap"
+      [paginator]="paginator"
+      [isLoading]="isLoading"
+      (paginate)="paginate($event)"
+    ></app-paginator> -->
+  </div>
+</div>

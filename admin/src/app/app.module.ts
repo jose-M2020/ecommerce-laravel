@@ -16,6 +16,7 @@ import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/sp
 import { FakeAPIService } from './_fake/fake-api.service';
 import { NoticyAlertComponent } from './components/notifications/noticy-alert/noticy-alert.component';
 import { ToastNotificationsModule } from 'ngx-toast-notifications';
+import { SlotDirective } from './directives/slot.directive';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -31,6 +32,7 @@ function appInitializer(authService: AuthService) {
   declarations: [
     AppComponent,
     NoticyAlertComponent,
+    SlotDirective,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,7 @@ function appInitializer(authService: AuthService) {
   ],
   exports: [
     NoticyAlertComponent,
+    SlotDirective
   ],
   bootstrap: [AppComponent],
 })
